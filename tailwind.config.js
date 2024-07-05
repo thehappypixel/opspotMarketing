@@ -1,0 +1,67 @@
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js",
+  ],
+  theme: {
+    screens: {
+      sm: "480px",
+      md: "768px",
+      lg: "976px",
+      xl: "1440px",
+    },
+    colors: {
+      blue: "#1fb6ff",
+      pink: "#ff49db",
+      orange: "#ff7849",
+      green: "#13ce66",
+      "gray-dark": "#273444",
+      white: "#ffffff",
+      "gray-25": "#fcfcfc",
+      "gray-50": "#f5f5f5",
+      "gray-100": "#dfe0e2",
+      "gray-200": "#dfe0e2",
+      "gray-300": "#b1b6ca",
+      "gray-500": "#767987",
+      "gray-600": "#3f4047",
+      "gray-800": "#1d1e22",
+      black: "#000000",
+      gray: "#8492a6",
+      "gray-light": "#d3dce6",
+      "brand-primary": "#5177fc",
+      "blue-500": "#5177fc",
+      success: "#30c018",
+      success100: "#a6e09d",
+      alert: "#eee61d",
+      alert100: "#f2ef9e",
+      danger: "#ff511b",
+      danger100: "#f9b49e",
+    },
+    fontFamily: {
+      sans: ["Inter", "sans-serif"],
+      serif: ["Merriweather", "serif"],
+    },
+    dropShadow: {
+      100: "0 2px 4px rgba(177, 182, 202, 0.7)",
+      200: "0 4px 8px rgba(177, 182, 202, 0.7)",
+    },
+    extend: {
+      spacing: {
+        128: "32rem",
+        144: "36rem",
+      },
+      borderRadius: {
+        "4xl": "2rem",
+      },
+      fontSize: {
+        xxsm: "16px",
+        xsm: "18px",
+        sm: "20px",
+        md: "24px",
+        lg: "50px",
+        xlg: "60px",
+      },
+    },
+  },
+  darkMode: "false",
+};

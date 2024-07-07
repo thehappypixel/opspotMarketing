@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Navigation from "./components/navigation";
 import Tabs from "./components/tabs";
+
 import ImageTextBlock from "./components/imageTextBlock";
+import ImageTextBlockContent from "./content/imageTextBlockContent";
+
+import Pricing from "./components/pricing";
 
 function App() {
   return (
@@ -26,12 +30,18 @@ function App() {
           <Tabs />
         </div>
       </div>
-      <ImageTextBlock
-        firstItem="text"
-        header="Track tasks & something securely"
-        body="Transparent - no hidden fees Clear and only what you need"
-      />
-      <ImageTextBlock firstItem="image" />
+      <div className="bg-white py-6 flex flex-col">
+        {ImageTextBlockContent.map((block) => (
+          <ImageTextBlock
+            firstItem={block.firstItem}
+            header={block.header}
+            body={block.body}
+            imageUrl={block.imageUrl}
+            listItems={block.listItems}
+          />
+        ))}
+      </div>
+      <Pricing />
     </>
   );
 }

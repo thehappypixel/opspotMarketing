@@ -1,36 +1,36 @@
 import React from "react";
 
-const ImageTextBlock = ({ firstItem, header, body, imageUrl }) => {
+const ImageTextBlock = ({ firstItem, header, body, imageUrl, listItems }) => {
   return (
-    <div className="w-full flex overflow-hidden">
+    <div className="py-16 w-full flex flex-col lg:flex-row overflow-hidden">
       <div
-        className={`w-1/2 flex flex-col justify-center p-12 ${
-          firstItem !== "text" ? "order-2" : ""
+        className={`flex-1 flex flex-col justify-center p-12 ${
+          firstItem !== "text" ? "order-2" : "order-1"
         }`}
       >
-        <h2 className="text-lg leading-snug font-bold mb-4">{header}</h2>
-        <p className="text-md mb-4">{body}</p>
-        <div className="flex space-x-4">
-          {/* Replace with your actual meta data items */}
-          <div className="flex items-center space-x-2">
-            <span>📅</span>
-            <span>Date</span>
+        <h2 className="text-xlg leading-tight font-bold mb-6">{header}</h2>
+        <p className="text-md mb-6">{body}</p>
+        {listItems && (
+          <div className="flex space-x-4">
+            {listItems.map((item) => (
+              <div className="flex items-center space-x-2">
+                <span>{item.icon}</span>
+                <span className="text-xsm">{item.text}</span>
+              </div>
+            ))}
           </div>
-          <div className="flex items-center space-x-2">
-            <span>🕒</span>
-            <span>Time</span>
-          </div>
-        </div>
+        )}
       </div>
       <div
-        className={`w-1/2 flex-shrink-0 relative ${
-          firstItem !== "text" ? "order-1" : ""
+        className={`flex-1 relative ${
+          firstItem !== "text" ? "order-1" : "order-2"
         }`}
       >
         <img
           src={imageUrl}
           alt={header}
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          className="w-full h-full object-cover"
+          style={{ maxHeight: "100%", display: "block" }}
         />
       </div>
     </div>

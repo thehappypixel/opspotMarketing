@@ -1,28 +1,27 @@
 import React, { useEffect, useState } from "react";
 import Navigation from "./components/navigation";
 import Tabs from "./components/tabs";
-
 import ImageTextBlock from "./components/imageTextBlock";
 import ImageTextBlockContent from "./content/imageTextBlockContent";
-
 import Pricing from "./components/pricing";
+import schedulingImage from "./assets/images/scheduling.png";
 
 function App() {
   return (
     <>
-      <div className="min-h-screen flex items-center flex-col">
+      <div className="min-h-screen flex items-center flex-col" id="top">
         <Navigation />
-        <div className="header bg-black w-full flex-grow flex flex-col items-center justify-center">
+        <div className="header bg-black sm:p-4 w-full flex-grow flex flex-col items-center justify-center">
           <div className="pt-32 max-w-2xl">
-            <h1 className="text-xlg leading-tight tracking-wider font-bold text-white text-center ">
-              Security re-defined with simplicity
+            <h1 className="sm:text-xl md:text-xxl lg:text-xxl leading-tight tracking-wider font-bold text-white text-center">
+              Intuitive. Efficient. Security Operations.
             </h1>
-            <p className="py-6 text-md tracking-wider leading-snug font-normal text-white text-center ">
-              Something about small business and no frills but not cheap -
-              affordabe
+            <p className="py-6 text-md tracking-wider leading-normal font-normal text-white text-center">
+              Affordable yet powerful, designed to meet the needs of small and
+              mid-size security teams
             </p>
             <div className="py-2 flex justify-center">
-              <button className="px-12 py-4 bg-brand-primary text-white rounded-lg text-sm font-medium hover:bg-gray-600">
+              <button className="px-12 py-4 rounded-lg text-sm font-medium text-white hover:text-gray-50 bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out">
                 Start free with email
               </button>
             </div>
@@ -30,9 +29,10 @@ function App() {
           <Tabs />
         </div>
       </div>
-      <div className="bg-white py-6 flex flex-col">
+      <div className="bg-white flex flex-col" id="features">
         {ImageTextBlockContent.map((block) => (
           <ImageTextBlock
+            key={block.header}
             firstItem={block.firstItem}
             header={block.header}
             body={block.body}
@@ -40,6 +40,23 @@ function App() {
             listItems={block.listItems}
           />
         ))}
+
+        <div className="p-4 mt-6 mb-16 bg-white rounded-lg flex flex-col items-center justify-center w-full">
+          <h2 className="text-xl leading-tight font-bold text-center">
+            Scheduling
+          </h2>
+          <p className="pb-6 text-sm">(coming soon)</p>
+          <div className="w-full flex justify-center">
+            <div className="bg-black p-4 rounded-lg w-3/4">
+              <img
+                src={schedulingImage}
+                alt="Scheduling"
+                className="w-full h-auto object-cover rounded-lg"
+                style={{ maxHeight: "100%", display: "block" }}
+              />
+            </div>
+          </div>
+        </div>
       </div>
       <Pricing />
     </>

@@ -12,8 +12,8 @@ import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 const ImageTextBlockContent = [
   {
     firstItem: "text",
-    header: "Track tasks & something securely",
-    body: "Transparent - no hidden fees Clear and only what you need",
+    header: "Simplified task management for enhanced security",
+    body: "Assign and manage tours and checkpoints through a best-in-class interface.",
     imageUrl: ph1,
     listItems: [
       {
@@ -32,8 +32,8 @@ const ImageTextBlockContent = [
   },
   {
     firstItem: "image",
-    header: "Keep your team safe & on clocking",
-    body: "Transparent - no hidden fees clear and only what you need",
+    header: "Keep your team safe & accountable",
+    body: "Enhance safety with real-time location tracking of team members and emergency contact information",
     imageUrl: ph2,
     listItems: [
       {
@@ -48,14 +48,14 @@ const ImageTextBlockContent = [
   },
   {
     firstItem: "text",
-    header: "Incident reporting made easy",
-    body: "Transparent - no hidden fees Clear and only what you need",
+    header: "Seamless Mobile Incident Reporting",
+    body: "Track all incidents efficiently for improved security management",
     imageUrl: ph3,
   },
   {
     firstItem: "image",
-    header: "Incident reporting made easy",
-    body: "Transparent - no hidden fees clear and only what you need",
+    header: "Professional Reporting at Your Fingertips",
+    body: "Enhance transparency and accountability with automated PDF and email reports",
     imageUrl: ph4,
   },
 ];

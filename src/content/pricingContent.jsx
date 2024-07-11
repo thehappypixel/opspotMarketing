@@ -3,7 +3,7 @@ const plans = [
     name: "STARTER",
     description: "Great to get started",
     price: "FREE",
-    buttonText: "Get started with FREE",
+    buttonText: "Try FREE",
     type: "plan",
     highlight: false,
     features: {
@@ -27,9 +27,9 @@ const plans = [
   },
   {
     name: "Pro",
-    description: "Best for small teams",
-    price: "$10 USD / user",
-    buttonText: "Get started with Pro",
+    description: "Best value for money",
+    price: "$10",
+    buttonText: "Go Pro",
     type: "plan",
     highlight: true,
     features: {
@@ -62,10 +62,10 @@ const plans = [
     },
   },
   {
-    name: "Business+",
-    description: "Great to get started",
-    price: "$15 USD / user",
-    buttonText: "Get started with Business+",
+    name: "Premium",
+    description: "Get the most out of Opspot",
+    price: "$15",
+    buttonText: "Get Premium",
     type: "plan",
     highlight: false,
     features: {

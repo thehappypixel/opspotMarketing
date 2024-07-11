@@ -14,11 +14,11 @@ import {
   DocumentTextIcon as DocumentSolid,
 } from "@heroicons/react/24/solid";
 
-import mobileImage from "../assets/images/screen-location.png";
-import shiftsImage from "../assets/images/screen-location.png";
+import mobileImage from "../assets/images/screen-mobile.png";
+
 import locationImage from "../assets/images/screen-location.png";
 import incidentsImage from "../assets/images/screen-location.png";
-import reportingImage from "../assets/images/screen-location.png";
+import reportingImage from "../assets/images/screen-reporting.png";
 
 const Tabs = () => {
   const [tabs, setTabs] = useState([
@@ -28,13 +28,6 @@ const Tabs = () => {
       iconSolid: <PhoneSolid className="h-6 w-6 mb-1" />,
       imageUrl: mobileImage,
       current: true,
-    },
-    {
-      name: "Shifts",
-      iconOutline: <ClockOutline className="h-6 w-6 mb-1" />,
-      iconSolid: <ClockSolid className="h-6 w-6 mb-1" />,
-      imageUrl: shiftsImage,
-      current: false,
     },
     {
       name: "Location",
@@ -67,9 +60,9 @@ const Tabs = () => {
 
   return (
     <>
-      <div className="pt-16">
+      <div className="pt-16 sm:w-full sm:overflow-x-hidden">
         <div>
-          <div className="sm:hidden">
+          <div className="visible lg:hidden sm:hidden md:hidden">
             <label htmlFor="tabs" className="sr-only">
               Select a tab
             </label>
@@ -93,8 +86,8 @@ const Tabs = () => {
               ))}
             </select>
           </div>
-          <div className="hidden sm:block">
-            <nav className="flex  space-x-12" aria-label="Tabs">
+          <div className="flex justify-center">
+            <nav className="flex sm:space-x-0 lg:space-x-12" aria-label="Tabs">
               {tabs.map((tab) => (
                 <a
                   key={tab.name}
@@ -109,21 +102,23 @@ const Tabs = () => {
                     );
                   }}
                   aria-current={tab.current ? "page" : undefined}
-                  className="cursor-pointer flex flex-col items-center"
+                  className={`cursor-pointer flex flex-col items-center text-white transition duration-150 ease-in-out ${
+                    !tab.current ? "hover:text-opacity-75" : ""
+                  }`}
                 >
                   <span
                     className={classNames(
                       tab.current
-                        ? "bg-white text-black"
-                        : "text-white hover:text-gray-700",
+                        ? "bg-white text-black transition"
+                        : "text-white hover:text-gray-100 hover:bg-gray-800 transition duration-150 ease-in-out",
                       "rounded-md p-4 mx-4"
                     )}
                   >
                     {tab.current ? tab.iconSolid : tab.iconOutline}
                   </span>
                   <span
-                    className={`pt-2 text-white text-center text-xsm ${
-                      tab.current ? "font-bold" : "font-light"
+                    className={`pt-2 text-center text-xs ${
+                      tab.current ? "font-normal" : "font-light"
                     }`}
                   >
                     {tab.name}
@@ -134,7 +129,7 @@ const Tabs = () => {
           </div>
         </div>
       </div>
-      <div className="p-4 mt-6 mb-16 max-w-6xl bg-white rounded-lg">
+      <div className="p-4 mt-6 sm:m-6 mb-16 max-w-6xl bg-white rounded-lg">
         {activeTab && (
           <img
             src={activeTab.imageUrl}

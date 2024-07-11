@@ -8,14 +8,14 @@ const ImageTextBlock = ({ firstItem, header, body, imageUrl, listItems }) => {
           firstItem !== "text" ? "order-2" : "order-1"
         }`}
       >
-        <h2 className="text-xlg leading-tight font-bold mb-6">{header}</h2>
+        <h2 className="text-lg leading-tight font-bold mb-6">{header}</h2>
         <p className="text-md mb-6">{body}</p>
         {listItems && (
           <div className="flex space-x-4">
             {listItems.map((item) => (
               <div className="flex items-center space-x-2">
                 <span>{item.icon}</span>
-                <span className="text-xsm">{item.text}</span>
+                <span className="text-xs">{item.text}</span>
               </div>
             ))}
           </div>

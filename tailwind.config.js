@@ -5,7 +5,7 @@ module.exports = {
   ],
   theme: {
     screens: {
-      sm: "480px",
+      sm: "320px",
       md: "768px",
       lg: "976px",
       xl: "1440px",
@@ -54,13 +54,13 @@ module.exports = {
         "4xl": "2rem",
       },
       fontSize: {
-        xxsm: "16px",
-        xsm: "18px",
+        xxs: "16px",
+        xs: "18px",
         sm: "20px",
         md: "24px",
-        lg: "30px",
-        xlg: "50px",
-        xxlg: "60px",
+        lg: "42px",
+        xl: "50px",
+        xxl: "60px",
       },
     },
   },

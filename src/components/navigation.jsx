@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import logoLight from "../assets/images/opspot-logo-light.svg";
 import logoDark from "../assets/images/opspot-logo-dark.svg";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -11,6 +12,7 @@ const Navigation = () => {
   });
   const [hasScrolled, setHasScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { login, createOrg } = useKindeAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,20 +78,43 @@ const Navigation = () => {
         </div>
 
         <div className="hidden md:flex items-center space-x-3">
-          <button
-            className={`mr-3 px-6 py-2 text-xxs font-medium hover:text-opacity-85 transition duration-150 ease-in-out ${navState.text}`}
+          {/* <a
+            href="https://app.opspot.io/auth/login"
+            className={`block mr-3 px-6 py-2 text-xxs font-medium hover:text-opacity-85 transition duration-150 ease-in-out ${navState.text}`}
           >
             Sign in
+          </a>
+
+          <a
+            href="https://opspot.kinde.com/auth/cx/_:nav&m:register&psid:a220c7fa978b4b228c021146ff1472ed"
+            className="block px-6 py-2 rounded-lg text-xxs font-medium text-white hover:text-gray-50 bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out"
+          >
+            Sign up
+          </a> */}
+          <button
+            onClick={login}
+            type="button"
+            className={`block mr-3 px-6 py-2 text-xxs font-medium hover:text-opacity-85 transition duration-150 ease-in-out ${navState.text}`}
+          >
+            Sign In
           </button>
-          <button className="px-6 py-2 rounded-lg text-xxs font-medium text-white hover:text-gray-50 bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out">
+
+          <button
+            onClick={createOrg}
+            type="button"
+            className="block px-6 py-2 rounded-lg text-xxs font-medium text-white hover:text-gray-50 bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out"
+          >
             Sign up
           </button>
         </div>
 
         <div className="md:hidden flex items-center">
-          <button className="block w-full text-left px-3 py-2 mr-3 rounded-lg text-base font-medium text-white hover:text-gray-50 bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out">
+          <a
+            onClick={() => createOrg()}
+            className="block w-full text-left px-3 py-2 mr-3 rounded-lg text-base font-medium text-white hover:text-gray-50 hover:cursor-pointer bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out"
+          >
             Sign up
-          </button>
+          </a>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className={`${navState.text} focus:outline-none`}
@@ -142,14 +167,18 @@ const Navigation = () => {
               Resources
             </a> */}
             <div className="border-t border-gray-500 pt-6 flex justify-start space-x-4">
-              <button
-                className={`block text-left px-8 py-3 rounded-lg text-base font-medium hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
+              <a
+                onClick={() => login()}
+                className={`block text-left px-8 py-3 rounded-lg text-base font-medium hover:text-opacity-65 hover:cursor-pointer transition duration-150 ease-in-out ${navState.text}`}
               >
                 Sign in
-              </button>
-              <button className="block text-left px-8 py-3 rounded-lg text-base font-medium text-white hover:text-gray-50 bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out">
+              </a>
+              <a
+                onClick={() => createOrg()}
+                className="block text-left px-8 py-3 rounded-lg text-base font-medium text-white hover:text-gray-50 bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out hover: cursor-pointer"
+              >
                 Sign up
-              </button>
+              </a>
             </div>
           </div>
         </div>

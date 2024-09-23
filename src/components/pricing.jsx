@@ -8,8 +8,11 @@ const Pricing = () => {
       <h2 className="text-xl leading-tight font-bold text-white text-center">
         Pricing
       </h2>
-      <p className="py-6 mb-12 text-md tracking-wider leading-snug font-normal text-white text-center">
-        Simple pricing for solutions you actually need. Prices in USD.
+      <p className="pt-6 mb-4 text-md tracking-wider leading-snug font-normal text-white text-center">
+        Simple pricing for solutions you actually need
+      </p>
+      <p className="mb-12 text-xsm text-center text-gray-100">
+        Prices are in US dollars
       </p>
       <div className="overflow-x-auto">
         <table className="min-w-full table-fixed">
@@ -31,15 +34,16 @@ const Pricing = () => {
                       <p className="text-xs font-medium">{plan.description}</p>
                       <p className="mt-4 text-lg font-black">{plan.price}</p>
 
-                      <button
-                        className={`mt-4 py-3 px-6 rounded-lg font-bold lg:w-full sm:w-60 hover:bg-opacity-85 transition duration-150 ease-in-out ${
+                      <a
+                        href="https://opspot.kinde.com/auth/cx/_:nav&m:register&psid:a220c7fa978b4b228c021146ff1472ed"
+                        className={`block mt-4 py-3 px-6 rounded-lg font-bold text-center lg:w-full sm:w-60 hover:bg-opacity-85 transition duration-150 ease-in-out ${
                           plan.highlight
                             ? "bg-brand-primary text-white hover:text-gray-50"
                             : "bg-white text-gray-600 hover:text-black"
                         }`}
                       >
                         {plan.buttonText}
-                      </button>
+                      </a>
                     </div>
                   )}
                 </th>

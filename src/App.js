@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import Navigation from "./components/navigation";
 import Tabs from "./components/tabs";
 import ImageTextBlock from "./components/imageTextBlock";
@@ -7,6 +8,12 @@ import Pricing from "./components/pricing";
 import schedulingImage from "./assets/images/scheduling.png";
 
 function App() {
+  const { createOrg } = useKindeAuth();
+
+  useEffect(() => {
+    console.log("Client ID", process.env.REACT_APP_KINDE_DOMAIN);
+  }, []);
+
   return (
     <>
       <div className="min-h-screen flex items-center flex-col" id="top">
@@ -21,9 +28,12 @@ function App() {
               mid-size security teams
             </p>
             <div className="py-2 flex justify-center">
-              <button className="px-12 py-4 rounded-lg text-sm font-medium text-white hover:text-gray-50 bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out">
+              <a
+                onClick={() => createOrg()}
+                className="block px-12 py-4 rounded-lg text-sm font-medium text-white hover:text-gray-50 bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out hover:cursor-pointer"
+              >
                 Start free with email
-              </button>
+              </a>
             </div>
           </div>
           <Tabs />
@@ -47,7 +57,7 @@ function App() {
           </h2>
           <p className="pb-6 text-sm">(coming soon)</p>
           <div className="w-full flex justify-center">
-            <div className="bg-black p-4 rounded-lg w-3/4">
+            <div className="bg-black rounded-lg w-3/4">
               <img
                 src={schedulingImage}
                 alt="Scheduling"

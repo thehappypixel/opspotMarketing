@@ -48,16 +48,16 @@ const ImageTextBlockContent = [
   },
   {
     firstItem: "text",
-    header: "Seamless Mobile Incident Reporting",
+    header: "Seamless mobile incident reporting",
     body: "Track all incidents efficiently for improved security management",
     imageUrl: ph3,
   },
-  {
-    firstItem: "image",
-    header: "Professional Reporting at Your Fingertips",
-    body: "Enhance transparency and accountability with automated PDF and email reports",
-    imageUrl: ph4,
-  },
+  // {
+  //   firstItem: "image",
+  //   header: "Professional reporting at your fingertips",
+  //   body: "Enhance transparency and accountability with automated PDF and email reports",
+  //   imageUrl: ph4,
+  // },
 ];
 
 export default ImageTextBlockContent;

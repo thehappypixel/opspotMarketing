@@ -1,6 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import Button from "./button";
 
-const ImageTextBlock = ({ firstItem, header, body, imageUrl, listItems }) => {
+const ImageTextBlock = ({
+  firstItem,
+  header,
+  body,
+  ctaLink,
+  ctaText,
+  imageUrl,
+  listItems,
+}) => {
   return (
     <div className="py-16 w-full flex flex-col lg:flex-row overflow-hidden">
       <div
@@ -11,14 +21,33 @@ const ImageTextBlock = ({ firstItem, header, body, imageUrl, listItems }) => {
         <h2 className="text-lg leading-tight font-bold mb-6">{header}</h2>
         <p className="text-md mb-6">{body}</p>
         {listItems && (
-          <div className="flex space-x-4">
-            {listItems.map((item) => (
-              <div className="flex items-center space-x-2">
+          <div className="flex space-x-4 mb-6">
+            {listItems.map((item, index) => (
+              <div key={index} className="flex items-center space-x-2">
                 <span>{item.icon}</span>
                 <span className="text-xs">{item.text}</span>
               </div>
             ))}
           </div>
+        )}
+        {ctaText && ctaLink && (
+          <p>
+            {/* text, link, type = "primary", // default to primary if no type is
+            provided density = "default", icon = false, iconPosition = "left", */}
+            <Button
+              text={ctaText}
+              link={ctaLink}
+              type="subtle"
+              icon="true"
+              iconPosition="right"
+            />
+            {/* <Link
+              to={ctaLink}
+              className="text-sm text-brand-primary hover:text-brand-200 transition duration-150 ease-in-out"
+            >
+              {ctaText}
+            </Link> */}
+          </p>
         )}
       </div>
       <div

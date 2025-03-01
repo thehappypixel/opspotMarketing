@@ -1,43 +1,87 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import logoLight from "../assets/images/opspot-logo-light.svg";
 import logoDark from "../assets/images/opspot-logo-dark.svg";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  XMarkIcon,
+  ChevronDownIcon,
+  DevicePhoneMobileIcon,
+  FlagIcon,
+  ClipboardDocumentCheckIcon,
+} from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
+  const location = useLocation();
   const [navState, setNavState] = useState({
     bg: "bg-black",
-    text: "text-white",
+    text: "text-gray-200",
+    link: "hover:bg-gray-100 text-gray-700 hover:text-black",
     logo: logoLight,
+    container: "bg-gray-50 border border-gray-500",
   });
   const [hasScrolled, setHasScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const { login, createOrg } = useKindeAuth();
+  const [productMenuOpen, setProductMenuOpen] = useState(false);
+  const { login } = useKindeAuth();
 
+  // List of routes that should mark the Product nav item as active.
+  const productRoutes = [
+    "/mobile-guard",
+    "/incident-management",
+    "/security-reporting",
+  ];
+  const isProductActive = productRoutes.includes(location.pathname);
+
+  // Optional: Close the product menu when clicking outside of it.
+  const productMenuRef = useRef(null);
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        productMenuRef.current &&
+        !productMenuRef.current.contains(event.target)
+      ) {
+        setProductMenuOpen(false);
+      }
+    }
+    if (productMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [productMenuOpen]);
+
+  // Change navigation appearance on scroll.
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
         setNavState({
           bg: "bg-white",
-          text: "text-black",
+          text: "text-gray-700",
+          link: "hover:bg-gray-100 hover:text-black",
           logo: logoDark,
+          container: "bg-gray-25 border border-gray-100",
         });
         setHasScrolled(true);
       } else {
         setNavState({
           bg: "bg-black",
-          text: "text-white",
+          text: "text-gray-200",
+          link: "hover:bg-gray-100 text-gray-700 hover:text-black",
           logo: logoLight,
+          container: "bg-gray-50 border border-gray-500",
         });
         setHasScrolled(false);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -48,69 +92,149 @@ const Navigation = () => {
     }
   }, [menuOpen]);
 
+  // Helper to check if a route is active based on the pathname.
+  const isActive = (path) => location.pathname === path;
+
   return (
     <nav
       className={`w-full fixed top-0 py-4 z-10 ${
         hasScrolled ? "transition duration-300" : ""
-      } ${navState.bg + " " + navState.text}`}
+      } ${navState.bg} ${navState.text}`}
     >
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-        <a href="#" onClick={() => setMenuOpen(false)}>
-          <img src={navState.logo} alt="Logo" width="225" className="h-12" />
-        </a>
+        <Link
+          to="/"
+          onClick={() => {
+            setMenuOpen(false);
+            setProductMenuOpen(false);
+          }}
+          reloadDocument
+        >
+          <img
+            src={navState.logo}
+            alt="Logo"
+            width="175"
+            className="h-12 hover:opacity-80 transition-opacity duration-150 ease-in-out"
+          />
+        </Link>
 
-        <div className="hidden md:flex space-x-4">
-          <a
-            href="#features"
-            className={`px-3 py-2 text-sm font-medium hover:text-opacity-75 transition duration-150 ease-in-out ${navState.text}`}
-          >
-            Features
-          </a>
-          <a
-            href="#pricing"
-            className={`px-3 py-2 text-sm font-medium hover:text-opacity-75 transition duration-150 ease-in-out ${navState.text}`}
+        {/* Desktop Navigation */}
+        <div
+          className={`hidden md:flex space-x-2 px-2 py-1 rounded-lg shadow-md ${navState.container}`}
+        >
+          {/* Product Link with Dropdown */}
+          <div className="relative" ref={productMenuRef}>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                setProductMenuOpen(!productMenuOpen);
+              }}
+              className={`px-2 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
+                navState.link
+              } ${
+                // Apply active style if the product route is active or if the dropdown is open.
+                isProductActive || productMenuOpen ? "bg-gray-100" : ""
+              }`}
+            >
+              Product <ChevronDownIcon className="h-4 w-4 inline" />
+            </button>
+            {productMenuOpen && (
+              <div className="absolute -left-2 mt-3 px-2 py-3 flex rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20 min-w-max border border-gray-300">
+                <div className="whitespace-nowrap">
+                  <Link
+                    to="/mobile-guard"
+                    onClick={() => setProductMenuOpen(false)}
+                    className="flex items-center px-2 py-1 mb-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md w-full transition duration-150 ease-in-out"
+                    reloadDocument
+                  >
+                    <DevicePhoneMobileIcon className="mr-2 h-5 w-5 text-gray-700" />{" "}
+                    Mobile guard
+                  </Link>
+                  <Link
+                    to="/incident-management"
+                    onClick={() => setProductMenuOpen(false)}
+                    className="flex items-center px-2 py-1 mb-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md w-full transition duration-150 ease-in-out"
+                    reloadDocument
+                  >
+                    <FlagIcon className="mr-2 h-5 w-5 text-gray-700" /> Incident
+                    management
+                  </Link>
+                  <Link
+                    to="/security-reporting"
+                    onClick={() => setProductMenuOpen(false)}
+                    className="flex items-center px-2 py-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md w-full transition duration-150 ease-in-out"
+                    reloadDocument
+                  >
+                    <ClipboardDocumentCheckIcon className="mr-2 h-5 w-5 text-gray-700" />{" "}
+                    Security reporting
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <Link
+            to="/pricing"
+            className={`px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
+              navState.link
+            } ${isActive("/pricing") ? "bg-gray-100" : ""}`}
+            reloadDocument
           >
             Pricing
-          </a>
-          {/* <a href="#" className="px-3 py-2 text-sm font-medium">
-            Resources
-          </a> */}
+          </Link>
+
+          {/* <Link
+            to="/about"
+            className={`px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
+              navState.link
+            } ${isActive("/about") ? "bg-gray-100" : ""}`}
+          >
+            About
+          </Link> */}
+
+          <Link
+            to="/contact"
+            className={`px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
+              navState.link
+            } ${isActive("/contact") ? "bg-gray-100" : ""}`}
+            reloadDocument
+          >
+            Contact
+          </Link>
         </div>
 
+        {/* Desktop Actions */}
         <div className="hidden md:flex items-center space-x-3">
-          {/* <a
-            href="https://app.opspot.io/auth/login"
-            className={`block mr-3 px-6 py-2 text-xxs font-medium hover:text-opacity-85 transition duration-150 ease-in-out ${navState.text}`}
-          >
-            Sign in
-          </a>
-
           <a
-            href="https://opspot.kinde.com/auth/cx/_:nav&m:register&psid:a220c7fa978b4b228c021146ff1472ed"
-            className="block px-6 py-2 rounded-lg text-xxs font-medium text-white hover:text-gray-50 bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out"
-          >
-            Sign up
-          </a> */}
-          <button
-            onClick={login}
-            type="button"
+            href={
+              process.env.NODE_ENV === "development"
+                ? "http://localhost:3000/auth/login/"
+                : "https://app.opspot.io/auth/login/"
+            }
             className={`block mr-3 px-6 py-2 text-xxs font-medium hover:text-opacity-85 transition duration-150 ease-in-out ${navState.text}`}
           >
-            Sign In
-          </button>
-
-          <button
-            onClick={createOrg}
-            type="button"
+            Login
+          </a>
+          <a
+            href={
+              process.env.NODE_ENV === "development"
+                ? `http://localhost:3000/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`
+                : `https://app.opspot.io/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`
+            }
             className="block px-6 py-2 rounded-lg text-xxs font-medium text-white hover:text-gray-50 bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out"
           >
             Sign up
-          </button>
+          </a>
         </div>
 
+        {/* Mobile Navigation */}
         <div className="md:hidden flex items-center">
           <a
-            onClick={() => createOrg()}
+            href={
+              process.env.NODE_ENV === "development"
+                ? `http://localhost:3000/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`
+                : `https://app.opspot.io/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`
+            }
             className="block w-full text-left px-3 py-2 mr-3 rounded-lg text-base font-medium text-white hover:text-gray-50 hover:cursor-pointer bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out"
           >
             Sign up
@@ -124,20 +248,28 @@ const Navigation = () => {
         </div>
       </div>
 
+      {/* Mobile Menu */}
       {menuOpen && (
         <div
           className={`md:hidden fixed top-0 inset-0 ${navState.bg} ${navState.text} px-4`}
         >
           <div className="pt-4">
             <div className="flex justify-between items-center">
-              <a href="#" onClick={() => setMenuOpen(false)}>
+              <Link
+                to="/"
+                onClick={() => {
+                  setMenuOpen(false);
+                  setProductMenuOpen(false);
+                }}
+                reloadDocument
+              >
                 <img
                   src={navState.logo}
                   alt="Logo"
                   width="225"
                   className="h-12"
                 />
-              </a>
+              </Link>
               <button
                 onClick={() => setMenuOpen(false)}
                 className="block py-2 text-base font-medium"
@@ -149,33 +281,71 @@ const Navigation = () => {
             </div>
           </div>
           <div className="space-y-6 pt-6">
-            <a
-              href="#features"
+            <Link
+              to="/mobile-guard"
               onClick={() => setMenuOpen(false)}
-              className={`block px-3 py-2 text-sm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
+              className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
+              reloadDocument
             >
-              Features
-            </a>
-            <a
-              href="#pricing"
+              Mobile guard
+            </Link>
+            <Link
+              to="/incident-management"
               onClick={() => setMenuOpen(false)}
-              className={`block px-3 py-2 text-sm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
+              className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
+              reloadDocument
+            >
+              Incident management
+            </Link>
+            <Link
+              to="/security-reporting"
+              onClick={() => setMenuOpen(false)}
+              className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
+              reloadDocument
+            >
+              Security reporting
+            </Link>
+            <Link
+              to="/pricing"
+              onClick={() => setMenuOpen(false)}
+              className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
+              reloadDocument
             >
               Pricing
-            </a>
-            {/* <a href="#" className="block px-3 py-2 text-sm">
-              Resources
-            </a> */}
+            </Link>
+            {/* <Link
+              to="/about"
+              onClick={() => setMenuOpen(false)}
+              className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
+            >
+              About
+            </Link> */}
+            <Link
+              to="/contact"
+              onClick={() => setMenuOpen(false)}
+              className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
+              reloadDocument
+            >
+              Contact
+            </Link>
             <div className="border-t border-gray-500 pt-6 flex justify-start space-x-4">
               <a
-                onClick={() => login()}
+                href={
+                  process.env.NODE_ENV === "development"
+                    ? "http://localhost:3000/auth/login/"
+                    : "https://app.opspot.io/auth/login/"
+                }
                 className={`block text-left px-8 py-3 rounded-lg text-base font-medium hover:text-opacity-65 hover:cursor-pointer transition duration-150 ease-in-out ${navState.text}`}
               >
                 Sign in
               </a>
               <a
-                onClick={() => createOrg()}
-                className="block text-left px-8 py-3 rounded-lg text-base font-medium text-white hover:text-gray-50 bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out hover: cursor-pointer"
+                href={
+                  process.env.NODE_ENV === "development"
+                    ? `http://localhost:3000/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`
+                    : `https://app.opspot.io/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`
+                }
+                className="block text-left px-8 py-3 rounded-lg text-base font-medium text-white hover:text-gray-50 bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out hover:cursor-pointer"
               >
                 Sign up
               </a>

@@ -5,6 +5,8 @@ import {
   ClockIcon as ClockOutline,
   ExclamationTriangleIcon as ExclamationOutline,
   DocumentTextIcon as DocumentOutline,
+  FlagIcon as FlagOutline,
+  ClipboardDocumentCheckIcon as ClipboardDocumentCheckOutline,
 } from "@heroicons/react/24/outline";
 import {
   DevicePhoneMobileIcon as PhoneSolid,
@@ -12,40 +14,35 @@ import {
   ClockIcon as ClockSolid,
   ExclamationTriangleIcon as ExclamationSolid,
   DocumentTextIcon as DocumentSolid,
+  FlagIcon as FlagSolid,
+  ClipboardDocumentCheckIcon as ClipboardDocumentCheckSolid,
 } from "@heroicons/react/24/solid";
 
-import mobileImage from "../assets/images/screen-mobile.png";
-import locationImage from "../assets/images/screen-location.png";
+import mobileImage from "../../assets/images/screen-mobile.png";
+import locationImage from "../../assets/images/screen-location.png";
 // import incidentsImage from "../assets/images/screen-location.png";
-import reportingImage from "../assets/images/screen-reporting.png";
+import reportingImage from "../../assets/images/screen-reporting.png";
 
-const Tabs = () => {
+const HomeTabs = () => {
   const [tabs, setTabs] = useState([
     {
-      name: "Tasks",
-      iconOutline: <ListOutline className="h-6 w-6 mb-1" />,
-      iconSolid: <ListSolid className="h-6 w-6 mb-1" />,
-      imageUrl: locationImage,
-      current: true,
-    },
-    {
-      name: "Mobile",
+      name: "Mobile guard",
       iconOutline: <PhoneOutline className="h-6 w-6 mb-1" />,
       iconSolid: <PhoneSolid className="h-6 w-6 mb-1" />,
       imageUrl: mobileImage,
+      current: true,
+    },
+    {
+      name: "Incident management",
+      iconOutline: <FlagOutline className="h-6 w-6 mb-1" />,
+      iconSolid: <FlagSolid className="h-6 w-6 mb-1" />,
+      imageUrl: locationImage,
       current: false,
     },
-    // {
-    //   name: "Incidents",
-    //   iconOutline: <ExclamationOutline className="h-6 w-6 mb-1" />,
-    //   iconSolid: <ExclamationSolid className="h-6 w-6 mb-1" />,
-    //   imageUrl: incidentsImage,
-    //   current: false,
-    // },
     {
-      name: "Reporting",
-      iconOutline: <DocumentOutline className="h-6 w-6 mb-1" />,
-      iconSolid: <DocumentSolid className="h-6 w-6 mb-1" />,
+      name: "Security reporting",
+      iconOutline: <ClipboardDocumentCheckOutline className="h-6 w-6 mb-1" />,
+      iconSolid: <ClipboardDocumentCheckSolid className="h-6 w-6 mb-1" />,
       imageUrl: reportingImage,
       current: false,
     },
@@ -139,4 +136,4 @@ const Tabs = () => {
   );
 };
 
-export default Tabs;
+export default HomeTabs;

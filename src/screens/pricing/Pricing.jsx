@@ -170,10 +170,10 @@ const PricingScreen = () => {
           <h3 className="text-center text-lg font-bold text-white">
             Frequently asked questions
           </h3>
-          <p className="text-center text-sm text-white mt-4">
+          {/* <p className="text-center text-sm text-white mt-4">
             Here are some common questions about our pricing.
-          </p>
-          <div className="pt-6">
+          </p> */}
+          <div>
             <PricingFAQGrid />
           </div>
         </div>

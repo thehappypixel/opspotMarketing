@@ -49,7 +49,7 @@ export default function DemoSignup() {
             />
           </span>
           <Button
-            text="Start free with email"
+            text="Get started for free"
             icon={true}
             iconPosition="right"
             density="tight"

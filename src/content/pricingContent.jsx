@@ -1,7 +1,7 @@
 const plans = [
   {
     name: "STARTER",
-    description: "Great to get started",
+    description: "Everything you need to begin",
     price: { monthly: "Free", annual: "Free" },
     buttonText: "Get started with free",
     type: "plan",
@@ -17,7 +17,11 @@ const plans = [
         "Clock in and out",
         // "Break management"
       ],
-      "Task management": ["5 checkpoints", "2 images per checkpoint"],
+      "Task management": [
+        "5 checkpoints",
+        "2 images per checkpoint",
+        "Unlimited tours",
+      ],
       Safety: ["Live GPS tracking", "Emergency calls"],
       Reporting: ["Incident reports", "Activity tracking"],
       // "Data & Security": [],
@@ -28,7 +32,7 @@ const plans = [
     name: "Pro",
     description: "Best value for money",
     price: { monthly: "$250", annual: "$199" },
-    buttonText: "Try for free",
+    buttonText: "Start 2 week trial",
     type: "plan",
     id: {
       monthly: `${process.env.REACT_APP_PROFESSIONAL_PLAN_MONTHLY}`,
@@ -68,7 +72,7 @@ const plans = [
     name: "Premium",
     description: "Get the most out of Opspot",
     price: { monthly: "$400", annual: "$350" },
-    buttonText: "Try for free",
+    buttonText: "Start 2 week trial",
     type: "plan",
     id: {
       monthly: `${process.env.REACT_APP_PREMIUM_PLAN_MONTHLY}`,

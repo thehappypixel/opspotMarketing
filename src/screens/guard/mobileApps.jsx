@@ -3,14 +3,14 @@ import iosImage from "../../assets/images/ios-badge.svg";
 import googlePlayImage from "../../assets/images/google-play-badge.svg";
 import mobileImage from "../../assets/images/opspot-mobile.png";
 
-function Mobile() {
+function MobileApps() {
   return (
     <>
-      <div className="flex flex-col items-center justify-center w-full">
+      {/* <div className="flex flex-col items-center justify-center w-full">
         <div className="-mt-24">
           <img src={mobileImage} alt="OpSpot Mobile" className="w-112" />
         </div>
-      </div>
+      </div> */}
       <div className="flex flex-col items-center justify-center w-full bg-white py-24">
         <h2 className="pb-4 px-12 text-lg leading-tight font-bold text-center">
           Apple? Android? We’ve got you covered.
@@ -52,4 +52,4 @@ function Mobile() {
   );
 }
 
-export default Mobile;
+export default MobileApps;

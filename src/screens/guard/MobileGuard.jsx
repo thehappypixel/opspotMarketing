@@ -1,9 +1,8 @@
 import React from "react";
 import Navigation from "../../components/navigation";
-import Mobile from "./mobile";
+import MobileApps from "./mobileApps";
 import ImageTextBlock from "../../components/imageTextBlock";
 import GuardImageTextBlockContent from "../../content/guardImageTextBlockContent";
-import mobileGuardImage from "../../assets/images/mobile-guard.png";
 import mobileImage from "../../assets/images/screen-mobile.png";
 import DemoSignup from "../../components/demoSignup";
 import Footer from "../../components/footer";
@@ -18,13 +17,14 @@ function MobileGuardScreen() {
           Mobile guard & patrol
         </h2>
         <div className="flex justify-center">
-          <p className="pt-6 mb-6 text-md tracking-wider leading-snug font-normal text-white text-center">
-            The most efficient mobile guard solution on the market
+          <p className="pt-6 mb-6 text-md tracking-wider leading-snug font-normal text-white text-center md:w-3/4 lg:w-1/2">
+            Equip your mobile guards with real-time, on-the-go security
+            management. Cover every corner, every time.
           </p>
         </div>
         <div className="py-4 mb-8 flex justify-center">
           <Button
-            text="Start free with email"
+            text="Get started for free"
             icon={true}
             iconPosition="right"
             density="tight"
@@ -53,6 +53,7 @@ function MobileGuardScreen() {
           />
         ))}
       </div>
+      <MobileApps />
       <DemoSignup />
       <Footer />
     </>

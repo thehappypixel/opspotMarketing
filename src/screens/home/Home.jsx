@@ -19,11 +19,12 @@ function HomeScreen() {
             </h1>
             <p className="py-6 text-md tracking-wider leading-normal font-normal text-white text-center">
               Affordable yet powerful software to manage your security
-              workforce. Opspot is designed to keep your guards safe and on task
+              workforce. Opspot is designed to keep your guards safe and on
+              task.
             </p>
             <div className="py-2 flex justify-center">
               <Button
-                text="Start free with email"
+                text="Get started for free"
                 icon={true}
                 iconPosition="right"
                 density="tight"
@@ -35,7 +36,7 @@ function HomeScreen() {
               />
             </div>
           </div>
-          <HomeTabs />
+          {/* <HomeTabs /> */}
         </div>
       </div>
       <div className="bg-white flex flex-col">

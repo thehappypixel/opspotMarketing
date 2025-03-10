@@ -35,7 +35,6 @@ const Navigation = () => {
   ];
   const isProductActive = productRoutes.includes(location.pathname);
 
-  // Optional: Close the product menu when clicking outside of it.
   const productMenuRef = useRef(null);
   useEffect(() => {
     function handleClickOutside(event) {
@@ -192,7 +191,7 @@ const Navigation = () => {
             About
           </Link> */}
 
-          <Link
+          {/* <Link
             to="/contact"
             className={`px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
               navState.link
@@ -200,7 +199,7 @@ const Navigation = () => {
             reloadDocument
           >
             Contact
-          </Link>
+          </Link> */}
         </div>
 
         {/* Desktop Actions */}
@@ -320,14 +319,14 @@ const Navigation = () => {
             >
               About
             </Link> */}
-            <Link
+            {/* <Link
               to="/contact"
               onClick={() => setMenuOpen(false)}
               className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
               reloadDocument
             >
               Contact
-            </Link>
+            </Link> */}
             <div className="border-t border-gray-500 pt-6 flex justify-start space-x-4">
               <a
                 href={

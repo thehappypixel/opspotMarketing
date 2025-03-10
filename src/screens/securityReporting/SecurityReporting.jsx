@@ -53,14 +53,14 @@ function IncidentManagementScreen() {
           Flexible security reporting
         </h2>
         <div className="flex justify-center">
-          <p className="pt-6 mb-6 text-md tracking-wider leading-snug font-normal text-white text-center w-1/2">
+          <p className="pt-6 mb-6 text-md tracking-wider leading-snug font-normal text-white text-center md:w-3/4 lg:w-1/2">
             Showcase value and provide evidence to customers with reports that
-            adapt to any need
+            adapt to any need.
           </p>
         </div>
         <div className="py-4 mb-8 flex justify-center">
           <Button
-            text="Start free with email"
+            text="Get started for free"
             icon={true}
             iconPosition="right"
             density="tight"

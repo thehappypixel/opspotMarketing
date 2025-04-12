@@ -39,7 +39,7 @@ function MobileGuardScreen() {
           <img src={mobileImage} alt="Mobile guard and operations screenshot" />
         </div>
       </div>
-      <div className="bg-white flex flex-col" id="features">
+      <div className="bg-white flex flex-col">
         {GuardImageTextBlockContent.map((block) => (
           <ImageTextBlock
             key={block.header}

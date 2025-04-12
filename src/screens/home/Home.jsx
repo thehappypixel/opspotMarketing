@@ -6,37 +6,42 @@ import HomeImageTextBlockContent from "../../content/homeImageTextBlockContent";
 import Button from "../../components/button";
 import Footer from "../../components/footer";
 import DemoSignup from "../../components/demoSignup";
+import mobileImage from "../../assets/images/opspot-security-dashboard-mobile-guard.png";
 
 function HomeScreen() {
   return (
     <>
-      <div className="min-h-screen flex items-center flex-col">
-        <Navigation />
-        <div className="header bg-black sm:p-4 w-full flex-grow flex flex-col items-center justify-center">
-          <div className="pt-32 max-w-2xl">
-            <h1 className="sm:text-xl md:text-xxl lg:text-xxl leading-tight tracking-wider font-bold text-white text-center">
-              Intuitive. Efficient. Security Operations.
-            </h1>
-            <p className="py-6 text-md tracking-wider leading-normal font-normal text-white text-center">
-              Affordable yet powerful software to manage your security
-              workforce. Opspot is designed to keep your guards safe and on
-              task.
-            </p>
-            <div className="py-2 flex justify-center">
-              <Button
-                text="Get started for free"
-                icon={true}
-                iconPosition="right"
-                density="tight"
-                link={
-                  process.env.NODE_ENV === "development"
-                    ? `http://localhost:3000/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`
-                    : `https://app.opspot.io/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`
-                }
-              />
-            </div>
-          </div>
-          {/* <HomeTabs /> */}
+      <Navigation />
+      <div className="mt-24 py-16 sm:px-4 lg:px-24 w-full bg-black">
+        <h1 className="text-xl leading-tight font-bold text-white text-center">
+          Intuitive. Efficient.{" "}
+          <span className="block">Security Operations.</span>
+        </h1>
+        <div className="flex justify-center">
+          <p className="pt-6 mb-6 text-md tracking-wider leading-snug font-normal text-white text-center md:w-3/4 lg:w-1/2">
+            Affordable yet powerful software to manage your security workforce.
+            Opspot is designed to keep your guards safe and on task.
+          </p>
+        </div>
+        <div className="py-4 mb-8 flex justify-center">
+          <Button
+            text="Get started for free"
+            icon={true}
+            iconPosition="right"
+            density="tight"
+            link={
+              process.env.NODE_ENV === "development"
+                ? `http://localhost:3000/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`
+                : `https://app.opspot.io/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`
+            }
+          />
+        </div>
+        <div>
+          <img
+            src={mobileImage}
+            alt="Mobile guard and operations screenshot"
+            className="lg:w-3/4 mx-auto"
+          />
         </div>
       </div>
       <div className="bg-white flex flex-col">

@@ -79,7 +79,7 @@ function IncidentManagementScreen() {
           />
         </div>
       </div>
-      <div className="bg-white flex flex-col" id="features">
+      <div className="bg-white flex flex-col">
         {SecurityReportingImageTextBlockContent.map((block) => (
           <ImageTextBlock
             key={block.header}

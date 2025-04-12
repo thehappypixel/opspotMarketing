@@ -101,109 +101,105 @@ const Navigation = () => {
       } ${navState.bg} ${navState.text}`}
     >
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-        <Link
-          to="/"
-          onClick={() => {
-            setMenuOpen(false);
-            setProductMenuOpen(false);
-          }}
-          reloadDocument
-        >
-          <img
-            src={navState.logo}
-            alt="Logo"
-            width="175"
-            className="h-12 hover:opacity-80 transition-opacity duration-150 ease-in-out"
-          />
-        </Link>
+        <div className="w-64 flex justify-start">
+          <Link
+            to="/"
+            onClick={() => {
+              setMenuOpen(false);
+              setProductMenuOpen(false);
+            }}
+            reloadDocument
+          >
+            <img
+              src={navState.logo}
+              alt="Logo"
+              width="175"
+              className="h-12 hover:opacity-80 transition-opacity duration-150 ease-in-out"
+            />
+          </Link>
+        </div>
 
         {/* Desktop Navigation */}
-        <div
-          className={`hidden md:flex space-x-2 px-2 py-1 rounded-lg shadow-md ${navState.container}`}
-        >
-          {/* Product Link with Dropdown */}
-          <div className="relative" ref={productMenuRef}>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setProductMenuOpen(!productMenuOpen);
-              }}
-              className={`px-2 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
-                navState.link
-              } ${
-                // Apply active style if the product route is active or if the dropdown is open.
-                isProductActive || productMenuOpen ? "bg-gray-100" : ""
-              }`}
-            >
-              Product <ChevronDownIcon className="h-4 w-4 inline" />
-            </button>
-            {productMenuOpen && (
-              <div className="absolute -left-2 mt-3 px-2 py-3 flex rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20 min-w-max border border-gray-300">
-                <div className="whitespace-nowrap">
-                  <Link
-                    to="/mobile-guard"
-                    onClick={() => setProductMenuOpen(false)}
-                    className="flex items-center px-2 py-1 mb-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md w-full transition duration-150 ease-in-out"
-                    reloadDocument
-                  >
-                    <DevicePhoneMobileIcon className="mr-2 h-5 w-5 text-gray-700" />{" "}
-                    Mobile guard
-                  </Link>
-                  <Link
-                    to="/incident-management"
-                    onClick={() => setProductMenuOpen(false)}
-                    className="flex items-center px-2 py-1 mb-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md w-full transition duration-150 ease-in-out"
-                    reloadDocument
-                  >
-                    <FlagIcon className="mr-2 h-5 w-5 text-gray-700" /> Incident
-                    management
-                  </Link>
-                  <Link
-                    to="/security-reporting"
-                    onClick={() => setProductMenuOpen(false)}
-                    className="flex items-center px-2 py-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md w-full transition duration-150 ease-in-out"
-                    reloadDocument
-                  >
-                    <ClipboardDocumentCheckIcon className="mr-2 h-5 w-5 text-gray-700" />{" "}
-                    Security reporting
-                  </Link>
+        {/* Desktop Navigation Container */}
+        <div className="hidden md:flex flex-grow items-center justify-center">
+          {/* Navigation Menu */}
+          <div
+            className={`inline-flex items-center space-x-2 px-2 py-1 rounded-lg shadow-md ${navState.container}`}
+          >
+            {/* Product Menu */}
+            <div className="relative" ref={productMenuRef}>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setProductMenuOpen(!productMenuOpen);
+                }}
+                className={`px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
+                  navState.link
+                } ${isProductActive || productMenuOpen ? "bg-gray-100" : ""}`}
+              >
+                Product <ChevronDownIcon className="h-4 w-4 inline" />
+              </button>
+
+              {/* Dropdown Menu */}
+              {productMenuOpen && (
+                <div className="absolute left-1/2 transform -translate-x-1/2 mt-3 px-2 py-3 flex rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20 min-w-max border border-gray-300">
+                  <div className="whitespace-nowrap">
+                    <Link
+                      to="/mobile-guard"
+                      onClick={() => setProductMenuOpen(false)}
+                      className="flex items-center px-2 py-1 mb-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition duration-150 ease-in-out"
+                      reloadDocument
+                    >
+                      <DevicePhoneMobileIcon className="mr-2 h-5 w-5 text-gray-700" />
+                      Mobile guard
+                    </Link>
+                    <Link
+                      to="/incident-management"
+                      onClick={() => setProductMenuOpen(false)}
+                      className="flex items-center px-2 py-1 mb-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition duration-150 ease-in-out"
+                      reloadDocument
+                    >
+                      <FlagIcon className="mr-2 h-5 w-5 text-gray-700" />
+                      Incident management
+                    </Link>
+                    <Link
+                      to="/security-reporting"
+                      onClick={() => setProductMenuOpen(false)}
+                      className="flex items-center px-2 py-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition duration-150 ease-in-out"
+                      reloadDocument
+                    >
+                      <ClipboardDocumentCheckIcon className="mr-2 h-5 w-5 text-gray-700" />
+                      Security reporting
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
+
+            {/* Pricing */}
+            <Link
+              to="/pricing"
+              className={`px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
+                navState.link
+              } ${isActive("/pricing") ? "bg-gray-100" : ""}`}
+              reloadDocument
+            >
+              Pricing
+            </Link>
+            <Link
+              to="/contact"
+              className={`px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
+                navState.link
+              } ${isActive("/contact") ? "bg-gray-100" : ""}`}
+              reloadDocument
+            >
+              Contact
+            </Link>
           </div>
-
-          <Link
-            to="/pricing"
-            className={`px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
-              navState.link
-            } ${isActive("/pricing") ? "bg-gray-100" : ""}`}
-            reloadDocument
-          >
-            Pricing
-          </Link>
-
-          {/* <Link
-            to="/about"
-            className={`px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
-              navState.link
-            } ${isActive("/about") ? "bg-gray-100" : ""}`}
-          >
-            About
-          </Link> */}
-
-          {/* <Link
-            to="/contact"
-            className={`px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
-              navState.link
-            } ${isActive("/contact") ? "bg-gray-100" : ""}`}
-            reloadDocument
-          >
-            Contact
-          </Link> */}
         </div>
 
         {/* Desktop Actions */}
-        <div className="hidden md:flex items-center space-x-3">
+        <div className="sm:w-64 flex justify-end items-center space-x-3">
           <a
             href={
               process.env.NODE_ENV === "development"

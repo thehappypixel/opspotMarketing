@@ -62,7 +62,7 @@ function ContactScreen() {
             </p>
           </div>
         </h1>
-        <div className="mt-6 bg-white w-1/3 p-6 rounded-lg mx-auto">
+        <div className="mt-6 bg-white lg:w-1/3 md:w-2/3 sm:w-full p-6 rounded-lg mx-auto">
           {isComplete ? (
             <div className="flex flex-col items-center justify-center text-center space-y-6">
               <div className="bg-green-100 text-green-700 px-6 py-4 rounded-md w-full">

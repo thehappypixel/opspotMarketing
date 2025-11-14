@@ -101,7 +101,7 @@ const Navigation = () => {
       } ${navState.bg} ${navState.text}`}
     >
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-        <div className="w-64 flex justify-start">
+        <div className="md:w-64 sm:w-48 flex justify-start">
           <Link
             to="/"
             onClick={() => {
@@ -133,7 +133,7 @@ const Navigation = () => {
                   e.preventDefault();
                   setProductMenuOpen(!productMenuOpen);
                 }}
-                className={`px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
+                className={`md:px-2 lg:px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
                   navState.link
                 } ${isProductActive || productMenuOpen ? "bg-gray-100" : ""}`}
               >
@@ -179,7 +179,7 @@ const Navigation = () => {
             {/* Pricing */}
             <Link
               to="/pricing"
-              className={`px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
+              className={`md:px-2 lg:px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
                 navState.link
               } ${isActive("/pricing") ? "bg-gray-100" : ""}`}
               reloadDocument
@@ -188,7 +188,7 @@ const Navigation = () => {
             </Link>
             <Link
               to="/contact"
-              className={`px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
+              className={`md:px-2 lg:px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
                 navState.link
               } ${isActive("/contact") ? "bg-gray-100" : ""}`}
               reloadDocument
@@ -199,7 +199,7 @@ const Navigation = () => {
         </div>
 
         {/* Desktop Actions */}
-        <div className="sm:w-64 flex justify-end items-center space-x-3">
+        <div className="sm:hidden md:flex justify-end items-center space-x-3">
           <a
             href={
               process.env.NODE_ENV === "development"
@@ -307,6 +307,14 @@ const Navigation = () => {
               reloadDocument
             >
               Pricing
+            </Link>
+            <Link
+              to="/contact"
+              onClick={() => setMenuOpen(false)}
+              className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
+              reloadDocument
+            >
+              Contact
             </Link>
             {/* <Link
               to="/about"

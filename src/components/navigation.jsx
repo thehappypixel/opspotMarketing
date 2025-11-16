@@ -201,21 +201,13 @@ const Navigation = () => {
         {/* Desktop Actions */}
         <div className="sm:hidden md:flex justify-end items-center space-x-3">
           <a
-            href={
-              process.env.NODE_ENV === "development"
-                ? "http://localhost:3000/auth/login/"
-                : "https://app.opspot.io/auth/login/"
-            }
+            href={`${process.env.REACT_APP_AUTH_BASE_URL || 'http://localhost:3000'}/auth/login/`}
             className={`block mr-3 px-6 py-2 text-xxs font-medium hover:text-opacity-85 transition duration-150 ease-in-out ${navState.text}`}
           >
             Login
           </a>
           <a
-            href={
-              process.env.NODE_ENV === "development"
-                ? `http://localhost:3000/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`
-                : `https://app.opspot.io/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`
-            }
+            href={`${process.env.REACT_APP_AUTH_BASE_URL || 'http://localhost:3000'}/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`}
             className="block px-6 py-2 rounded-lg text-xxs font-medium text-white hover:text-gray-50 bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out"
           >
             Sign up
@@ -225,11 +217,7 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         <div className="md:hidden flex items-center">
           <a
-            href={
-              process.env.NODE_ENV === "development"
-                ? `http://localhost:3000/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`
-                : `https://app.opspot.io/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`
-            }
+            href={`${process.env.REACT_APP_AUTH_BASE_URL || 'http://localhost:3000'}/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`}
             className="block w-full text-left px-3 py-2 mr-3 rounded-lg text-base font-medium text-white hover:text-gray-50 hover:cursor-pointer bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out"
           >
             Sign up
@@ -333,21 +321,13 @@ const Navigation = () => {
             </Link> */}
             <div className="border-t border-gray-500 pt-6 flex justify-start space-x-4">
               <a
-                href={
-                  process.env.NODE_ENV === "development"
-                    ? "http://localhost:3000/auth/login/"
-                    : "https://app.opspot.io/auth/login/"
-                }
+                href={`${process.env.REACT_APP_AUTH_BASE_URL || 'http://localhost:3000'}/auth/login/`}
                 className={`block text-left px-8 py-3 rounded-lg text-base font-medium hover:text-opacity-65 hover:cursor-pointer transition duration-150 ease-in-out ${navState.text}`}
               >
                 Sign in
               </a>
               <a
-                href={
-                  process.env.NODE_ENV === "development"
-                    ? `http://localhost:3000/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`
-                    : `https://app.opspot.io/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`
-                }
+                href={`${process.env.REACT_APP_AUTH_BASE_URL || 'http://localhost:3000'}/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`}
                 className="block text-left px-8 py-3 rounded-lg text-base font-medium text-white hover:text-gray-50 bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out hover:cursor-pointer"
               >
                 Sign up

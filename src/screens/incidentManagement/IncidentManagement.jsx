@@ -27,11 +27,7 @@ function IncidentManagementScreen() {
             icon={true}
             iconPosition="right"
             density="tight"
-            link={
-              process.env.NODE_ENV === "development"
-                ? `http://localhost:3000/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`
-                : `https://app.opspot.io/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`
-            }
+            link={`${process.env.REACT_APP_AUTH_BASE_URL || 'http://localhost:3000'}/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`}
           />
         </div>
         <div className="flex justify-center">

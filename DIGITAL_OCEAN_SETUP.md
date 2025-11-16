@@ -21,6 +21,7 @@ Add these environment variables in your Digital Ocean App Platform settings:
 3. **Add the Following Variables**
 
 ```
+REACT_APP_AUTH_BASE_URL=https://app.opspot.io
 REACT_APP_KINDE_CLIENT_ID=61cf067008dc4946bb009d464a67a1ab
 REACT_APP_KINDE_DOMAIN=https://auth.opspot.io
 REACT_APP_KINDE_REDIRECT_URI=https://app.opspot.io/auth/callback

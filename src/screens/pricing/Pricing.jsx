@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CheckCircleIcon } from "@heroicons/react/24/solid";
+import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { plans, categories } from "../../content/pricingContent";
 import Navigation from "../../components/navigation";
 import PricingFAQGrid from "./PricingFAQ";
@@ -48,25 +48,29 @@ const Toggle = ({ isAnnual, setIsAnnual }) => {
 const PricingScreen = () => {
   const [isAnnual, setIsAnnual] = useState(false);
 
+  // Filter to show only first two plans (keeping third for future use)
+  const visiblePlans = plans.slice(0, 2);
+
   return (
     <>
       <Navigation />
-      <div className="mt-24 py-16 sm:px-4 lg:px-24 w-full bg-black">
+      <div className="mt-24 py-16 sm:px-4 lg:px-24 w-3/4 mx-auto bg-black">
         <h2 className="text-xl leading-tight font-bold text-white text-center">
           Pricing
         </h2>
         <p className="pt-6 mb-12 text-md tracking-wider leading-snug font-normal text-white text-center">
           Simple pricing for solutions you actually need
         </p>
-        <div>
+        {/* Annual pricing toggle hidden but state kept for future use */}
+        {/* <div>
           <Toggle isAnnual={isAnnual} setIsAnnual={setIsAnnual} />
-        </div>
+        </div> */}
         <div className="overflow-x-auto">
           <table className="min-w-full table-fixed">
             <thead>
               <tr>
                 <th className="lg:px-6 sm:hidden md:hidden bg-black text-white align-top w-1/3"></th>
-                {plans.map((plan, index) => (
+                {visiblePlans.map((plan, index) => (
                   <th
                     key={index}
                     className={`px-6 py-6 rounded-t-lg align-top w-2/3 sm:w-auto ${
@@ -82,11 +86,9 @@ const PricingScreen = () => {
                           {plan.description}
                         </p>
                         <p className="mt-4 text-md font-black">
-                          {plan.id !== process.env.REACT_APP_STARTER_PLAN &&
-                            "USD"}{" "}
+                          {plan.price.monthly !== "Free" && "USD"}{" "}
                           {isAnnual ? plan.price.annual : plan.price.monthly}
-                          {plan.id !== process.env.REACT_APP_STARTER_PLAN &&
-                            " / month"}{" "}
+                          {plan.price.monthly !== "Free" && " / guard"}{" "}
                         </p>
 
                         <a
@@ -115,7 +117,7 @@ const PricingScreen = () => {
                   <td className="px-6 py-6 sm:hidden font-medium text-sm bg-black text-white align-top w-1/3">
                     {category}
                   </td>
-                  {plans.map((plan, planIndex) => (
+                  {visiblePlans.map((plan, planIndex) => (
                     <td
                       key={planIndex}
                       className={`sm:px-2 lg:px-6 py-6 align-top w-2/3 sm:w-auto ${
@@ -131,29 +133,47 @@ const PricingScreen = () => {
                       <ul className="list-none">
                         {plan.features[category].length > 0 ? (
                           plan.features[category].map(
-                            (feature, featureIndex) => (
-                              <li
-                                key={featureIndex}
-                                className="flex items-center space-x-2 py-1"
-                              >
-                                <CheckCircleIcon
-                                  className={`flex-shrink-0 sm:w-4 sm:h-4 lg:w-6 lg:h-6 sm:ml-4 md:ml-0 lg:ml-0 ${
-                                    plan.highlight
-                                      ? "text-brand-primary"
-                                      : "text-success"
-                                  }`}
-                                />
-                                <span
-                                  className={`${
-                                    plan.highlight
-                                      ? "text-black"
-                                      : "text-gray-200"
-                                  }`}
+                            (feature, featureIndex) => {
+                              // Handle both string format (backward compatible) and object format
+                              const featureText =
+                                typeof feature === "string"
+                                  ? feature
+                                  : feature.text;
+                              const isIncluded =
+                                typeof feature === "string"
+                                  ? true
+                                  : feature.included !== false; // Default to true if not specified
+
+                              return (
+                                <li
+                                  key={featureIndex}
+                                  className="flex items-center space-x-2 py-1"
                                 >
-                                  {feature}
-                                </span>
-                              </li>
-                            )
+                                  {isIncluded ? (
+                                    <CheckCircleIcon
+                                      className={`flex-shrink-0 sm:w-4 sm:h-4 lg:w-6 lg:h-6 sm:ml-4 md:ml-0 lg:ml-0 ${
+                                        plan.highlight
+                                          ? "text-brand-primary"
+                                          : "text-success"
+                                      }`}
+                                    />
+                                  ) : (
+                                    <XCircleIcon
+                                      className={`flex-shrink-0 sm:w-4 sm:h-4 lg:w-6 lg:h-6 sm:ml-4 md:ml-0 lg:ml-0 text-danger`}
+                                    />
+                                  )}
+                                  <span
+                                    className={`${
+                                      plan.highlight
+                                        ? "text-black"
+                                        : "text-gray-200"
+                                    }`}
+                                  >
+                                    {featureText}
+                                  </span>
+                                </li>
+                              );
+                            }
                           )
                         ) : (
                           <span className="text-white">-</span>

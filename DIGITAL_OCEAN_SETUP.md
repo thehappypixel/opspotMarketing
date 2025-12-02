@@ -61,53 +61,6 @@ After deployment, you can verify the environment variables are working by:
 
 ---
 
-## Fixing 404 Errors for React Router Routes
-
-If you're experiencing 404 errors on all pages except the home page, this is a common issue with Single Page Applications (SPAs) using React Router. The server needs to be configured to serve `index.html` for all routes.
-
-### Solution
-
-The following configuration files have been added to handle routing:
-
-1. **`nginx.conf`** (root directory) - Configures nginx to serve `index.html` for all routes
-2. **`.htaccess`** (in `public/` directory) - Apache fallback configuration  
-3. **`_redirects`** (in `public/` directory) - Netlify-style redirects as backup
-
-### How It Works
-
-When a user navigates directly to a route like `/pricing` or `/contact`, the server tries to find that file. Since it doesn't exist (these are handled by React Router on the client), the server returns a 404. The configuration files tell the server to serve `index.html` instead, allowing React Router to handle the routing.
-
-### Digital Ocean App Platform Configuration
-
-If the 404 errors persist after deploying with these files:
-
-1. **Check your App Platform settings:**
-   - Go to your app in Digital Ocean
-   - Navigate to **Settings** → **Components**
-   - Ensure your static site component is configured correctly
-
-2. **Verify nginx configuration:**
-   - The `nginx.conf` file should be in your project root
-   - Digital Ocean App Platform should automatically detect and use it for static sites
-
-3. **Manual Configuration (if needed):**
-   - In your Digital Ocean App Platform settings, you may need to specify that the app should serve `index.html` for all routes
-   - Some configurations require setting a "catch-all" route in the App Platform UI
-
-### Testing
-
-After deployment, test these routes:
-- `/pricing`
-- `/contact`
-- `/mobile-guard`
-- `/incident-management`
-- `/security-reporting`
-- `/about`
-
-All should load correctly without 404 errors.
-
----
-
 **Questions?** Refer to [Digital Ocean's Environment Variables Documentation](https://docs.digitalocean.com/products/app-platform/how-to/use-environment-variables/)
 
 

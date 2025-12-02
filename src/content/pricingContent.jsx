@@ -11,8 +11,8 @@ const plans = [
     },
     highlight: false,
     features: {
-      Users: ["Up to 3 field users", "Unlimited ops users"],
-      Location: ["5 locations"],
+      Users: ["Up to 3 guards", "Unlimited admin users"],
+      Location: ["Up to 5 locations"],
       "Shift management": [
         "Clock in and out",
         // "Break management"
@@ -22,8 +22,17 @@ const plans = [
         "2 images per checkpoint",
         "Unlimited tours",
       ],
+      "Schedule management": [
+        { text: "Unlimited schedules", included: false },
+        { text: "Unlimited shifts", included: false },
+      ],
       Safety: ["Live GPS tracking", "Emergency calls"],
-      Reporting: ["Incident reports", "Activity tracking"],
+      Reporting: [
+        // { text: "Incident reports", included: false },
+        "Incident reports",
+        "Activity tracking",
+        { text: "PDF reports", included: false },
+      ],
       // "Data & Security": [],
       // "Branding & integrations": [],
     },
@@ -31,7 +40,7 @@ const plans = [
   {
     name: "Pro",
     description: "Best value for money",
-    price: { monthly: "$250", annual: "$199" },
+    price: { monthly: "$8", annual: "$8" },
     buttonText: "Start 2 week trial",
     type: "plan",
     id: {
@@ -40,7 +49,7 @@ const plans = [
     },
     highlight: true,
     features: {
-      Users: ["Up to 10 guards", "Unlimited ops users"],
+      Users: ["As many guards as you need", "Unlimited admin users"],
       Location: ["Unlimited locations"],
       "Shift management": [
         "Clock in and out",
@@ -61,9 +70,11 @@ const plans = [
       Reporting: [
         "Incident reports",
         "Activity tracking",
+        "PDF reports",
         // "Starter email & PDF reports",
         // "Custom email & PDF reports",
       ],
+      "Schedule management": ["Unlimited schedules", "Unlimited shifts"],
       // "Data & Security": ["Offline mode"],
       // "Branding & integrations": [],
     },
@@ -80,7 +91,7 @@ const plans = [
     },
     highlight: false,
     features: {
-      Users: ["Up to 25 guards", "Unlimited ops users"],
+      Users: ["Up to 25 guards", "Unlimited admin users"],
       Location: ["Unlimited locations"],
       "Shift management": [
         "Clock in and out",
@@ -105,6 +116,7 @@ const plans = [
         // "Custom email & PDF reports",
         // "Scheduled reporting",
       ],
+      "Schedule management": ["Unlimited schedules", "Unlimited shifts"],
       // "Data & Security": ["Offline mode", "SSO"],
       // "Branding & integrations": ["Custom branding"],
     },
@@ -118,6 +130,7 @@ const categories = [
   "Task management",
   "Safety",
   "Reporting",
+  "Schedule management",
   // "Data & Security",
   // "Branding & integrations",
 ];

@@ -27,33 +27,35 @@ export default function DemoSignup() {
     >
       <div className="w-3/4">
         <h2 className="text-black text-lg pb-4 font-bold">
-          Ready to give Opspot a shot?
+          Ready to simplify guard management?
         </h2>
         <p
           className={`text-sm mb-8 lg:w-3/4 md:pr-24 ${
             isSM ? "bg-white p-4 rounded-md" : "bg-transparent"
           }`}
         >
-          Request a demo or sign up today and discover how our platform can
-          transform your security operations. Our team is here to guide you
-          every step of the way.
+          Try Opspot free today, no credit card required. With live GPS
+          tracking, patrol tours, and instant incident reporting, you'll see how
+          easy security workforce management can be.
         </p>
         <div className="flex sm:flex-col md:flex-row">
           <span className="md:mr-4 sm:mr-0 sm:mb-4 md:mb-0">
             <Button
-              text="Contact us for a demo"
-              icon={false}
+              text="Get started for free"
+              icon={true}
+              iconPosition="right"
               density="tight"
-              type="secondary"
-              link="contact"
+              link={`${
+                process.env.REACT_APP_DOMAIN || "http://localhost:3000"
+              }/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`}
             />
           </span>
           <Button
-            text="Get started for free"
-            icon={true}
-            iconPosition="right"
+            text="Request a demo"
+            icon={false}
             density="tight"
-            link={`${process.env.REACT_APP_DOMAIN || 'http://localhost:3000'}/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`}
+            type="secondary"
+            link="contact"
           />
         </div>
       </div>

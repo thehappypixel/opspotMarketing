@@ -11,37 +11,37 @@ import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 const HomeImageTextBlockContent = [
   {
     firstItem: "text",
-    header: "Mobile guard",
-    body: "Simplified task management and patrol for enhanced security. Guards can complete their patrol tours and checkpoints through a interfance that's so intutive, they won't require training. All activities are accessible via a web interface for analysis and reporting.",
+    header: "Mobile patrol app for security guard operations",
+    body: "Equip your guards with an intuitive mobile patrol app for tours, checkpoints, and daily tasks. Designed so simple your team won’t need training. All activity is logged automatically and accessible through your web dashboard for oversight and reporting.",
     ctaLink: "/mobile-guard",
-    ctaText: "Mobile guard",
+    ctaText: "Explore mobile guard features",
     imageUrl: mobileGuard,
     listItems: [
       {
         icon: <QrCodeIcon className="h-5 w-5" />,
-        text: "QR Code",
+        text: "QR code checkpoints",
       },
       {
         icon: <SignalIcon className="h-5 w-5" />,
-        text: "NFC",
+        text: "NFC support",
       },
       {
         icon: <MapPinIcon className="h-5 w-5" />,
-        text: "GPS",
+        text: "Live GPS tracking",
       },
     ],
   },
   {
     firstItem: "image",
-    header: "Incident reporting",
-    body: "Keep your team safe & accountable. Enhance safety with real-time location tracking of team members and emergency contact information.",
+    header: "Fast, accurate incident reporting",
+    body: "Give your guards a simple, guided solution to document incidents with photos, notes, and automatic time and location stamps. Supervisors receive instant access to reports, ensuring accountability and faster response times.",
     ctaLink: "/incident-management",
-    ctaText: "Incident management",
+    ctaText: "Learn about incident management",
     imageUrl: incidentManagement,
     listItems: [
       {
         icon: <MapIcon className="h-5 w-5" />,
-        text: "Location",
+        text: "Auto time & location stamping",
       },
       {
         icon: <ExclamationTriangleIcon className="h-5 w-5" />,
@@ -51,10 +51,10 @@ const HomeImageTextBlockContent = [
   },
   {
     firstItem: "text",
-    header: "Security reporting",
-    body: "Track all activity, incidents efficiently and create reports for improved security management.",
+    header: "Professional security reporting",
+    body: "Generate accurate activity reports, incident summaries, and patrol performance data in seconds. Deliver clean, professional reports to your clients with one click. No spreadsheets, no paperwork, no missed details.",
     ctaLink: "/security-reporting",
-    ctaText: "Security reporting",
+    ctaText: "See reporting capabilities",
     imageUrl: securityReporting,
   },
 ];

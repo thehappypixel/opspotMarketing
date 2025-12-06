@@ -1,9 +1,9 @@
 const plans = [
   {
     name: "STARTER",
-    description: "Everything you need to begin",
+    description: "Perfect for very small teams",
     price: { monthly: "Free", annual: "Free" },
-    buttonText: "Get started with free",
+    buttonText: "Get started for free",
     type: "plan",
     id: {
       monthly: `${process.env.REACT_APP_STARTER_PLAN}`,
@@ -13,25 +13,21 @@ const plans = [
     features: {
       Users: ["Up to 3 guards", "Unlimited admin users"],
       Location: ["Up to 5 locations"],
-      "Shift management": [
-        "Clock in and out",
-        // "Break management"
-      ],
+      "Shift management": ["Basic clock-in/out"],
       "Task management": [
-        "5 checkpoints",
-        "2 images per checkpoint",
-        "Unlimited tours",
+        "Up to 5 checkpoints",
+        "Upload 2 images per checkpoint",
+        "Unlimited tours and patrols",
+      ],
+      Safety: ["Live GPS tracking for guards", "Emergency call support"],
+      Reporting: [
+        "Incident reporting",
+        "Activity tracking",
+        { text: "PDF report exports", included: false },
       ],
       "Schedule management": [
         { text: "Unlimited schedules", included: false },
         { text: "Unlimited shifts", included: false },
-      ],
-      Safety: ["Live GPS tracking", "Emergency calls"],
-      Reporting: [
-        // { text: "Incident reports", included: false },
-        "Incident reports",
-        "Activity tracking",
-        { text: "PDF reports", included: false },
       ],
       // "Data & Security": [],
       // "Branding & integrations": [],
@@ -39,9 +35,9 @@ const plans = [
   },
   {
     name: "Pro",
-    description: "Best value for money",
+    description: "Excellent value for growing teams",
     price: { monthly: "$8", annual: "$8" },
-    buttonText: "Start 2 week trial",
+    buttonText: "Go pro with a 2 week trial",
     type: "plan",
     id: {
       monthly: `${process.env.REACT_APP_PROFESSIONAL_PLAN_MONTHLY}`,
@@ -49,30 +45,19 @@ const plans = [
     },
     highlight: true,
     features: {
-      Users: ["As many guards as you need", "Unlimited admin users"],
+      Users: ["Unlimited guards", "Unlimited admin users"],
       Location: ["Unlimited locations"],
-      "Shift management": [
-        "Clock in and out",
-        // "Break management",
-        // "Geo fencing",
-      ],
+      "Shift management": ["Clock-in/out with GPS"],
       "Task management": [
         "Unlimited checkpoints",
-        "2 images per checkpoint",
-        "Unlimited tours",
+        "Upload 2 images per checkpoint",
+        "Unlimited tours and patrols",
       ],
-      Safety: [
-        "Live GPS tracking",
-        "Emergency calls",
-        // "Lone worker",
-        // "Person down",
-      ],
+      Safety: ["Live GPS tracking for guards", "Emergency call support"],
       Reporting: [
-        "Incident reports",
-        "Activity tracking",
-        "PDF reports",
-        // "Starter email & PDF reports",
-        // "Custom email & PDF reports",
+        "Incident reporting",
+        "Activity tracking and logs",
+        "PDF report exports",
       ],
       "Schedule management": ["Unlimited schedules", "Unlimited shifts"],
       // "Data & Security": ["Offline mode"],

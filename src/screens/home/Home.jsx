@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Navigation from "../../components/navigation";
 import HomeTabs from "./HomeTabs";
 import ImageTextBlock from "../../components/imageTextBlock";
@@ -12,25 +13,32 @@ function HomeScreen() {
   return (
     <>
       <Navigation />
-      <div className="mt-24 py-16 sm:px-4 lg:px-24 w-full bg-black">
-        <h1 className="text-xl leading-tight font-bold text-white text-center">
-          Intuitive. Efficient.{" "}
-          <span className="block">Security Operations.</span>
+      <div className="mt-32 py-16 sm:px-4 lg:px-14 w-full bg-black">
+        <h1 className="text-xl leading-tight font-bold text-white text-center w-3/4 mx-auto">
+          Simple, powerful & affordable tools to manage your security guard team
         </h1>
         <div className="flex justify-center">
-          <p className="pt-6 mb-6 text-md tracking-wider leading-snug font-normal text-white text-center md:w-3/4 lg:w-1/2">
-            Affordable yet powerful software to manage your security workforce.
-            Opspot is designed to keep your guards safe and on task.
+          <p className="pt-6 mb-6 text-sm tracking-wider leading-relaxed font-normal text-white text-center w-1/2 mx-auto">
+            Patrols, incidents, schedules, and GPS tracking all in one place,
+            helping your team stay organized, responsive, and safe.
           </p>
         </div>
-        <div className="py-4 mb-8 flex justify-center">
+        <div className="py-4 mb-12 flex justify-center items-center gap-4">
           <Button
             text="Get started for free"
             icon={true}
             iconPosition="right"
             density="tight"
-            link={`${process.env.REACT_APP_DOMAIN || 'http://localhost:3000'}/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`}
+            link={`${
+              process.env.REACT_APP_DOMAIN || "http://localhost:3000"
+            }/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`}
           />
+          <Link
+            to="/contact"
+            className="text-white text-sm font-medium px-6 hover:text-opacity-80 transition duration-150 ease-in-out"
+          >
+            Request a demo
+          </Link>
         </div>
         <div>
           <img

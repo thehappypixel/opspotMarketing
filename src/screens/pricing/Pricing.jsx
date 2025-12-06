@@ -54,12 +54,12 @@ const PricingScreen = () => {
   return (
     <>
       <Navigation />
-      <div className="mt-24 py-16 sm:px-4 lg:px-24 w-3/4 mx-auto bg-black">
+      <div className="mt-48 py-16 sm:px-4 lg:px-24 w-3/4 mx-auto bg-black">
         <h2 className="text-xl leading-tight font-bold text-white text-center">
-          Pricing
+          Simple, flexible pricing for your security guard operations
         </h2>
-        <p className="pt-6 mb-12 text-md tracking-wider leading-snug font-normal text-white text-center">
-          Simple pricing for solutions you actually need
+        <p className="pt-6 mb-16 text-md tracking-wider leading-snug font-normal text-white text-center">
+          Start free, scale your team, and pay for only the guards you manage
         </p>
         {/* Annual pricing toggle hidden but state kept for future use */}
         {/* <div>

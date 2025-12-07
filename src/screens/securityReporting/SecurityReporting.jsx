@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import Navigation from "../../components/navigation";
 import ImageTextBlock from "../../components/imageTextBlock";
 import SecurityReportingImageTextBlockContent from "../../content/securityReportingImageTextBlockContent";
@@ -10,8 +11,52 @@ import Button from "../../components/button";
 import DemoSignup from "../../components/demoSignup";
 
 function IncidentManagementScreen() {
+  const siteUrl = process.env.REACT_APP_DOMAIN || "https://opspot.com";
+
   return (
     <>
+      <Helmet>
+        <title>
+          Security Reporting Software - Real-time Activity Reports & Analytics |
+          Opspot
+        </title>
+        <meta
+          name="description"
+          content="Real-time insights into patrols, incidents, and guard activity. Dynamic report filtering, comprehensive location tracking, and seamless PDF export. Professional security reporting all in one place."
+        />
+        <meta
+          name="keywords"
+          content="security reporting software, security activity reports, guard activity reporting, security analytics, patrol reports, incident reports, security reporting dashboard, PDF security reports"
+        />
+        <link rel="canonical" href={`${siteUrl}/security-reporting`} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${siteUrl}/security-reporting`} />
+        <meta
+          property="og:title"
+          content="Security Reporting Software - Real-time Activity Reports & Analytics | Opspot"
+        />
+        <meta
+          property="og:description"
+          content="Real-time insights into patrols, incidents, and guard activity. Professional security reporting all in one place."
+        />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:url"
+          content={`${siteUrl}/security-reporting`}
+        />
+        <meta
+          property="twitter:title"
+          content="Security Reporting Software - Real-time Activity Reports & Analytics | Opspot"
+        />
+        <meta
+          property="twitter:description"
+          content="Real-time insights into patrols, incidents, and guard activity. Professional security reporting all in one place."
+        />
+      </Helmet>
       <Navigation />
       {/* <div className="mt-24 py-24 sm:px-4 lg:pr-0 lg:pl-32 w-full bg-black">
         <div className="flex flex-1 flex-col lg:flex-row items-center">
@@ -20,8 +65,7 @@ function IncidentManagementScreen() {
               Flexible security reporting
             </h2>
             <p className="pt-6 mb-12 text-md tracking-wider leading-snug font-normal text-white">
-              Showcase value and provide evidence to customers with reports that
-              adapt to any need
+              Real-time insights into patrols, incidents, and guard activity—all in one place.
             </p>
             <div className="py-2">
               <div className="inline-block">
@@ -50,8 +94,8 @@ function IncidentManagementScreen() {
         </h2>
         <div className="flex justify-center">
           <p className="pt-6 mb-6 text-md tracking-wider leading-snug font-normal text-white text-center md:w-3/4 lg:w-1/2">
-            Showcase value and provide evidence to customers with reports that
-            adapt to any need.
+            Real-time insights into patrols, incidents, and guard activity. All
+            in one place.
           </p>
         </div>
         <div className="py-4 mb-8 flex justify-center">
@@ -60,7 +104,9 @@ function IncidentManagementScreen() {
             icon={true}
             iconPosition="right"
             density="tight"
-            link={`${process.env.REACT_APP_DOMAIN || 'http://localhost:3000'}/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`}
+            link={`${
+              process.env.REACT_APP_DOMAIN || "http://localhost:3000"
+            }/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`}
           />
         </div>
         <div className="flex justify-center">

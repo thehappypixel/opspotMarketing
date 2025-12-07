@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Navigation from "../../components/navigation";
 import Footer from "../../components/footer";
 import Button from "../../components/button";
@@ -45,8 +46,34 @@ function ContactScreen() {
     }
   };
 
+  const siteUrl = process.env.REACT_APP_DOMAIN || "https://opspot.com";
+  
   return (
     <>
+      <Helmet>
+        <title>Contact Us - Opspot Security Guard Management Software</title>
+        <meta 
+          name="description" 
+          content="Have questions about Opspot security guard management software? Need support or want to learn more? Contact our team today. We're here to help with your security operations needs." 
+        />
+        <meta 
+          name="keywords" 
+          content="contact Opspot, security software support, security guard software demo, security operations help, Opspot contact" 
+        />
+        <link rel="canonical" href={`${siteUrl}/contact`} />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${siteUrl}/contact`} />
+        <meta property="og:title" content="Contact Us - Opspot Security Guard Management Software" />
+        <meta property="og:description" content="Have questions about Opspot? Need support or want to learn more? Contact our team today." />
+        
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:url" content={`${siteUrl}/contact`} />
+        <meta property="twitter:title" content="Contact Us - Opspot Security Guard Management Software" />
+        <meta property="twitter:description" content="Have questions about Opspot? Need support or want to learn more? Contact our team today." />
+      </Helmet>
       <Navigation />
       <div
         className={`mt-24 py-16 sm:px-4 lg:px-24 w-full bg-black flex flex-col ${

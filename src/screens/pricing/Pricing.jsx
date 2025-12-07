@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { plans, categories } from "../../content/pricingContent";
 import Navigation from "../../components/navigation";
@@ -50,9 +51,49 @@ const PricingScreen = () => {
 
   // Filter to show only first two plans (keeping third for future use)
   const visiblePlans = plans.slice(0, 2);
+  const siteUrl = process.env.REACT_APP_DOMAIN || "https://opspot.com";
 
   return (
     <>
+      <Helmet>
+        <title>
+          Pricing - Simple, Flexible Security Guard Management Software Plans |
+          Opspot
+        </title>
+        <meta
+          name="description"
+          content="Simple, flexible pricing for security guard operations. Start free, scale your team, and pay for only the guards you manage. Affordable security guard management software with transparent pricing."
+        />
+        <meta
+          name="keywords"
+          content="security guard software pricing, security operations software cost, guard management software plans, affordable security software, security guard software pricing plans"
+        />
+        <link rel="canonical" href={`${siteUrl}/pricing`} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${siteUrl}/pricing`} />
+        <meta
+          property="og:title"
+          content="Pricing - Simple, Flexible Security Guard Management Software Plans | Opspot"
+        />
+        <meta
+          property="og:description"
+          content="Simple, flexible pricing for security guard operations. Start free, scale your team, and pay for only the guards you manage."
+        />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:url" content={`${siteUrl}/pricing`} />
+        <meta
+          property="twitter:title"
+          content="Pricing - Simple, Flexible Security Guard Management Software Plans | Opspot"
+        />
+        <meta
+          property="twitter:description"
+          content="Simple, flexible pricing for security guard operations. Start free, scale your team, and pay for only the guards you manage."
+        />
+      </Helmet>
       <Navigation />
       <div className="mt-48 py-16 sm:px-4 lg:px-24 w-3/4 mx-auto bg-black">
         <h2 className="text-xl leading-tight font-bold text-white text-center">

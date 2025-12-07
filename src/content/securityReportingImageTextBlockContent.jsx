@@ -15,58 +15,40 @@ const SecurityReportingImageTextBlockContent = [
   {
     firstItem: "text",
     header: "Dynamic report filtering",
-    body: "Easily filter reports by activity, guard, customer, or location for unparalleled flexibility.",
+    body: "Quickly filter reports by activity type, guard, customer site, or location. Find exactly what you need; without digging through endless data.",
     imageUrl: dynamicFiltering,
     // listItems: [
-    //   {
-    //     icon: <MapIcon className="h-5 w-5" />,
-    //     text: "Custom filters",
-    //   },
+    //   { icon: <MapIcon className="h-5 w-5" />, text: "Custom filters" },
     // ],
   },
   {
     firstItem: "image",
     header: "Robust activity tracking",
-    body: "Track every activity—from checkpoints and incident reports to emergency calls—with real-time detail that can be viewed and shared.",
+    body: "Monitor everything happening in the field; from patrol checkpoints and incident reports to emergency calls. Every action is logged with real-time detail for complete operational visibility.",
     imageUrl: activityTracking,
     // listItems: [
-    //   {
-    //     icon: <QrCodeIcon className="h-5 w-5" />,
-    //     text: "Checkpoints",
-    //   },
-    //   {
-    //     icon: <ClipboardDocumentCheckIcon className="h-5 w-5" />,
-    //     text: "Incident reports",
-    //   },
-    //   {
-    //     icon: <SignalIcon className="h-5 w-5" />,
-    //     text: "Emergency calls",
-    //   },
+    //   { icon: <QrCodeIcon className="h-5 w-5" />, text: "Checkpoints" },
+    //   { icon: <ClipboardDocumentCheckIcon className="h-5 w-5" />, text: "Incident reports" },
+    //   { icon: <SignalIcon className="h-5 w-5" />, text: "Emergency calls" },
     // ],
   },
   {
     firstItem: "text",
     header: "Comprehensive location tracking",
-    body: "All guard activities are automatically GPS tagged in the field, ensuring every detail is recorded.",
+    body: "Every guard activity is automatically GPS-tagged, giving you precise geolocation data to support accountability, audit trails, and customer reporting.",
     imageUrl: mobileLocation,
     // listItems: [
-    //   {
-    //     icon: <MapPinIcon className="h-5 w-5" />,
-    //     text: "Accurate GPS tracking",
-    //   },
+    //   { icon: <MapPinIcon className="h-5 w-5" />, text: "Accurate GPS tracking" },
     // ],
   },
 
   {
     firstItem: "image",
     header: "Seamless sharing & export",
-    body: "Save reports as PDFs or email them directly to stakeholders and customers, keeping everyone informed effortlessly.",
+    body: "Export reports as PDFs or send them directly to customers and stakeholders. Keep everyone informed with clean, professional reporting. Instantly.",
     imageUrl: seamlessSharing,
     // listItems: [
-    //   {
-    //     icon: <ShareIcon className="h-5 w-5" />,
-    //     text: "Export & share",
-    //   },
+    //   { icon: <ShareIcon className="h-5 w-5" />, text: "Export & share" },
     // ],
   },
 ];

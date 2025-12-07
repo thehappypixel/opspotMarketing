@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Navigation from "../../components/navigation";
 import HomeTabs from "./HomeTabs";
 import ImageTextBlock from "../../components/imageTextBlock";
@@ -10,8 +11,49 @@ import DemoSignup from "../../components/demoSignup";
 import mobileImage from "../../assets/images/opspot-security-dashboard-mobile-guard.png";
 
 function HomeScreen() {
+  const siteUrl = process.env.REACT_APP_DOMAIN || "https://opspot.com";
+
   return (
     <>
+      <Helmet>
+        <title>
+          Opspot - Simple, Powerful & Affordable Security Guard Management
+          Software
+        </title>
+        <meta
+          name="description"
+          content="Manage your security guard team with Opspot's all-in-one platform. Track patrols, incidents, schedules, and GPS tracking. Simple, powerful, and affordable security operations software built for security teams."
+        />
+        <meta
+          name="keywords"
+          content="security guard management software, security operations software, guard patrol software, incident management, GPS tracking, security reporting, mobile guard app, security team management"
+        />
+        <link rel="canonical" href={`${siteUrl}/`} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`${siteUrl}/`} />
+        <meta
+          property="og:title"
+          content="Opspot - Simple, Powerful & Affordable Security Guard Management Software"
+        />
+        <meta
+          property="og:description"
+          content="Manage your security guard team with Opspot's all-in-one platform. Track patrols, incidents, schedules, and GPS tracking. Simple, powerful, and affordable security operations software."
+        />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={`${siteUrl}/`} />
+        <meta
+          property="twitter:title"
+          content="Opspot - Simple, Powerful & Affordable Security Guard Management Software"
+        />
+        <meta
+          property="twitter:description"
+          content="Manage your security guard team with Opspot's all-in-one platform. Track patrols, incidents, schedules, and GPS tracking."
+        />
+      </Helmet>
       <Navigation />
       <div className="mt-32 py-16 sm:px-4 lg:px-14 w-full bg-black">
         <h1 className="text-xl leading-tight font-bold text-white text-center w-3/4 mx-auto">

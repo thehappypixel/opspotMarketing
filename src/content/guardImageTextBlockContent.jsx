@@ -20,54 +20,71 @@ const GuardImageTextBlockContent = [
   {
     firstItem: "text",
     header: "Clocking in and out",
-    body: "Easily record the start and end of each shift with our digital clock in/out feature, ensuring accurate attendance tracking.",
+    body: "Accurately track attendance with digital clock-in and clock-out. Every shift is recorded automatically, reducing paperwork and payroll errors.",
     imageUrl: mobileClockinOut,
-    // listItems: [
-    //   {
-    //     icon: <ClockIcon className="h-5 w-5" />,
-    //     text: "Accurate time tracking",
-    //   },
-    // ],
+    listItems: [
+      {
+        icon: <ClockIcon className="h-5 w-5" />,
+        text: "Accurate time tracking",
+      },
+      {
+        icon: <ClipboardDocumentCheckIcon className="h-5 w-5" />,
+        text: "Automatic shift records",
+      },
+    ],
   },
   {
     firstItem: "image",
     header: "Automatic daily activity reports",
-    body: "Daily Activity Reports (DAR) are automatically recorded and linked to each guard's shift, providing a complete record of all activities.",
+    body: "Daily Activity Reports (DARs) are automatically generated and tied to each guard's shift — giving you a complete timeline of tasks, patrols, and incidents with zero extra effort.",
     imageUrl: mobileActivityReports,
-    // listItems: [
-    //   {
-    //     icon: <ClipboardDocumentCheckIcon className="h-5 w-5" />,
-    //     text: "Automated reports",
-    //   },
-    // ],
+    listItems: [
+      {
+        icon: <ClipboardDocumentCheckIcon className="h-5 w-5" />,
+        text: "Auto-generated DARs",
+      },
+      {
+        icon: <ClockIcon className="h-5 w-5" />,
+        text: "Shift-linked reporting",
+      },
+    ],
   },
   {
     firstItem: "text",
     header: "Real-time location tracking",
-    body: "Every activity is tagged with precise location data, ensuring you have real-time visibility into guard movements.",
+    body: "Know where guards are at all times. Every activity is GPS-tagged to improve accountability, visibility, and safety during patrols.",
     imageUrl: mobileLocation,
-    // listItems: [
-    //   { icon: <MapPinIcon className="h-5 w-5" />, text: "GPS tracking" },
-    // ],
+    listItems: [
+      { icon: <MapPinIcon className="h-5 w-5" />, text: "GPS precision" },
+      { icon: <SignalIcon className="h-5 w-5" />, text: "Real-time updates" },
+    ],
   },
   {
     firstItem: "image",
     header: "Flexible checkpoint logging",
-    body: "Record checkpoints using NFC, QR codes, or manual entry—whichever works best in the field.",
+    body: "Log checkpoints however your site requires — QR codes, NFC tags, or manual entry. Ideal for indoor, outdoor, and high-security environments.",
     imageUrl: mobileCheckpoint,
     listItems: [
-      { icon: <QrCodeIcon className="h-5 w-5" />, text: "QR codes" },
-      { icon: <SignalIcon className="h-5 w-5" />, text: "NFC" },
+      { icon: <QrCodeIcon className="h-5 w-5" />, text: "QR code scanning" },
+      { icon: <SignalIcon className="h-5 w-5" />, text: "NFC support" },
+      {
+        icon: <ClipboardDocumentCheckIcon className="h-5 w-5" />,
+        text: "Manual entry option",
+      },
     ],
   },
   {
     firstItem: "text",
     header: "Guided patrol tours",
-    body: "Guards follow structured tours that guide them through a sequence of activities, ensuring no task or checkpoint is missed.",
+    body: "Guards follow structured tours that walk them through every required task, checkpoint, and inspection — ensuring consistent patrol quality every time.",
     imageUrl: mobileTour,
-    // listItems: [
-    //   { icon: <MapIcon className="h-5 w-5" />, text: "Sequential tours" },
-    // ],
+    listItems: [
+      { icon: <MapIcon className="h-5 w-5" />, text: "Step-by-step tours" },
+      {
+        icon: <ClipboardDocumentCheckIcon className="h-5 w-5" />,
+        text: "Task-based guidance",
+      },
+    ],
   },
 ];
 

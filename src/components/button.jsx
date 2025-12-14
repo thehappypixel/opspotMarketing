@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import { trackButtonClick } from "../utils/analytics";
 
 export default function Button({
   text,
@@ -8,6 +9,7 @@ export default function Button({
   density = "default",
   icon = false,
   iconPosition = "left",
+  location = "unknown", // Location context for analytics (e.g., 'hero', 'navigation', 'footer')
 }) {
   // Map density variants to padding classes (used for primary and secondary)
   const densityClasses = {
@@ -35,8 +37,16 @@ export default function Button({
     } rounded-lg text-sm font-medium text-white bg-brand-primary border-2 border-brand-primary hover:bg-brand-200 hover:border-brand-200`;
   }
 
+  const handleClick = () => {
+    trackButtonClick(text, location, link);
+  };
+
   return (
-    <a href={link} className={`${baseClasses} ${buttonClasses}`}>
+    <a
+      href={link}
+      onClick={handleClick}
+      className={`${baseClasses} ${buttonClasses}`}
+    >
       <div className="flex items-center">
         {icon && iconPosition === "left" && (
           <ArrowRightIcon className="h-5 w-5 mr-2 transition-transform duration-150 group-hover:translate-x-2" />

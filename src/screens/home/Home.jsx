@@ -9,6 +9,7 @@ import Button from "../../components/button";
 import Footer from "../../components/footer";
 import DemoSignup from "../../components/demoSignup";
 import mobileImage from "../../assets/images/opspot-security-dashboard-mobile-guard.png";
+import { trackLinkClick } from "../../utils/analytics";
 
 function HomeScreen() {
   const siteUrl = process.env.REACT_APP_DOMAIN || "https://opspot.com";
@@ -71,12 +72,14 @@ function HomeScreen() {
             icon={true}
             iconPosition="right"
             density="tight"
+            location="hero"
             link={`${
               process.env.REACT_APP_DOMAIN || "http://localhost:3000"
             }/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`}
           />
           <Link
             to="/contact"
+            onClick={() => trackLinkClick("Request a demo", "/contact", "hero")}
             className="text-white text-sm font-medium px-6 hover:text-opacity-80 transition duration-150 ease-in-out"
           >
             Request a demo

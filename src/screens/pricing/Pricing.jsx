@@ -5,6 +5,7 @@ import { plans, categories } from "../../content/pricingContent";
 import Navigation from "../../components/navigation";
 import PricingFAQGrid from "./PricingFAQ";
 import Footer from "../../components/footer";
+import { trackExternalLink, trackEvent } from "../../utils/analytics";
 
 const Toggle = ({ isAnnual, setIsAnnual }) => {
   return (
@@ -138,6 +139,20 @@ const PricingScreen = () => {
                             "/auth/register?priceId=" +
                             (isAnnual ? plan.id.yearly : plan.id.monthly)
                           }
+                          onClick={() => {
+                            const signupUrl =
+                              process.env.REACT_APP_DOMAIN +
+                              "/auth/register?priceId=" +
+                              (isAnnual ? plan.id.yearly : plan.id.monthly);
+                            trackExternalLink(signupUrl, plan.buttonText);
+                            trackEvent(
+                              "cta_signup",
+                              "conversion",
+                              `pricing_${plan.name
+                                .toLowerCase()
+                                .replace(/\s+/g, "_")}`
+                            );
+                          }}
                           className={`block mt-4 py-3 px-6 rounded-lg font-bold text-center lg:w-full sm:w-60 hover:bg-opacity-85 transition duration-150 ease-in-out ${
                             plan.highlight
                               ? "bg-brand-primary text-white hover:text-gray-50"

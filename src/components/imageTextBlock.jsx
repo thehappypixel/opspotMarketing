@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "./button";
+import { trackLinkClick } from "../utils/analytics";
 
 const ImageTextBlock = ({
   firstItem,
@@ -40,6 +41,9 @@ const ImageTextBlock = ({
               type="subtle"
               icon="true"
               iconPosition="right"
+              location={`image_text_block_${header
+                .toLowerCase()
+                .replace(/\s+/g, "_")}`}
             />
             {/* <Link
               to={ctaLink}

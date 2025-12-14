@@ -10,8 +10,17 @@ import {
   DevicePhoneMobileIcon,
   FlagIcon,
   ClipboardDocumentCheckIcon,
+  CalendarDaysIcon,
+  BookOpenIcon,
+  DocumentTextIcon,
+  PlayIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
+import {
+  trackLinkClick,
+  trackExternalLink,
+  trackEvent,
+} from "../utils/analytics";
 
 const Navigation = () => {
   const location = useLocation();
@@ -25,6 +34,7 @@ const Navigation = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [productMenuOpen, setProductMenuOpen] = useState(false);
+  const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
   const { login } = useKindeAuth();
 
   // List of routes that should mark the Product nav item as active.
@@ -32,10 +42,21 @@ const Navigation = () => {
     "/mobile-guard",
     "/incident-management",
     "/security-reporting",
+    "/scheduling",
   ];
   const isProductActive = productRoutes.includes(location.pathname);
 
+  // List of routes that should mark the Resources nav item as active.
+  const resourcesRoutes = [
+    "/resources/guides",
+    "/resources/how-to-articles",
+    "/resources/walkthroughs",
+  ];
+  const isResourcesActive = resourcesRoutes.includes(location.pathname);
+
   const productMenuRef = useRef(null);
+  const resourcesMenuRef = useRef(null);
+
   useEffect(() => {
     function handleClickOutside(event) {
       if (
@@ -44,8 +65,14 @@ const Navigation = () => {
       ) {
         setProductMenuOpen(false);
       }
+      if (
+        resourcesMenuRef.current &&
+        !resourcesMenuRef.current.contains(event.target)
+      ) {
+        setResourcesMenuOpen(false);
+      }
     }
-    if (productMenuOpen) {
+    if (productMenuOpen || resourcesMenuOpen) {
       document.addEventListener("mousedown", handleClickOutside);
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -53,7 +80,7 @@ const Navigation = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [productMenuOpen]);
+  }, [productMenuOpen, resourcesMenuOpen]);
 
   // Change navigation appearance on scroll.
   useEffect(() => {
@@ -107,6 +134,8 @@ const Navigation = () => {
             onClick={() => {
               setMenuOpen(false);
               setProductMenuOpen(false);
+              setResourcesMenuOpen(false);
+              trackLinkClick("Logo", "/", "navigation");
             }}
             reloadDocument
           >
@@ -146,7 +175,14 @@ const Navigation = () => {
                   <div className="whitespace-nowrap">
                     <Link
                       to="/mobile-guard"
-                      onClick={() => setProductMenuOpen(false)}
+                      onClick={() => {
+                        setProductMenuOpen(false);
+                        trackLinkClick(
+                          "Mobile guard",
+                          "/mobile-guard",
+                          "navigation_dropdown"
+                        );
+                      }}
                       className="flex items-center px-2 py-1 mb-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition duration-150 ease-in-out"
                       reloadDocument
                     >
@@ -155,7 +191,14 @@ const Navigation = () => {
                     </Link>
                     <Link
                       to="/incident-management"
-                      onClick={() => setProductMenuOpen(false)}
+                      onClick={() => {
+                        setProductMenuOpen(false);
+                        trackLinkClick(
+                          "Incident management",
+                          "/incident-management",
+                          "navigation_dropdown"
+                        );
+                      }}
                       className="flex items-center px-2 py-1 mb-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition duration-150 ease-in-out"
                       reloadDocument
                     >
@@ -164,12 +207,35 @@ const Navigation = () => {
                     </Link>
                     <Link
                       to="/security-reporting"
-                      onClick={() => setProductMenuOpen(false)}
-                      className="flex items-center px-2 py-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition duration-150 ease-in-out"
+                      onClick={() => {
+                        setProductMenuOpen(false);
+                        trackLinkClick(
+                          "Security reporting",
+                          "/security-reporting",
+                          "navigation_dropdown"
+                        );
+                      }}
+                      className="flex items-center px-2 py-1 mb-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition duration-150 ease-in-out"
                       reloadDocument
                     >
                       <ClipboardDocumentCheckIcon className="mr-2 h-5 w-5 text-gray-700" />
                       Security reporting
+                    </Link>
+                    <Link
+                      to="/scheduling"
+                      onClick={() => {
+                        setProductMenuOpen(false);
+                        trackLinkClick(
+                          "Guard Scheduling",
+                          "/scheduling",
+                          "navigation_dropdown"
+                        );
+                      }}
+                      className="flex items-center px-2 py-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition duration-150 ease-in-out"
+                      reloadDocument
+                    >
+                      <CalendarDaysIcon className="mr-2 h-5 w-5 text-gray-700" />
+                      Guard Scheduling
                     </Link>
                   </div>
                 </div>
@@ -179,6 +245,9 @@ const Navigation = () => {
             {/* Pricing */}
             <Link
               to="/pricing"
+              onClick={() =>
+                trackLinkClick("Pricing", "/pricing", "navigation")
+              }
               className={`md:px-2 lg:px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
                 navState.link
               } ${isActive("/pricing") ? "bg-gray-100" : ""}`}
@@ -186,8 +255,84 @@ const Navigation = () => {
             >
               Pricing
             </Link>
+
+            {/* Resources Menu */}
+            {/* <div className="relative" ref={resourcesMenuRef}>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setResourcesMenuOpen(!resourcesMenuOpen);
+                }}
+                className={`md:px-2 lg:px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
+                  navState.link
+                } ${
+                  isResourcesActive || resourcesMenuOpen ? "bg-gray-100" : ""
+                }`}
+              >
+                Resources <ChevronDownIcon className="h-4 w-4 inline" />
+              </button>
+
+              {resourcesMenuOpen && (
+                <div className="absolute left-1/2 transform -translate-x-1/2 mt-3 px-2 py-3 flex rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20 min-w-max border border-gray-300">
+                  <div className="whitespace-nowrap">
+                    <Link
+                      to="/resources/guides"
+                      onClick={() => {
+                        setResourcesMenuOpen(false);
+                        trackLinkClick(
+                          "Guides",
+                          "/resources/guides",
+                          "navigation_dropdown"
+                        );
+                      }}
+                      className="flex items-center px-2 py-1 mb-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition duration-150 ease-in-out"
+                      reloadDocument
+                    >
+                      <BookOpenIcon className="mr-2 h-5 w-5 text-gray-700" />
+                      Guides
+                    </Link>
+                    <Link
+                      to="/resources/how-to-articles"
+                      onClick={() => {
+                        setResourcesMenuOpen(false);
+                        trackLinkClick(
+                          "How to articles",
+                          "/resources/how-to-articles",
+                          "navigation_dropdown"
+                        );
+                      }}
+                      className="flex items-center px-2 py-1 mb-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition duration-150 ease-in-out"
+                      reloadDocument
+                    >
+                      <DocumentTextIcon className="mr-2 h-5 w-5 text-gray-700" />
+                      How to articles
+                    </Link>
+                    <Link
+                      to="/resources/walkthroughs"
+                      onClick={() => {
+                        setResourcesMenuOpen(false);
+                        trackLinkClick(
+                          "Walkthroughs",
+                          "/resources/walkthroughs",
+                          "navigation_dropdown"
+                        );
+                      }}
+                      className="flex items-center px-2 py-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition duration-150 ease-in-out"
+                      reloadDocument
+                    >
+                      <PlayIcon className="mr-2 h-5 w-5 text-gray-700" />
+                      Walkthroughs
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div> */}
+
             <Link
               to="/contact"
+              onClick={() =>
+                trackLinkClick("Contact", "/contact", "navigation")
+              }
               className={`md:px-2 lg:px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
                 navState.link
               } ${isActive("/contact") ? "bg-gray-100" : ""}`}
@@ -204,6 +349,12 @@ const Navigation = () => {
             href={`${
               process.env.REACT_APP_DOMAIN || "http://localhost:3000"
             }/auth/login/`}
+            onClick={() => {
+              const loginUrl = `${
+                process.env.REACT_APP_DOMAIN || "http://localhost:3000"
+              }/auth/login/`;
+              trackExternalLink(loginUrl, "Login");
+            }}
             className={`block mr-3 px-6 py-2 text-xxs font-medium hover:text-opacity-85 transition duration-150 ease-in-out ${navState.text}`}
           >
             Login
@@ -212,6 +363,13 @@ const Navigation = () => {
             href={`${
               process.env.REACT_APP_DOMAIN || "http://localhost:3000"
             }/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`}
+            onClick={() => {
+              const signupUrl = `${
+                process.env.REACT_APP_DOMAIN || "http://localhost:3000"
+              }/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`;
+              trackExternalLink(signupUrl, "Sign up");
+              trackEvent("cta_signup", "conversion", "navigation_header");
+            }}
             className="block px-6 py-2 rounded-lg text-xxs font-medium text-white hover:text-gray-50 bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out"
           >
             Sign up
@@ -224,6 +382,17 @@ const Navigation = () => {
             href={`${
               process.env.REACT_APP_DOMAIN || "http://localhost:3000"
             }/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`}
+            onClick={() => {
+              const signupUrl = `${
+                process.env.REACT_APP_DOMAIN || "http://localhost:3000"
+              }/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`;
+              trackExternalLink(signupUrl, "Sign up");
+              trackEvent(
+                "cta_signup",
+                "conversion",
+                "navigation_mobile_header"
+              );
+            }}
             className="block w-full text-left px-3 py-2 mr-3 rounded-lg text-base font-medium text-white hover:text-gray-50 hover:cursor-pointer bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out"
           >
             Sign up
@@ -249,6 +418,8 @@ const Navigation = () => {
                 onClick={() => {
                   setMenuOpen(false);
                   setProductMenuOpen(false);
+                  setResourcesMenuOpen(false);
+                  trackLinkClick("Logo", "/", "mobile_menu");
                 }}
                 reloadDocument
               >
@@ -272,7 +443,10 @@ const Navigation = () => {
           <div className="space-y-6 pt-6">
             <Link
               to="/mobile-guard"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                setMenuOpen(false);
+                trackLinkClick("Mobile guard", "/mobile-guard", "mobile_menu");
+              }}
               className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
               reloadDocument
             >
@@ -280,7 +454,14 @@ const Navigation = () => {
             </Link>
             <Link
               to="/incident-management"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                setMenuOpen(false);
+                trackLinkClick(
+                  "Incident management",
+                  "/incident-management",
+                  "mobile_menu"
+                );
+              }}
               className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
               reloadDocument
             >
@@ -288,15 +469,81 @@ const Navigation = () => {
             </Link>
             <Link
               to="/security-reporting"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                setMenuOpen(false);
+                trackLinkClick(
+                  "Security reporting",
+                  "/security-reporting",
+                  "mobile_menu"
+                );
+              }}
               className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
               reloadDocument
             >
               Security reporting
             </Link>
             <Link
+              to="/scheduling"
+              onClick={() => {
+                setMenuOpen(false);
+                trackLinkClick(
+                  "Guard Scheduling",
+                  "/scheduling",
+                  "mobile_menu"
+                );
+              }}
+              className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
+              reloadDocument
+            >
+              Guard Scheduling
+            </Link>
+            {/* <Link
+              to="/resources/guides"
+              onClick={() => {
+                setMenuOpen(false);
+                trackLinkClick("Guides", "/resources/guides", "mobile_menu");
+              }}
+              className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
+              reloadDocument
+            >
+              Guides
+            </Link> */}
+            {/* <Link
+              to="/resources/how-to-articles"
+              onClick={() => {
+                setMenuOpen(false);
+                trackLinkClick(
+                  "How to articles",
+                  "/resources/how-to-articles",
+                  "mobile_menu"
+                );
+              }}
+              className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
+              reloadDocument
+            >
+              How to articles
+            </Link>
+            <Link
+              to="/resources/walkthroughs"
+              onClick={() => {
+                setMenuOpen(false);
+                trackLinkClick(
+                  "Walkthroughs",
+                  "/resources/walkthroughs",
+                  "mobile_menu"
+                );
+              }}
+              className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
+              reloadDocument
+            >
+              Walkthroughs
+            </Link> */}
+            <Link
               to="/pricing"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                setMenuOpen(false);
+                trackLinkClick("Pricing", "/pricing", "mobile_menu");
+              }}
               className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
               reloadDocument
             >
@@ -304,7 +551,10 @@ const Navigation = () => {
             </Link>
             <Link
               to="/contact"
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                setMenuOpen(false);
+                trackLinkClick("Contact", "/contact", "mobile_menu");
+              }}
               className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
               reloadDocument
             >
@@ -330,6 +580,12 @@ const Navigation = () => {
                 href={`${
                   process.env.REACT_APP_DOMAIN || "http://localhost:3000"
                 }/auth/login/`}
+                onClick={() => {
+                  const loginUrl = `${
+                    process.env.REACT_APP_DOMAIN || "http://localhost:3000"
+                  }/auth/login/`;
+                  trackExternalLink(loginUrl, "Sign in");
+                }}
                 className={`block text-left px-8 py-3 rounded-lg text-base font-medium hover:text-opacity-65 hover:cursor-pointer transition duration-150 ease-in-out ${navState.text}`}
               >
                 Sign in
@@ -338,6 +594,15 @@ const Navigation = () => {
                 href={`${
                   process.env.REACT_APP_DOMAIN || "http://localhost:3000"
                 }/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`}
+                onClick={() => {
+                  const signupUrl = `${
+                    process.env.REACT_APP_DOMAIN || "http://localhost:3000"
+                  }/auth/register/?priceId=${
+                    process.env.REACT_APP_STARTER_PLAN
+                  }`;
+                  trackExternalLink(signupUrl, "Sign up");
+                  trackEvent("cta_signup", "conversion", "mobile_menu");
+                }}
                 className="block text-left px-8 py-3 rounded-lg text-base font-medium text-white hover:text-gray-50 bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out hover:cursor-pointer"
               >
                 Sign up

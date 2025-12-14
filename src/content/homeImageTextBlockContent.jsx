@@ -1,12 +1,15 @@
 import mobileGuard from "../assets/images/mobile-guard.png";
 import incidentManagement from "../assets/images/incident-flexible-customizable-reporting.png";
 import securityReporting from "../assets/images/security-reporting-activity-reporting.png";
+import scheduling from "../assets/images/scheduling.png";
 
 import { QrCodeIcon } from "@heroicons/react/24/outline";
 import { SignalIcon } from "@heroicons/react/24/outline";
 import { MapPinIcon } from "@heroicons/react/24/outline";
 import { MapIcon } from "@heroicons/react/24/outline";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
+import { CalendarDaysIcon } from "@heroicons/react/24/outline";
+import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
 
 const HomeImageTextBlockContent = [
   {
@@ -56,6 +59,24 @@ const HomeImageTextBlockContent = [
     ctaLink: "/security-reporting",
     ctaText: "See reporting capabilities",
     imageUrl: securityReporting,
+  },
+  {
+    firstItem: "image",
+    header: "Simple guard scheduling and shift management",
+    body: "Create schedules quickly with activities, checkpoints, and tours. Use templates to copy schedules week to week, saving hours of admin time. Guards clock in and follow their scheduled activities in the mobile app—making it fast and easy to know what to do and complete their duties.",
+    ctaLink: "/scheduling",
+    ctaText: "Learn about guard scheduling",
+    imageUrl: scheduling,
+    listItems: [
+      {
+        icon: <CalendarDaysIcon className="h-5 w-5" />,
+        text: "Quick schedule creation",
+      },
+      {
+        icon: <DocumentDuplicateIcon className="h-5 w-5" />,
+        text: "Templates and copy schedules",
+      },
+    ],
   },
 ];
 

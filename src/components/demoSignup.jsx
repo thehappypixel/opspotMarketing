@@ -45,6 +45,7 @@ export default function DemoSignup() {
               icon={true}
               iconPosition="right"
               density="tight"
+              location="demo_signup_section"
               link={`${
                 process.env.REACT_APP_DOMAIN || "http://localhost:3000"
               }/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`}
@@ -55,6 +56,7 @@ export default function DemoSignup() {
             icon={false}
             density="tight"
             type="secondary"
+            location="demo_signup_section"
             link="contact"
           />
         </div>

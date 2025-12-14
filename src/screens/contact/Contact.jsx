@@ -8,6 +8,11 @@ import Button from "../../components/button";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  trackFormSubmit,
+  trackLinkClick,
+  trackButtonClick,
+} from "../../utils/analytics";
 
 // Zod schema for validation
 const formSchema = z.object({
@@ -39,40 +44,54 @@ function ContactScreen() {
         body: JSON.stringify(data),
       });
 
+      trackFormSubmit("contact", true);
       setIsComplete(true);
       reset();
     } catch (error) {
+      trackFormSubmit("contact", false);
       alert("There was an issue submitting your form. Please try again later.");
     }
   };
 
   const siteUrl = process.env.REACT_APP_DOMAIN || "https://opspot.com";
-  
+
   return (
     <>
       <Helmet>
         <title>Contact Us - Opspot Security Guard Management Software</title>
-        <meta 
-          name="description" 
-          content="Have questions about Opspot security guard management software? Need support or want to learn more? Contact our team today. We're here to help with your security operations needs." 
+        <meta
+          name="description"
+          content="Have questions about Opspot security guard management software? Need support or want to learn more? Contact our team today. We're here to help with your security operations needs."
         />
-        <meta 
-          name="keywords" 
-          content="contact Opspot, security software support, security guard software demo, security operations help, Opspot contact" 
+        <meta
+          name="keywords"
+          content="contact Opspot, security software support, security guard software demo, security operations help, Opspot contact"
         />
         <link rel="canonical" href={`${siteUrl}/contact`} />
-        
+
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${siteUrl}/contact`} />
-        <meta property="og:title" content="Contact Us - Opspot Security Guard Management Software" />
-        <meta property="og:description" content="Have questions about Opspot? Need support or want to learn more? Contact our team today." />
-        
+        <meta
+          property="og:title"
+          content="Contact Us - Opspot Security Guard Management Software"
+        />
+        <meta
+          property="og:description"
+          content="Have questions about Opspot? Need support or want to learn more? Contact our team today."
+        />
+
         {/* Twitter */}
         <meta property="twitter:card" content="summary" />
         <meta property="twitter:url" content={`${siteUrl}/contact`} />
-        <meta property="twitter:title" content="Contact Us - Opspot Security Guard Management Software" />
-        <meta property="twitter:description" content="Have questions about Opspot? Need support or want to learn more? Contact our team today." />
+        <meta
+          property="twitter:title"
+          content="Contact Us - Opspot Security Guard Management Software"
+        />
+        <meta
+          property="twitter:description"
+          content="Have questions about Opspot? Need support or want to learn more? Contact our team today."
+        />
       </Helmet>
       <Navigation />
       <div
@@ -102,6 +121,9 @@ function ContactScreen() {
               <div className="flex gap-4">
                 <Link
                   to="/"
+                  onClick={() =>
+                    trackLinkClick("Return Home", "/", "contact_success")
+                  }
                   className="px-6 py-2 rounded-lg bg-brand-primary text-white text-sm font-medium hover:bg-brand-200 transition"
                 >
                   Return Home
@@ -165,6 +187,9 @@ function ContactScreen() {
               <button
                 type="submit"
                 disabled={isSubmitting}
+                onClick={() =>
+                  trackButtonClick("Submit", "contact_form", "/contact")
+                }
                 className="px-8 py-2 mt-4 rounded-lg text-sm font-medium text-white bg-brand-primary border-2 border-brand-primary hover:bg-brand-200 hover:border-brand-200 group block duration-150 ease-in-out cursor-pointer"
               >
                 {isSubmitting ? "Submitting..." : "Submit"}

@@ -2,68 +2,66 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import Navigation from "../../components/navigation";
 import ImageTextBlock from "../../components/imageTextBlock";
-import IncidentManagementImageTextBlockContent from "../../content/incidentManagementImageTextBlockContent";
-import incidentImage from "../../assets/images/incident-management-screen.png";
+import SchedulingImageTextBlockContent from "../../content/schedulingImageTextBlockContent";
+import schedulingImage from "../../assets/images/scheduling.png";
 import Footer from "../../components/footer";
 import DemoSignup from "../../components/demoSignup";
 import Button from "../../components/button";
 
-function IncidentManagementScreen() {
+function SchedulingScreen() {
   const siteUrl = process.env.REACT_APP_DOMAIN || "https://opspot.com";
 
   return (
     <>
       <Helmet>
         <title>
-          Incident Management Software - Fast, Accurate Field Incident Reporting
-          | Opspot
+          Security Guard Scheduling Software - Create & Manage Guard Schedules |
+          Opspot
         </title>
         <meta
           name="description"
-          content="Empower your security team with fast, accurate field incident reporting. Customizable reports with photos, GPS location tracking, and automatic time stamps. No more delays in incident documentation."
+          content="Create guard schedules quickly and easily with Opspot's scheduling software. Build schedules with activities, checkpoints, and tours. Use templates to copy schedules week to week. Guards follow their scheduled activities in the mobile app."
         />
         <meta
           name="keywords"
-          content="incident management software, security incident reporting, field incident reporting, incident report software, security incident management, GPS incident tracking, incident documentation software"
+          content="security guard scheduling software, guard schedule management, security workforce scheduling, guard shift scheduling, security operations scheduling, guard management scheduling, schedule templates for security guards"
         />
-        <link rel="canonical" href={`${siteUrl}/incident-management`} />
+        <link rel="canonical" href={`${siteUrl}/scheduling`} />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`${siteUrl}/incident-management`} />
+        <meta property="og:url" content={`${siteUrl}/scheduling`} />
         <meta
           property="og:title"
-          content="Incident Management Software - Fast, Accurate Field Incident Reporting | Opspot"
+          content="Security Guard Scheduling Software - Create & Manage Guard Schedules | Opspot"
         />
         <meta
           property="og:description"
-          content="Empower your security team with fast, accurate field incident reporting. Customizable reports with photos and GPS tracking."
+          content="Create guard schedules quickly and easily. Build schedules with activities, checkpoints, and tours. Guards follow their scheduled activities in the mobile app."
         />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta
-          property="twitter:url"
-          content={`${siteUrl}/incident-management`}
-        />
+        <meta property="twitter:url" content={`${siteUrl}/scheduling`} />
         <meta
           property="twitter:title"
-          content="Incident Management Software - Fast, Accurate Field Incident Reporting | Opspot"
+          content="Security Guard Scheduling Software - Create & Manage Guard Schedules | Opspot"
         />
         <meta
           property="twitter:description"
-          content="Empower your security team with fast, accurate field incident reporting. Customizable reports with photos and GPS tracking."
+          content="Create guard schedules quickly and easily. Build schedules with activities, checkpoints, and tours."
         />
       </Helmet>
       <Navigation />
       <div className="mt-24 py-16 sm:px-4 lg:px-24 w-full bg-black">
         <h2 className="text-xl leading-tight font-bold text-white text-center">
-          Incident management
+          Guard scheduling
         </h2>
         <div className="flex justify-center">
-          <p className="pt-6 mb-6 text-md tracking-wider leading-snug font-normal text-white text-center md:w-3/4 lg:w-1/2 ">
-            Empower your security team with fast, accurate field incident
-            reporting. No more delays.
+          <p className="pt-6 mb-6 text-md tracking-wider leading-snug font-normal text-white text-center md:w-3/4 lg:w-1/2">
+            Create schedules quickly and easily. Build shifts with activities,
+            checkpoints, and tours that your guards complete during their
+            shifts.
           </p>
         </div>
         <div className="py-4 mb-8 flex justify-center">
@@ -72,7 +70,7 @@ function IncidentManagementScreen() {
             icon={true}
             iconPosition="right"
             density="tight"
-            location="incident_management_hero"
+            location="scheduling_hero"
             link={`${
               process.env.REACT_APP_DOMAIN || "http://localhost:3000"
             }/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`}
@@ -80,14 +78,14 @@ function IncidentManagementScreen() {
         </div>
         <div className="flex justify-center">
           <img
-            src={incidentImage}
-            alt="Incident reporting screenshot"
+            src={schedulingImage}
+            alt="Guard scheduling screenshot"
             className="w-3/4"
           />
         </div>
       </div>
       <div className="bg-white flex flex-col">
-        {IncidentManagementImageTextBlockContent.map((block) => (
+        {SchedulingImageTextBlockContent.map((block) => (
           <ImageTextBlock
             key={block.header}
             firstItem={block.firstItem}
@@ -106,4 +104,4 @@ function IncidentManagementScreen() {
   );
 }
 
-export default IncidentManagementScreen;
+export default SchedulingScreen;

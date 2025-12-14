@@ -69,6 +69,7 @@ function MobileGuardScreen() {
             icon={true}
             iconPosition="right"
             density="tight"
+            location="mobile_guard_hero"
             link={`${
               process.env.REACT_APP_DOMAIN || "http://localhost:3000"
             }/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`}

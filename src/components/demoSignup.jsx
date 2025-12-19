@@ -7,12 +7,20 @@ export default function DemoSignup() {
   const { isSM, isMD, isLG } = useBreakpoints();
 
   let backgroundSize;
+  let backgroundPosition;
+
   if (isSM) {
     backgroundSize = "150%";
+    backgroundPosition = "130% center"; // Further right on mobile to crop properly
   } else if (isMD) {
     backgroundSize = "70%";
+    backgroundPosition = "120% center";
   } else if (isLG) {
     backgroundSize = "50%";
+    backgroundPosition = "120% center";
+  } else {
+    backgroundSize = "50%";
+    backgroundPosition = "120% center";
   }
 
   return (
@@ -20,7 +28,7 @@ export default function DemoSignup() {
       className="flex flex-col justify-center items-center py-32 border-t-2 border-b-2 border-gray-200 bg-white"
       style={{
         backgroundImage: `url(${simpleOpaque})`,
-        backgroundPosition: "right center",
+        backgroundPosition,
         backgroundRepeat: "no-repeat",
         backgroundSize,
       }}

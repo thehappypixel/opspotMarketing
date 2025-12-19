@@ -153,7 +153,7 @@ const Navigation = () => {
         <div className="hidden md:flex flex-grow items-center justify-center">
           {/* Navigation Menu */}
           <div
-            className={`inline-flex items-center space-x-2 px-2 py-1 rounded-lg shadow-md ${navState.container}`}
+            className={`inline-flex items-center space-x-2 px-1 py-1 rounded-lg shadow-md ${navState.container}`}
           >
             {/* Product Menu */}
             <div className="relative" ref={productMenuRef}>

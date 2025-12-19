@@ -8,7 +8,7 @@ import HomeImageTextBlockContent from "../../content/homeImageTextBlockContent";
 import Button from "../../components/button";
 import Footer from "../../components/footer";
 import DemoSignup from "../../components/demoSignup";
-import mobileImage from "../../assets/images/opspot-security-dashboard-mobile-guard.png";
+import mobileImage from "../../assets/images/opspot-security-guard-software.png";
 import { trackLinkClick } from "../../utils/analytics";
 
 function HomeScreen() {
@@ -56,7 +56,7 @@ function HomeScreen() {
         />
       </Helmet>
       <Navigation />
-      <div className="mt-32 py-16 sm:px-4 lg:px-14 w-full bg-black">
+      <div className="mt-32 pt-16 sm:px-4 lg:px-14 w-full bg-black">
         <h1 className="text-xl leading-tight font-bold text-white text-center w-3/4 mx-auto">
           Simple, powerful & affordable tools to manage your security guard team
         </h1>
@@ -88,8 +88,8 @@ function HomeScreen() {
         <div>
           <img
             src={mobileImage}
-            alt="Mobile guard and operations screenshot"
-            className="lg:w-3/4 mx-auto"
+            alt="Opspot Security Guard Software Screenshot"
+            className="lg:w-7/8 mx-auto"
           />
         </div>
       </div>

@@ -22,15 +22,15 @@ const HomeImageTextBlockContent = [
     listItems: [
       {
         icon: <QrCodeIcon className="h-5 w-5" />,
-        text: "QR code checkpoints",
+        text: "QR checkpoints",
       },
       {
         icon: <SignalIcon className="h-5 w-5" />,
-        text: "NFC support",
+        text: "NFC",
       },
       {
         icon: <MapPinIcon className="h-5 w-5" />,
-        text: "Live GPS tracking",
+        text: "GPS tracking",
       },
     ],
   },
@@ -44,7 +44,7 @@ const HomeImageTextBlockContent = [
     listItems: [
       {
         icon: <MapIcon className="h-5 w-5" />,
-        text: "Auto time & location stamping",
+        text: "Time & location tracking",
       },
       {
         icon: <ExclamationTriangleIcon className="h-5 w-5" />,

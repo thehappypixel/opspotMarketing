@@ -27,14 +27,14 @@ export default function Button({
   if (type === "secondary") {
     buttonClasses = `${
       densityClasses[density] || densityClasses.default
-    } rounded-lg text-sm font-medium text-brand-primary bg-white border-2 border-brand-primary hover:text-brand-200 hover:border-brand-200 hover:bg-brand-200 hover:bg-opacity-75 hover:text-white`;
+    } rounded-lg md:text-sm font-medium text-brand-primary bg-white border-2 border-brand-primary hover:text-brand-200 hover:border-brand-200 hover:bg-brand-200 hover:bg-opacity-75 hover:text-white`;
   } else if (type === "subtle") {
     buttonClasses = "text-brand-primary border-brand-primary";
   } else {
     // primary
     buttonClasses = `${
       densityClasses[density] || densityClasses.default
-    } rounded-lg text-sm font-medium text-white bg-brand-primary border-2 border-brand-primary hover:bg-brand-200 hover:border-brand-200`;
+    } rounded-lg md:text-sm font-medium text-white bg-brand-primary border-2 border-brand-primary hover:bg-brand-200 hover:border-brand-200`;
   }
 
   const handleClick = () => {

@@ -57,11 +57,11 @@ function HomeScreen() {
       </Helmet>
       <Navigation />
       <div className="mt-32 pt-16 sm:px-4 lg:px-14 w-full bg-black">
-        <h1 className="text-xl leading-tight font-bold text-white text-center w-3/4 mx-auto">
+        <h1 className="sm:text-lg md:text-xl leading-tight font-bold text-white text-center md:w-3/4 mx-auto">
           Simple, powerful & affordable tools to manage your security guard team
         </h1>
         <div className="flex justify-center">
-          <p className="pt-6 mb-6 text-sm tracking-wider leading-relaxed font-normal text-white text-center w-1/2 mx-auto">
+          <p className="pt-6 mb-6 text-sm tracking-wider leading-relaxed font-normal text-white text-center md:w-1/2 mx-auto">
             Patrols, incidents, schedules, and GPS tracking all in one place,
             helping your team stay organized, responsive, and safe.
           </p>
@@ -80,7 +80,7 @@ function HomeScreen() {
           <Link
             to="/contact"
             onClick={() => trackLinkClick("Request a demo", "/contact", "hero")}
-            className="text-white text-sm font-medium px-6 hover:text-opacity-80 transition duration-150 ease-in-out"
+            className="text-white md:text-sm font-medium px-6 hover:text-opacity-80 transition duration-150 ease-in-out"
           >
             Request a demo
           </Link>

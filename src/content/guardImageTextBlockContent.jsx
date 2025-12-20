@@ -25,7 +25,7 @@ const GuardImageTextBlockContent = [
     listItems: [
       {
         icon: <ClockIcon className="h-5 w-5" />,
-        text: "Accurate time tracking",
+        text: "Time tracking",
       },
       {
         icon: <ClipboardDocumentCheckIcon className="h-5 w-5" />,
@@ -41,11 +41,11 @@ const GuardImageTextBlockContent = [
     listItems: [
       {
         icon: <ClipboardDocumentCheckIcon className="h-5 w-5" />,
-        text: "Auto-generated DARs",
+        text: "Automatic DARs",
       },
       {
         icon: <ClockIcon className="h-5 w-5" />,
-        text: "Shift-linked reporting",
+        text: "Shift reporting",
       },
     ],
   },
@@ -65,25 +65,21 @@ const GuardImageTextBlockContent = [
     body: "Log checkpoints however your site requires — QR codes, NFC tags, or manual entry. Ideal for indoor, outdoor, and high-security environments.",
     imageUrl: mobileCheckpoint,
     listItems: [
-      { icon: <QrCodeIcon className="h-5 w-5" />, text: "QR code scanning" },
-      { icon: <SignalIcon className="h-5 w-5" />, text: "NFC support" },
+      { icon: <QrCodeIcon className="h-5 w-5" />, text: "QR checkpoints" },
+      { icon: <SignalIcon className="h-5 w-5" />, text: "NFC" },
       {
         icon: <ClipboardDocumentCheckIcon className="h-5 w-5" />,
-        text: "Manual entry option",
+        text: "Manual option",
       },
     ],
   },
   {
     firstItem: "text",
     header: "Guided patrol tours",
-    body: "Guards follow structured tours that walk them through every required task, checkpoint, and inspection — ensuring consistent patrol quality every time.",
+    body: "Guards follow structured tours that walk them through every required task, checkpoint, and inspection; ensuring consistent patrol quality.",
     imageUrl: mobileTour,
     listItems: [
-      { icon: <MapIcon className="h-5 w-5" />, text: "Step-by-step tours" },
-      {
-        icon: <ClipboardDocumentCheckIcon className="h-5 w-5" />,
-        text: "Task-based guidance",
-      },
+      { icon: <MapIcon className="h-5 w-5" />, text: "Guided tours" },
     ],
   },
 ];

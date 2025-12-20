@@ -171,7 +171,7 @@ const Navigation = () => {
 
               {/* Dropdown Menu */}
               {productMenuOpen && (
-                <div className="absolute left-1/2 transform -translate-x-1/2 mt-3 px-2 py-3 flex rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20 min-w-max border border-gray-300">
+                <div className="absolute left-1/2 transform -translate-x-1/2 mt-3 px-2 py-3 flex rounded-md shadow-lg bg-white z-20 min-w-max border border-gray-100">
                   <div className="whitespace-nowrap">
                     <Link
                       to="/mobile-guard"
@@ -183,10 +183,10 @@ const Navigation = () => {
                           "navigation_dropdown"
                         );
                       }}
-                      className="flex items-center px-2 py-1 mb-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition duration-150 ease-in-out"
+                      className="flex items-center px-2 py-1 mb-2 text-xsm text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition duration-150 ease-in-out"
                       reloadDocument
                     >
-                      <DevicePhoneMobileIcon className="mr-2 h-5 w-5 text-gray-700" />
+                      <DevicePhoneMobileIcon className="mr-2 h-5 w-5" />
                       Mobile guard
                     </Link>
                     <Link
@@ -199,10 +199,10 @@ const Navigation = () => {
                           "navigation_dropdown"
                         );
                       }}
-                      className="flex items-center px-2 py-1 mb-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition duration-150 ease-in-out"
+                      className="flex items-center px-2 py-1 mb-2 text-xsm text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition duration-150 ease-in-out"
                       reloadDocument
                     >
-                      <FlagIcon className="mr-2 h-5 w-5 text-gray-700" />
+                      <FlagIcon className="mr-2 h-5 w-5" />
                       Incident management
                     </Link>
                     <Link
@@ -215,10 +215,10 @@ const Navigation = () => {
                           "navigation_dropdown"
                         );
                       }}
-                      className="flex items-center px-2 py-1 mb-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition duration-150 ease-in-out"
+                      className="flex items-center px-2 py-1 mb-2 text-xsm text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition duration-150 ease-in-out"
                       reloadDocument
                     >
-                      <ClipboardDocumentCheckIcon className="mr-2 h-5 w-5 text-gray-700" />
+                      <ClipboardDocumentCheckIcon className="mr-2 h-5 w-5" />
                       Security reporting
                     </Link>
                     <Link
@@ -231,10 +231,10 @@ const Navigation = () => {
                           "navigation_dropdown"
                         );
                       }}
-                      className="flex items-center px-2 py-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition duration-150 ease-in-out"
+                      className="flex items-center px-2 py-1 text-xsm text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition duration-150 ease-in-out"
                       reloadDocument
                     >
-                      <CalendarDaysIcon className="mr-2 h-5 w-5 text-gray-700" />
+                      <CalendarDaysIcon className="mr-2 h-5 w-5" />
                       Guard Scheduling
                     </Link>
                   </div>

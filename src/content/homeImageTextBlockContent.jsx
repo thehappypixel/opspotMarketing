@@ -1,7 +1,7 @@
 import mobileGuard from "../assets/images/mobile-guard.png";
 import incidentManagement from "../assets/images/incident-flexible-customizable-reporting.png";
 import securityReporting from "../assets/images/security-reporting-activity-reporting.png";
-import scheduling from "../assets/images/scheduling.png";
+import scheduling from "../assets/images/scheduling-security-guard-shifts.png";
 
 import { QrCodeIcon } from "@heroicons/react/24/outline";
 import { SignalIcon } from "@heroicons/react/24/outline";

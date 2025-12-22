@@ -95,14 +95,14 @@ function ContactScreen() {
       </Helmet>
       <Navigation />
       <div
-        className={`mt-24 py-16 sm:px-4 lg:px-24 w-full bg-black flex flex-col ${
+        className={`mt-24 py-16 sm:px-4 lg:px-24 w-full bg-white flex flex-col ${
           isComplete ? "min-h-[75vh]" : ""
         }`}
       >
-        <h1 className="text-xl leading-tight font-bold text-white text-center">
+        <h1 className="text-xl leading-tight font-bold text-gray-900 text-center">
           Contact us
           <div className="flex justify-center">
-            <p className="pt-6 mb-6 text-md tracking-wider leading-snug font-normal text-white text-center md:w-3/4 lg:w-1/2">
+            <p className="pt-6 mb-6 text-md tracking-wider leading-snug font-normal text-gray-700 text-center md:w-3/4 lg:w-1/2">
               If have questions, need support, or are interested in learning
               more, please don't hesitate to reach out.
             </p>

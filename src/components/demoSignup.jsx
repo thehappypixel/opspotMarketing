@@ -34,11 +34,14 @@ export default function DemoSignup() {
       }}
     >
       <div className="w-3/4">
+        {/* <h2 className="text-lg leading-tight font-bold mb-6">{header}</h2>
+      <p className="text-md mb-6 text-gray-700 tracking-wide">{body}</p> */}
+
         <h2 className="text-black text-lg pb-4 font-bold">
           Ready to simplify guard management?
         </h2>
         <p
-          className={`text-sm mb-8 lg:w-3/4 md:pr-24 ${
+          className={`text-md text-gray-700 tracking-wide mb-8 lg:w-3/4 md:pr-24 ${
             isSM ? "bg-white p-4 rounded-md" : "bg-transparent"
           }`}
         >

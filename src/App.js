@@ -15,16 +15,18 @@ import PricingScreen from "./screens/pricing/Pricing";
 import AboutScreen from "./screens/About";
 import ContactScreen from "./screens/contact/Contact";
 import GuidesScreen from "./screens/resources/Guides";
-import WhatToConsiderWhenAdopting from "./screens/resources/guides/WhatToConsiderWhenAdopting";
+import GuideArticle from "./screens/resources/guides/GuideArticle";
 import HowToArticlesScreen from "./screens/resources/HowToArticles";
 import WalkthroughsScreen from "./screens/resources/Walkthroughs";
 import { trackPageView } from "./utils/analytics";
 
-// Component to track page views on route changes
+// Component to track page views and scroll to top on route changes
 function PageViewTracker() {
   const location = useLocation();
 
   useEffect(() => {
+    // Scroll to top when route changes
+    window.scrollTo(0, 0);
     // Track page view when route changes
     trackPageView(location.pathname + location.search);
   }, [location]);
@@ -52,8 +54,8 @@ function App() {
           <Route path="/scheduling" element={<SchedulingScreen />} />
           <Route path="/resources/security-operations-guides" element={<GuidesScreen />} />
           <Route
-            path="/resources/security-operations-guides/what-to-consider-when-adopting-security-guard-management-software"
-            element={<WhatToConsiderWhenAdopting />}
+            path="/resources/security-operations-guides/:slug"
+            element={<GuideArticle />}
           />
           <Route
             path="/resources/how-to-articles"

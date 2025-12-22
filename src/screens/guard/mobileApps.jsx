@@ -16,7 +16,7 @@ function MobileApps() {
           Apple? Android? We’ve got you covered.
         </h2>
         <p className="w-3/4 text-center">
-          <span className="text-sm">
+          <span className="text-md text-gray-700 tracking-wide">
             Opspot provides a seamless experience for your guards; whether
             you’re using iOS, Android, or both.
           </span>

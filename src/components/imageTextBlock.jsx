@@ -13,7 +13,7 @@ const ImageTextBlock = ({
   listItems,
 }) => {
   return (
-    <div className="py-16 w-full">
+    <div className="py-12 w-full">
       <div className="md:max-w-6xl md:mx-auto md:px-4 flex flex-col lg:flex-row overflow-hidden">
         <div
           className={`flex-1 flex flex-col justify-center p-12 ${
@@ -21,13 +21,15 @@ const ImageTextBlock = ({
           }`}
         >
           <h2 className="text-lg leading-tight font-bold mb-6">{header}</h2>
-          <p className="text-md mb-6">{body}</p>
+          <p className="text-md mb-6 text-gray-700 tracking-wide">{body}</p>
           {listItems && (
             <div className="flex space-x-4 mb-6">
               {listItems.map((item, index) => (
                 <div key={index} className="flex items-center space-x-2">
-                  <span>{item.icon}</span>
-                  <span className="text-xs">{item.text}</span>
+                  <span className="text-gray-500">{item.icon}</span>
+                  <span className="text-xs text-gray-700 tracking-wide">
+                    {item.text}
+                  </span>
                 </div>
               ))}
             </div>

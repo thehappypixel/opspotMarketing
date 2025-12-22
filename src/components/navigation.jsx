@@ -27,7 +27,8 @@ const Navigation = () => {
   const [navState, setNavState] = useState({
     bg: "bg-black",
     text: "text-gray-200",
-    link: "hover:bg-gray-100 text-gray-700 hover:text-black",
+    linkText: "text-gray-700",
+    linkHover: "hover:bg-gray-100 hover:text-black",
     logo: logoLight,
     container: "bg-gray-50 border border-gray-500",
   });
@@ -53,6 +54,14 @@ const Navigation = () => {
     "/resources/walkthroughs",
   ];
   const isResourcesActive = resourcesRoutes.includes(location.pathname);
+
+  // Check if current route should have white background (default is black)
+  // Individual guide articles have white background, listing page has black
+  const whiteBackgroundRoutes = ["/contact"];
+  const isWhiteBackgroundPage =
+    whiteBackgroundRoutes.includes(location.pathname) ||
+    (location.pathname.startsWith("/resources/security-operations-guides/") &&
+      location.pathname !== "/resources/security-operations-guides");
 
   const productMenuRef = useRef(null);
   const resourcesMenuRef = useRef(null);
@@ -82,33 +91,76 @@ const Navigation = () => {
     };
   }, [productMenuOpen, resourcesMenuOpen]);
 
+  // Set initial navigation state based on page background
+  useEffect(() => {
+    if (isWhiteBackgroundPage) {
+      setNavState({
+        bg: "bg-white",
+        text: "text-gray-700",
+        linkText: "text-gray-700",
+        linkHover: "hover:bg-gray-100 hover:text-black",
+        logo: logoDark,
+        container: "bg-gray-25 border border-gray-100",
+      });
+      setHasScrolled(true);
+    } else {
+      setNavState({
+        bg: "bg-black",
+        text: "text-gray-200",
+        linkText: "text-gray-700",
+        linkHover: "hover:bg-gray-100 hover:text-black",
+        logo: logoLight,
+        container: "bg-gray-50 border border-gray-500",
+      });
+      setHasScrolled(false);
+    }
+  }, [isWhiteBackgroundPage]);
+
   // Change navigation appearance on scroll.
   useEffect(() => {
+    let ticking = false;
+    let currentScrolled = false;
+
     const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setNavState({
-          bg: "bg-white",
-          text: "text-gray-700",
-          link: "hover:bg-gray-100 hover:text-black",
-          logo: logoDark,
-          container: "bg-gray-25 border border-gray-100",
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.scrollY > 0;
+          if (scrolled !== currentScrolled) {
+            currentScrolled = scrolled;
+            if (scrolled) {
+              setNavState({
+                bg: "bg-white",
+                text: "text-gray-700",
+                linkText: "text-gray-700",
+                linkHover: "hover:bg-gray-100 hover:text-black",
+                logo: logoDark,
+                container: "bg-gray-25 border border-gray-100",
+              });
+              setHasScrolled(true);
+            } else {
+              // Only revert to black if not a white background page
+              if (!isWhiteBackgroundPage) {
+                setNavState({
+                  bg: "bg-black",
+                  text: "text-gray-200",
+                  linkText: "text-gray-700",
+                  linkHover: "hover:bg-gray-100 hover:text-black",
+                  logo: logoLight,
+                  container: "bg-gray-50 border border-gray-500",
+                });
+                setHasScrolled(false);
+              }
+            }
+          }
+          ticking = false;
         });
-        setHasScrolled(true);
-      } else {
-        setNavState({
-          bg: "bg-black",
-          text: "text-gray-200",
-          link: "hover:bg-gray-100 text-gray-700 hover:text-black",
-          logo: logoLight,
-          container: "bg-gray-50 border border-gray-500",
-        });
-        setHasScrolled(false);
+        ticking = true;
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isWhiteBackgroundPage]);
 
   useEffect(() => {
     if (menuOpen) {
@@ -117,6 +169,20 @@ const Navigation = () => {
       document.body.classList.remove("overflow-hidden");
     }
   }, [menuOpen]);
+
+  // Update body background color based on page background
+  useEffect(() => {
+    if (isWhiteBackgroundPage) {
+      document.body.style.backgroundColor = "#ffffff";
+    } else {
+      document.body.style.backgroundColor = "#000000";
+    }
+
+    // Cleanup function to reset on unmount
+    return () => {
+      document.body.style.backgroundColor = "#000000";
+    };
+  }, [isWhiteBackgroundPage]);
 
   // Helper to check if a route is active based on the pathname.
   const isActive = (path) => location.pathname === path;
@@ -128,7 +194,7 @@ const Navigation = () => {
       } ${navState.bg} ${navState.text}`}
     >
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-        <div className="md:w-64 sm:w-48 flex justify-start">
+        <div className="md:w-40 lg:w-64 sm:w-48 flex justify-start flex-shrink-0">
           <Link
             to="/"
             onClick={() => {
@@ -162,11 +228,13 @@ const Navigation = () => {
                   e.preventDefault();
                   setProductMenuOpen(!productMenuOpen);
                 }}
-                className={`md:px-2 lg:px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
-                  navState.link
-                } ${isProductActive || productMenuOpen ? "bg-gray-100" : ""}`}
+                className={`md:px-2 lg:px-3 py-1 text-xsm font-medium tracking-wide rounded-md transition-colors duration-150 ease-in-out whitespace-nowrap ${
+                  navState.linkText
+                } ${navState.linkHover} ${
+                  isProductActive || productMenuOpen ? "bg-gray-100" : ""
+                }`}
               >
-                Product <ChevronDownIcon className="h-4 w-4 inline" />
+                Product <ChevronDownIcon className="h-3 w-3 inline ml-0.5" />
               </button>
 
               {/* Dropdown Menu */}
@@ -248,9 +316,11 @@ const Navigation = () => {
               onClick={() =>
                 trackLinkClick("Pricing", "/pricing", "navigation")
               }
-              className={`md:px-2 lg:px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
-                navState.link
-              } ${isActive("/pricing") ? "bg-gray-100" : ""}`}
+              className={`md:px-2 lg:px-3 py-1 text-xsm font-medium rounded-md transition-colors duration-150 ease-in-out whitespace-nowrap ${
+                navState.linkText
+              } ${navState.linkHover} ${
+                isActive("/pricing") ? "bg-gray-100" : ""
+              }`}
               reloadDocument
             >
               Pricing
@@ -263,13 +333,13 @@ const Navigation = () => {
                   e.preventDefault();
                   setResourcesMenuOpen(!resourcesMenuOpen);
                 }}
-                className={`md:px-2 lg:px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
-                  navState.link
-                } ${
+                className={`md:px-2 lg:px-3 py-1 text-xsm font-medium rounded-md transition-colors duration-150 ease-in-out whitespace-nowrap ${
+                  navState.linkText
+                } ${navState.linkHover} ${
                   isResourcesActive || resourcesMenuOpen ? "bg-gray-100" : ""
                 }`}
               >
-                Resources <ChevronDownIcon className="h-4 w-4 inline" />
+                Resources <ChevronDownIcon className="h-3 w-3 inline ml-0.5" />
               </button>
 
               {resourcesMenuOpen && (
@@ -334,9 +404,11 @@ const Navigation = () => {
               onClick={() =>
                 trackLinkClick("Contact", "/contact", "navigation")
               }
-              className={`md:px-2 lg:px-3 py-1 text-xsm font-medium rounded-md transition duration-150 ease-in-out ${
-                navState.link
-              } ${isActive("/contact") ? "bg-gray-100" : ""}`}
+              className={`md:px-2 lg:px-3 py-1 text-xsm font-medium rounded-md transition-colors duration-150 ease-in-out whitespace-nowrap ${
+                navState.linkText
+              } ${navState.linkHover} ${
+                isActive("/contact") ? "bg-gray-100" : ""
+              }`}
               reloadDocument
             >
               Contact
@@ -345,7 +417,7 @@ const Navigation = () => {
         </div>
 
         {/* Desktop Actions */}
-        <div className="sm:hidden md:flex justify-end items-center space-x-3">
+        <div className="sm:hidden md:flex justify-end items-center space-x-2 lg:space-x-3 flex-shrink-0">
           <a
             href={`${
               process.env.REACT_APP_DOMAIN || "http://localhost:3000"
@@ -356,7 +428,7 @@ const Navigation = () => {
               }/auth/login/`;
               trackExternalLink(loginUrl, "Login");
             }}
-            className={`block mr-3 px-6 py-2 text-xxs font-medium hover:text-opacity-85 transition duration-150 ease-in-out ${navState.text}`}
+            className={`block mr-2 lg:mr-3 px-4 lg:px-6 py-2 text-xsm font-medium hover:text-opacity-85 transition duration-150 ease-in-out whitespace-nowrap ${navState.text}`}
           >
             Login
           </a>
@@ -371,7 +443,7 @@ const Navigation = () => {
               trackExternalLink(signupUrl, "Sign up");
               trackEvent("cta_signup", "conversion", "navigation_header");
             }}
-            className="block px-6 py-2 rounded-lg text-xxs font-medium text-white hover:text-gray-50 bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out"
+            className="block px-4 lg:px-6 py-2 rounded-lg text-xsm font-medium text-white hover:text-gray-50 bg-brand-primary hover:bg-opacity-85 transition duration-150 ease-in-out whitespace-nowrap"
           >
             Sign up
           </a>

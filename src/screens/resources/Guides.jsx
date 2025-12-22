@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Navigation from "../../components/navigation";
 import Footer from "../../components/footer";
 import GuideCard from "../../components/guideCard";
-import opspotSecuritySoftware from "../../assets/images/opspot-security-guard-software.png";
+import securityOperationsGuidesContent from "../../content/securityOperationsGuidesContent";
 
 function GuidesScreen() {
   const siteUrl = process.env.REACT_APP_DOMAIN || "https://opspot.com";
@@ -58,25 +58,35 @@ function GuidesScreen() {
         />
       </Helmet>
       <Navigation />
-      <div className="mt-24 py-16 sm:px-4 lg:px-24 w-full bg-black min-h-screen">
+      {/* Header Section - Black Background */}
+      <div className="mt-24 py-16 sm:px-4 lg:px-24 w-full bg-black">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-xl leading-tight font-bold text-white text-center mb-6">
-            Security Operations Guides
+            Security operations guides
           </h1>
-          <p className="text-md tracking-wider leading-snug font-normal text-white text-center mb-12">
-            Comprehensive guides on security operations and guard management to
-            help you improve your security operations.
+          <p className="text-md tracking-wider leading-snug font-normal text-white text-center mb-12 md:w-3/4 mx-auto">
+            Straightforward guides to help security companies modernize their
+            operations and successfully adopt security management software
           </p>
+        </div>
+      </div>
 
+      {/* Cards Section - White Background */}
+      <div className="bg-white py-16 sm:px-4 lg:px-24 w-full">
+        <div className="max-w-6xl mx-auto">
           {/* Guides Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <GuideCard
-              title="What to consider when adopting security guard management software"
-              intro="Running a security operation is demanding. Between managing guards, meeting client expectations, and ensuring incidents are handled properly, there's little room for error or wasted time. This article walks through the key things to consider before making that shift, so you can move forward with confidence, without disrupting your operations."
-              image={opspotSecuritySoftware}
-              imageAlt="What to consider when adopting security guard management software"
-              link="/resources/security-operations-guides/what-to-consider-when-adopting-security-guard-management-software"
-            />
+            {securityOperationsGuidesContent.map((guide) => (
+              <GuideCard
+                key={guide.id}
+                title={guide.title}
+                intro={guide.intro}
+                image={guide.image}
+                imageAlt={guide.imageAlt}
+                link={`/resources/security-operations-guides/${guide.slug}`}
+                readTime={guide.readTime}
+              />
+            ))}
           </div>
         </div>
       </div>

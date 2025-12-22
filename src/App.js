@@ -15,6 +15,7 @@ import PricingScreen from "./screens/pricing/Pricing";
 import AboutScreen from "./screens/About";
 import ContactScreen from "./screens/contact/Contact";
 import GuidesScreen from "./screens/resources/Guides";
+import WhatToConsiderWhenAdopting from "./screens/resources/guides/WhatToConsiderWhenAdopting";
 import HowToArticlesScreen from "./screens/resources/HowToArticles";
 import WalkthroughsScreen from "./screens/resources/Walkthroughs";
 import { trackPageView } from "./utils/analytics";
@@ -49,7 +50,11 @@ function App() {
             element={<SecurityReportingScreen />}
           />
           <Route path="/scheduling" element={<SchedulingScreen />} />
-          <Route path="/resources/guides" element={<GuidesScreen />} />
+          <Route path="/resources/security-operations-guides" element={<GuidesScreen />} />
+          <Route
+            path="/resources/security-operations-guides/what-to-consider-when-adopting-security-guard-management-software"
+            element={<WhatToConsiderWhenAdopting />}
+          />
           <Route
             path="/resources/how-to-articles"
             element={<HowToArticlesScreen />}

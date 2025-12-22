@@ -4,6 +4,25 @@
  */
 
 /**
+ * Check if current traffic should be marked as internal
+ * Returns true if:
+ * - Running in development mode, OR
+ * - localStorage has 'ga_internal_traffic' set to 'true'
+ */
+const isInternalTraffic = () => {
+  if (typeof window === "undefined") return false;
+
+  // Check if user manually marked themselves as internal traffic
+  const manualFlag = localStorage.getItem("ga_internal_traffic");
+  if (manualFlag === "true") return true;
+
+  // Mark as internal in development mode
+  if (process.env.NODE_ENV === "development") return true;
+
+  return false;
+};
+
+/**
  * Track a custom event in Google Analytics
  * @param {string} eventName - The name of the event (e.g., 'button_click', 'form_submit')
  * @param {string} eventCategory - The category of the event (e.g., 'engagement', 'navigation')
@@ -25,6 +44,11 @@ export const trackEvent = (
 
       if (eventValue !== null) {
         eventParams.value = eventValue;
+      }
+
+      // Add traffic_type parameter for internal traffic filtering
+      if (isInternalTraffic()) {
+        eventParams.traffic_type = "internal";
       }
 
       // Log to console in development for debugging
@@ -66,6 +90,11 @@ export const trackPageView = (pagePath, pageTitle = "") => {
         page_path: pagePath,
         page_title: pageTitle,
       };
+
+      // Add traffic_type parameter for internal traffic filtering
+      if (isInternalTraffic()) {
+        configParams.traffic_type = "internal";
+      }
 
       // Log to console in development for debugging
       if (process.env.NODE_ENV === "development") {

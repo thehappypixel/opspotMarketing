@@ -48,7 +48,7 @@ const Navigation = () => {
 
   // List of routes that should mark the Resources nav item as active.
   const resourcesRoutes = [
-    "/resources/guides",
+    "/resources/security-operations-guides",
     "/resources/how-to-articles",
     "/resources/walkthroughs",
   ];
@@ -257,7 +257,7 @@ const Navigation = () => {
             </Link>
 
             {/* Resources Menu */}
-            {/* <div className="relative" ref={resourcesMenuRef}>
+            <div className="relative" ref={resourcesMenuRef}>
               <button
                 onClick={(e) => {
                   e.preventDefault();
@@ -273,25 +273,26 @@ const Navigation = () => {
               </button>
 
               {resourcesMenuOpen && (
-                <div className="absolute left-1/2 transform -translate-x-1/2 mt-3 px-2 py-3 flex rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-20 min-w-max border border-gray-300">
+                <div className="absolute left-1/2 transform -translate-x-1/2 mt-3 px-2 py-3 flex rounded-md shadow-lg bg-white z-20 min-w-max border border-gray-100">
                   <div className="whitespace-nowrap">
                     <Link
-                      to="/resources/guides"
+                      to="/resources/security-operations-guides"
                       onClick={() => {
                         setResourcesMenuOpen(false);
                         trackLinkClick(
-                          "Guides",
-                          "/resources/guides",
+                          "Security operations guides",
+                          "/resources/security-operations-guides",
                           "navigation_dropdown"
                         );
                       }}
-                      className="flex items-center px-2 py-1 mb-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition duration-150 ease-in-out"
+                      // className="flex items-center px-2 py-1 mb-2 text-xsm text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition duration-150 ease-in-out"
+                      className="flex items-center px-2 py-1 text-xsm text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition duration-150 ease-in-out"
                       reloadDocument
                     >
-                      <BookOpenIcon className="mr-2 h-5 w-5 text-gray-700" />
-                      Guides
+                      <BookOpenIcon className="mr-2 h-5 w-5" />
+                      Security operations guides
                     </Link>
-                    <Link
+                    {/* <Link
                       to="/resources/how-to-articles"
                       onClick={() => {
                         setResourcesMenuOpen(false);
@@ -301,13 +302,13 @@ const Navigation = () => {
                           "navigation_dropdown"
                         );
                       }}
-                      className="flex items-center px-2 py-1 mb-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition duration-150 ease-in-out"
+                      className="flex items-center px-2 py-1 mb-2 text-xsm text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition duration-150 ease-in-out"
                       reloadDocument
                     >
-                      <DocumentTextIcon className="mr-2 h-5 w-5 text-gray-700" />
+                      <DocumentTextIcon className="mr-2 h-5 w-5" />
                       How to articles
-                    </Link>
-                    <Link
+                    </Link> */}
+                    {/* <Link
                       to="/resources/walkthroughs"
                       onClick={() => {
                         setResourcesMenuOpen(false);
@@ -317,16 +318,16 @@ const Navigation = () => {
                           "navigation_dropdown"
                         );
                       }}
-                      className="flex items-center px-2 py-1 text-xsm text-gray-700 hover:text-black hover:bg-gray-100 rounded-md transition duration-150 ease-in-out"
+                      className="flex items-center px-2 py-1 text-xsm text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition duration-150 ease-in-out"
                       reloadDocument
                     >
-                      <PlayIcon className="mr-2 h-5 w-5 text-gray-700" />
+                      <PlayIcon className="mr-2 h-5 w-5" />
                       Walkthroughs
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               )}
-            </div> */}
+            </div>
 
             <Link
               to="/contact"
@@ -498,15 +499,15 @@ const Navigation = () => {
               Guard Scheduling
             </Link>
             {/* <Link
-              to="/resources/guides"
+              to="/resources/security-operations-guides"
               onClick={() => {
                 setMenuOpen(false);
-                trackLinkClick("Guides", "/resources/guides", "mobile_menu");
+                trackLinkClick("Security operations guides", "/resources/security-operations-guides", "mobile_menu");
               }}
               className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
               reloadDocument
             >
-              Guides
+              Security operations guides
             </Link> */}
             {/* <Link
               to="/resources/how-to-articles"

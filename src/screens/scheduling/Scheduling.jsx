@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Navigation from "../../components/navigation";
 import ImageTextBlock from "../../components/imageTextBlock";
 import SchedulingImageTextBlockContent from "../../content/schedulingImageTextBlockContent";
-import schedulingImage from "../../assets/images/scheduling.png";
+import schedulingImage from "../../assets/images/opspot-scheduling-guard-software.png";
 import Footer from "../../components/footer";
 import DemoSignup from "../../components/demoSignup";
 import Button from "../../components/button";
@@ -53,10 +53,10 @@ function SchedulingScreen() {
         />
       </Helmet>
       <Navigation />
-      <div className="mt-24 py-16 sm:px-4 lg:px-24 w-full bg-black">
-        <h2 className="text-xl leading-tight font-bold text-white text-center">
+      <div className="mt-32 pt-16 sm:px-4 lg:px-14 w-full bg-black">
+        <h1 className="sm:text-lg md:text-xl leading-tight font-bold text-white text-center md:w-3/4 mx-auto">
           Guard scheduling
-        </h2>
+        </h1>
         <div className="flex justify-center">
           <p className="pt-6 mb-6 text-md tracking-wider leading-snug font-normal text-white text-center md:w-3/4 lg:w-1/2">
             Create schedules quickly and easily. Build shifts with activities,
@@ -76,11 +76,11 @@ function SchedulingScreen() {
             }/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`}
           />
         </div>
-        <div className="flex justify-center">
+        <div>
           <img
             src={schedulingImage}
             alt="Guard scheduling screenshot"
-            className="w-3/4"
+            className="lg:w-7/8 mx-auto"
           />
         </div>
       </div>

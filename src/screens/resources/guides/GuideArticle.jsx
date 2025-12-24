@@ -112,7 +112,7 @@ function GuideArticle() {
           <article className="rounded-lg px-8 py-8">
             <div className="prose max-w-2xl">
               {/* Intro Section */}
-              {guide.intro && <div>{guide.intro}</div>}
+              {guide.articleIntro && <div>{guide.articleIntro}</div>}
 
               {/* Sections */}
               {guide.sections &&

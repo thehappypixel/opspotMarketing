@@ -58,13 +58,13 @@ function SchedulingScreen() {
           Guard scheduling
         </h1>
         <div className="flex justify-center">
-          <p className="pt-6 mb-6 text-md tracking-wider leading-snug font-normal text-white text-center md:w-3/4 lg:w-1/2">
-            Create schedules quickly and easily. Build shifts with activities,
-            checkpoints, and tours that your guards complete during their
-            shifts.
+          <p className="pt-6 mb-6 text-sm tracking-wider leading-relaxed font-normal text-white text-center md:w-1/2 mx-auto">
+            Create schedules faster with less admin. Build clear, structured
+            shifts that include activities, checkpoints, and tours so guards
+            always know what's expected.
           </p>
         </div>
-        <div className="py-4 mb-8 flex justify-center">
+        <div className="py-4 mb-12 flex justify-center">
           <Button
             text="Get started for free"
             icon={true}

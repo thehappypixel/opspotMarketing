@@ -294,7 +294,7 @@ const Navigation = () => {
                       onClick={() => {
                         setProductMenuOpen(false);
                         trackLinkClick(
-                          "Guard Scheduling",
+                          "Guard scheduling",
                           "/scheduling",
                           "navigation_dropdown"
                         );
@@ -303,7 +303,7 @@ const Navigation = () => {
                       reloadDocument
                     >
                       <CalendarDaysIcon className="mr-2 h-5 w-5" />
-                      Guard Scheduling
+                      Guard scheduling
                     </Link>
                   </div>
                 </div>
@@ -560,7 +560,7 @@ const Navigation = () => {
               onClick={() => {
                 setMenuOpen(false);
                 trackLinkClick(
-                  "Guard Scheduling",
+                  "Guard scheduling",
                   "/scheduling",
                   "mobile_menu"
                 );
@@ -568,7 +568,7 @@ const Navigation = () => {
               className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
               reloadDocument
             >
-              Guard Scheduling
+              Guard scheduling
             </Link>
             {/* <Link
               to="/resources/security-operations-guides"

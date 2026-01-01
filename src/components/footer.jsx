@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="flex flex-col items-center">
         <img src={logoMark} alt="Opspot Logo" className="h-8 mb-4" />
         <p className="text-gray-400 text-xsm text-center">
-          Copyright Opspot Software Inc. 2025
+          Copyright Opspot Software Inc. 2026
         </p>
       </div>
     </footer>

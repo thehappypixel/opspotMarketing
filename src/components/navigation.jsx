@@ -53,7 +53,10 @@ const Navigation = () => {
     "/resources/how-to-articles",
     "/resources/walkthroughs",
   ];
-  const isResourcesActive = resourcesRoutes.includes(location.pathname);
+  const isResourcesActive = 
+    resourcesRoutes.includes(location.pathname) ||
+    (location.pathname.startsWith("/resources/security-operations-guides/") &&
+      location.pathname !== "/resources/security-operations-guides");
 
   // Check if current route should have white background (default is black)
   // Individual guide articles have white background, listing page has black

@@ -2,8 +2,12 @@ import React from "react";
 import whatToConsiderImage from "../assets/images/guides/what-to-consider-when-adopting-security-guard-management-software.png";
 import commonChallengesImage from "../assets/images/guides/how-to-successfully-implement-security-workforce-managemen-software.png";
 import securityOperations2026 from "../assets/images/guides/security-operations-2026.png";
+import howToTrackGuardsImage from "../assets/images/guides/how-to-track-security-guards-without-micromanaging.png";
+
 // TODO: Add image for modern security operations guide
 // import modernSecurityOperationsImage from "../assets/images/guides/what-modern-security-operations-look-like-in-2026.png";
+// TODO: Add image for how to track security guards guide
+// import howToTrackGuardsImage from "../assets/images/guides/how-to-track-security-guards-without-micromanaging.png";
 
 const securityOperationsGuidesContent = [
   {
@@ -811,6 +815,301 @@ const securityOperationsGuidesContent = [
           Tools built specifically for security teams, like Opspot, are designed
           with these realities in mind; but the foundation is always thoughtful
           process design and steady adoption.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "how-to-track-security-guards-without-micromanaging",
+    slug: "how-to-track-security-guards-without-micromanaging",
+    title: "How to track security guards without micromanaging",
+    intro:
+      "Learn how modern security teams approach guard tracking in a balanced, practical way that supports guards and strengthens operations.",
+    readTime: 10,
+    image: howToTrackGuardsImage,
+    imageAlt: "How to track security guards without micromanaging",
+    meta: {
+      description:
+        "Learn how to track security guards in a way that supports guards, strengthens operations, and improves service quality without turning day-to-day work into micromanagement.",
+      keywords:
+        "guard tracking, security guard tracking, guard management, security operations tracking, guard monitoring, security operations",
+    },
+    articleIntro: (
+      <>
+        <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+          Tracking security guards is one of the most sensitive topics in
+          security operations.
+        </p>
+
+        <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+          Many owners and supervisors worry that introducing tracking tools will
+          damage trust, create resistance in the field, or feel like unnecessary
+          oversight. At the same time, clients expect accountability, and
+          supervisors need visibility to do their jobs effectively.
+        </p>
+
+        <p className="text-sm text-gray-700 mb-8 leading-relaxed">
+          The challenge is not whether to track guards. It is how to do it in a
+          way that supports guards, strengthens operations, and improves service
+          quality without turning day-to-day work into micromanagement.
+        </p>
+
+        <p className="text-sm text-gray-700 mb-8 leading-relaxed">
+          This guide explains how modern security teams approach guard tracking
+          in a balanced, practical way.
+        </p>
+      </>
+    ),
+    sections: [
+      {
+        type: "why",
+        title: "1. Why guard tracking matters in real operations",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Tracking is often misunderstood as a control mechanism. In
+              reality, its primary purpose is operational awareness.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              When tracking is done well, it helps teams:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Confirm coverage without constant check-ins</li>
+              <li>Identify missed patrols or issues early</li>
+              <li>Provide proof of service to clients</li>
+              <li>Support guards when something goes wrong</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Without tracking, supervisors rely on end-of-shift reports, phone
+              calls, or assumptions. Problems are discovered late, and
+              follow-ups become reactive.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Modern tracking shifts operations from reactive to informed.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "challenges",
+        title: "2. Where tracking goes wrong",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Most resistance to tracking comes from poor implementation, not
+              from the concept itself.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Common mistakes include:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Tracking without explaining the purpose</li>
+              <li>Collecting more data than anyone actually uses</li>
+              <li>Treating tracking as enforcement instead of support</li>
+              <li>Applying the same level of oversight to every site</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              When guards feel watched rather than supported, adoption suffers.
+              When supervisors are flooded with unnecessary data, visibility
+              turns into noise.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Good tracking is intentional, not invasive.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "approach",
+        title: "3. Tracking for visibility, not control",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              The difference between tracking and micromanagement comes down to
+              intent and design.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Healthy tracking focuses on:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Confirming presence, not monitoring every movement</li>
+              <li>Verifying task completion, not policing behavior</li>
+              <li>Supporting guards, not catching mistakes</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              For example, knowing that a patrol route was completed on time
+              provides confidence. Watching every step a guard takes does not.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Modern security operations design tracking around outcomes, not
+              constant observation.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "site-specific",
+        title: "4. Choosing the right level of tracking for each site",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Not every site needs the same approach.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Some locations require frequent patrol verification. Others only
+              need confirmation that a guard is on-site and active. Applying a
+              one-size-fits-all model often creates unnecessary friction.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Well-run teams:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>
+                Match tracking methods to site risk and client expectations
+              </li>
+              <li>Start with minimal requirements and adjust as needed</li>
+              <li>
+                Avoid adding checkpoints or tracking steps that do not add value
+              </li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              The goal is clarity, not complexity.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "adoption",
+        title: "5. Making tracking work for guards",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Adoption improves when guards understand how tracking helps them.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Effective teams communicate that tracking:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Reduces unnecessary supervisor calls</li>
+              <li>Protects guards by creating a record of activity</li>
+              <li>Makes expectations clear at the start of a shift</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              When tracking is integrated into normal workflows like clock-ins,
+              patrols, and reporting, it feels like part of the job rather than
+              an extra task.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Training does not need to be extensive. Clear explanations and
+              simple workflows go a long way.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "practice",
+        title: "6. What good tracking looks like in practice",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              In mature security operations:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Supervisors can see active shifts at a glance</li>
+              <li>Patrol completion is confirmed without follow-up calls</li>
+              <li>Issues are identified during the shift, not days later</li>
+              <li>
+                Guards complete their work confidently without constant
+                oversight
+              </li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Tracking supports trust instead of replacing it.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "getting-started",
+        title: "7. Getting started without overwhelming your team",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              If tracking feels like a big change, start small.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              A practical approach:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Begin with one site or one workflow</li>
+              <li>Track only what you need to operate confidently</li>
+              <li>Gather feedback from guards and supervisors</li>
+              <li>Adjust before expanding to other sites</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Tracking should evolve alongside your operations. It does not need
+              to be perfect on day one.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+    ],
+    callout: (
+      <>
+        <p className="text-xsm text-gray-700 mb-4 leading-relaxed">
+          Tracking security guards does not have to mean micromanagement.
+        </p>
+
+        <p className="text-xsm text-gray-700 mb-4 leading-relaxed">
+          When designed with purpose, guard tracking improves visibility,
+          strengthens accountability, and supports both guards and supervisors.
+          The most effective teams focus on clarity and consistency rather than
+          control.
+        </p>
+
+        <p className="text-xsm text-gray-700 mb-0 leading-relaxed">
+          Tools built for modern security operations, like Opspot, are designed
+          to support this balanced approach; however, the foundation is always
+          thoughtful process design and clear expectations.
         </p>
       </>
     ),

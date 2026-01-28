@@ -3,11 +3,10 @@ import whatToConsiderImage from "../assets/images/guides/what-to-consider-when-a
 import commonChallengesImage from "../assets/images/guides/how-to-successfully-implement-security-workforce-managemen-software.png";
 import securityOperations2026 from "../assets/images/guides/security-operations-2026.png";
 import howToTrackGuardsImage from "../assets/images/guides/how-to-track-security-guards-without-micromanaging.png";
+import patrolTrackingImage from "../assets/images/guides/security-guard-patrol-tracking-explained.png";
 
 // TODO: Add image for modern security operations guide
 // import modernSecurityOperationsImage from "../assets/images/guides/what-modern-security-operations-look-like-in-2026.png";
-// TODO: Add image for how to track security guards guide
-// import howToTrackGuardsImage from "../assets/images/guides/how-to-track-security-guards-without-micromanaging.png";
 
 const securityOperationsGuidesContent = [
   {
@@ -1110,6 +1109,348 @@ const securityOperationsGuidesContent = [
           Tools built for modern security operations, like Opspot, are designed
           to support this balanced approach; however, the foundation is always
           thoughtful process design and clear expectations.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "security-guard-patrol-tracking-explained-qr-nfc-gps",
+    slug: "security-guard-patrol-tracking-explained-qr-nfc-gps",
+    title: "Security guard patrol tracking explained (QR, NFC, and GPS)",
+    intro:
+      "Learn about the most common patrol tracking methods used by modern security teams: QR codes, NFC checkpoints, and GPS-based tracking.",
+    readTime: 9,
+    image: patrolTrackingImage,
+    imageAlt: "Security guard patrol tracking explained (QR, NFC, and GPS)",
+    meta: {
+      description:
+        "Learn about QR code, NFC, and GPS patrol tracking methods for security operations. Understand how to choose the right approach for your security team without overengineering your operations.",
+      keywords:
+        "patrol tracking, QR code patrol, NFC patrol tracking, GPS patrol tracking, security guard patrols, patrol checkpoints, security operations",
+    },
+    articleIntro: (
+      <>
+        <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+          Patrols are the backbone of most security operations.
+        </p>
+
+        <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+          Whether guarding commercial properties, residential sites, or industrial
+          locations, patrols are how security teams demonstrate presence,
+          consistency, and accountability. Yet for many companies, patrol tracking
+          is either overly manual or unnecessarily complex.
+        </p>
+
+        <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+          This guide explains the most common patrol tracking methods used by
+          modern security teams: QR codes, NFC checkpoints, and GPS-based
+          tracking. It describes how to choose the right approach without
+          overengineering your operations.
+        </p>
+
+        <p className="text-sm text-gray-700 mb-8 leading-relaxed">
+          The goal is not to recommend a specific technology, but to help you
+          understand how patrol tracking works in real-world security operations.
+        </p>
+      </>
+    ),
+    sections: [
+      {
+        type: "why",
+        title: "1. Why patrol tracking matters",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Patrol tracking is not about surveillance. It is about verification
+              and consistency.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              When patrols are tracked effectively, teams can:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Confirm that patrols were completed as expected</li>
+              <li>Identify missed or delayed patrols early</li>
+              <li>Provide clear proof of service to clients</li>
+              <li>Reduce manual follow-ups and paperwork</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Without tracking, patrols rely heavily on trust and end-of-shift
+              reporting. While trust is essential, lack of verification creates
+              gaps; especially as teams grow or manage multiple sites.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Modern patrol tracking provides clarity without requiring constant
+              supervision.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "challenges",
+        title: "2. Common problems with patrol tracking",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Many patrol systems fail not because of the technology, but because
+              of how they are designed or applied.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Common issues include:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Too many checkpoints with little operational value</li>
+              <li>Complicated patrol routes that are hard to follow</li>
+              <li>Manual logs that are filled out after the fact</li>
+              <li>Tracking methods that slow guards down</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              When patrols feel burdensome, guards rush through them or disengage
+              altogether. When supervisors receive inconsistent data, patrol
+              tracking loses credibility.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Good patrol tracking is simple, repeatable, and aligned with the
+              actual site layout.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "method",
+        title: "3. QR code patrol tracking",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              QR codes are one of the most common patrol tracking methods used
+              today.
+            </p>
+
+            <h3 className="text-sm font-bold text-gray-900 mb-3 mt-6">
+              How it works
+            </h3>
+
+            <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+              QR codes are placed at designated patrol points. Guards scan the code
+              using a mobile app during their patrol.
+            </p>
+
+            <h3 className="text-sm font-bold text-gray-900 mb-3 mt-6">
+              When QR codes work well
+            </h3>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Indoor or outdoor sites with fixed patrol points</li>
+              <li>Teams that want low-cost, easy-to-deploy tracking</li>
+              <li>Operations where guards already use smartphones</li>
+            </ul>
+
+            <h3 className="text-sm font-bold text-gray-900 mb-3 mt-6">
+              Considerations
+            </h3>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Codes must be placed securely to prevent tampering</li>
+              <li>Scanning requires the guard to physically reach the location</li>
+              <li>Lighting and weather conditions should be considered</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              QR codes are simple, accessible, and effective when patrol routes
+              are clearly defined.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "method",
+        title: "4. NFC checkpoint patrol tracking",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              NFC checkpoints use short-range communication, typically requiring a
+              guard to tap their phone against a physical tag.
+            </p>
+
+            <h3 className="text-sm font-bold text-gray-900 mb-3 mt-6">
+              How it works
+            </h3>
+
+            <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+              NFC tags are installed at patrol points. Guards tap their device to
+              the tag to record completion.
+            </p>
+
+            <h3 className="text-sm font-bold text-gray-900 mb-3 mt-6">
+              When NFC works well
+            </h3>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Sites where precise location confirmation is important</li>
+              <li>Environments where scanning may be unreliable</li>
+              <li>Operations that want a more tamper-resistant option</li>
+            </ul>
+
+            <h3 className="text-sm font-bold text-gray-900 mb-3 mt-6">
+              Considerations
+            </h3>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>NFC tags require compatible devices</li>
+              <li>Installation is slightly more involved than QR codes</li>
+              <li>Tags must be maintained over time</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              NFC tracking provides strong verification while remaining quick and
+              intuitive for guards.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "method",
+        title: "5. GPS-based patrol tracking",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              GPS tracking verifies patrol activity based on location data rather
+              than fixed checkpoints.
+            </p>
+
+            <h3 className="text-sm font-bold text-gray-900 mb-3 mt-6">
+              How it works
+            </h3>
+
+            <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+              The system records guard movement and location during a shift or
+              patrol window.
+            </p>
+
+            <h3 className="text-sm font-bold text-gray-900 mb-3 mt-6">
+              When GPS works well
+            </h3>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Large outdoor sites</li>
+              <li>Mobile patrol routes</li>
+              <li>Locations without fixed checkpoints</li>
+            </ul>
+
+            <h3 className="text-sm font-bold text-gray-900 mb-3 mt-6">
+              Considerations
+            </h3>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>GPS accuracy can vary by environment</li>
+              <li>
+                Continuous tracking may feel intrusive if not clearly explained
+              </li>
+              <li>Battery usage should be monitored</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              GPS tracking is best used to confirm presence and coverage rather
+              than replace structured patrol points.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "approach",
+        title: "6. Choosing the right approach for your operation",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              There is no single "best" patrol tracking method.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Well-run security teams:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Match the tracking method to the site type</li>
+              <li>Keep patrol requirements realistic</li>
+              <li>
+                Avoid adding checkpoints that do not improve safety or
+                accountability
+              </li>
+              <li>Start simple and adjust based on feedback</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Many operations use a combination of methods depending on the site.
+              The key is consistency, not complexity.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "practice",
+        title: "7. What good patrol tracking looks like in practice",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              In effective security operations:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Guards complete patrols confidently without confusion</li>
+              <li>Patrol routes match the physical layout of the site</li>
+              <li>
+                Supervisors can verify patrol completion without follow-ups
+              </li>
+              <li>Clients receive clear documentation when needed</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Patrol tracking becomes a quiet, reliable part of daily operations
+              rather than a constant point of friction.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+    ],
+    callout: (
+      <>
+        <p className="text-xsm text-gray-700 mb-4 leading-relaxed">
+          Patrol tracking works best when it supports the way guards already
+          operate.
+        </p>
+
+        <p className="text-xsm text-gray-700 mb-4 leading-relaxed">
+          Whether using QR codes, NFC checkpoints, or GPS tracking, the most
+          successful teams focus on clarity, simplicity, and alignment with
+          real-world conditions. Technology should reinforce good processes, not
+          complicate them.
+        </p>
+
+        <p className="text-xsm text-gray-700 mb-0 leading-relaxed">
+          Modern security platforms, like Opspot, are designed to support flexible
+          patrol tracking approaches, but lasting success always comes from
+          thoughtful setup and steady adoption.
         </p>
       </>
     ),

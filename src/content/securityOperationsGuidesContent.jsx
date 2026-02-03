@@ -4,6 +4,7 @@ import commonChallengesImage from "../assets/images/guides/how-to-successfully-i
 import securityOperations2026 from "../assets/images/guides/security-operations-2026.png";
 import howToTrackGuardsImage from "../assets/images/guides/how-to-track-security-guards-without-micromanaging.png";
 import patrolTrackingImage from "../assets/images/guides/security-guard-patrol-tracking-explained.png";
+import schedulingGuideImage from "../assets/images/guides/how-to-schedule-security-guards-and-shifts-without-chaos.png";
 
 // TODO: Add image for modern security operations guide
 // import modernSecurityOperationsImage from "../assets/images/guides/what-modern-security-operations-look-like-in-2026.png";
@@ -1451,6 +1452,288 @@ const securityOperationsGuidesContent = [
           Modern security platforms, like Opspot, are designed to support flexible
           patrol tracking approaches, but lasting success always comes from
           thoughtful setup and steady adoption.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "how-to-schedule-security-guards-and-shifts-without-chaos",
+    slug: "how-to-schedule-security-guards-and-shifts-without-chaos",
+    title: "How to schedule security guards and shifts without chaos",
+    intro:
+      "Learn how well-run security teams approach guard scheduling in a practical, structured way that builds schedules that are clear, reliable, and sustainable.",
+    readTime: 8,
+    image: schedulingGuideImage,
+    imageAlt: "How to schedule security guards and shifts without chaos",
+    meta: {
+      description:
+        "Learn how to schedule security guards and shifts without chaos. A practical guide to building clear, reliable schedules that work day to day for security operations.",
+      keywords:
+        "security guard scheduling, guard shift scheduling, security operations scheduling, guard management scheduling, shift management",
+    },
+    articleIntro: (
+      <>
+        <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+          Scheduling is one of the most time consuming and stressful parts of
+          running a security operation.
+        </p>
+
+        <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+          As teams grow, schedules become harder to manage. Availability changes,
+          last minute call offs happen, and coverage gaps create constant
+          pressure for supervisors and owners. Many security companies rely on
+          spreadsheets, text messages, or paper schedules long past the point
+          where those tools are effective.
+        </p>
+
+        <p className="text-sm text-gray-700 mb-8 leading-relaxed">
+          This guide explains how well run security teams approach guard
+          scheduling in a practical, structured way. The focus is not on software
+          features, but on building schedules that are clear, reliable, and
+          sustainable day to day.
+        </p>
+      </>
+    ),
+    sections: [
+      {
+        type: "challenges",
+        title: "1. Why scheduling breaks down in security operations",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Scheduling problems usually start small.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              A missed shift here, a last minute replacement there. Over time,
+              these issues compound and create chaos across the operation.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Common causes include:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Guard availability tracked informally or not at all</li>
+              <li>Too many manual schedule changes</li>
+              <li>No clear ownership of shift coverage</li>
+              <li>
+                Schedules communicated too late or through multiple channels
+              </li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              When scheduling breaks down, supervisors spend more time reacting
+              than planning. Guards lose confidence in the schedule and clients
+              feel the impact through missed coverage or inconsistent service.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "cost",
+        title: "2. The hidden cost of poor scheduling",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Poor scheduling affects more than just coverage.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              It leads to:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Increased overtime and payroll mistakes</li>
+              <li>Guard burnout and turnover</li>
+              <li>Constant interruptions for supervisors</li>
+              <li>Reduced accountability when shifts are unclear</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Most importantly, it erodes trust. Guards who do not trust the
+              schedule stop relying on it. Supervisors who do not trust the data
+              start double checking everything manually.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Good scheduling restores confidence across the team.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "approach",
+        title: "3. Start with clear shift definitions",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Before improving scheduling tools, strong operations focus on
+              clarity.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Every shift should have:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>A defined location</li>
+              <li>A start and end time</li>
+              <li>Clear expectations for patrols or duties</li>
+              <li>A designated guard or backup</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Vague or flexible shifts may seem helpful, but they often create
+              confusion later. Clear definitions make schedules easier to manage
+              and easier for guards to follow.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "availability",
+        title: "4. Match schedules to real guard availability",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              One of the most common scheduling mistakes is building schedules
+              around ideal coverage instead of real availability.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Effective teams:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Collect availability consistently</li>
+              <li>Update availability as circumstances change</li>
+              <li>Avoid assigning shifts based on assumptions</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              When availability is ignored, schedules fail. When it is respected,
+              coverage becomes more predictable and guards feel supported rather
+              than pressured.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "planning",
+        title: "5. Plan for changes instead of reacting to them",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Changes are inevitable in security operations.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Rather than trying to prevent them entirely, well run teams plan for
+              them.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              This includes:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Having backup guards identified in advance</li>
+              <li>Knowing which shifts are most vulnerable</li>
+              <li>Building small buffers where possible</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Planning for change reduces panic and keeps small issues from
+              becoming operational emergencies.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "communication",
+        title: "6. Communicate schedules clearly and consistently",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              A schedule only works if everyone sees the same version.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Problems arise when schedules are:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Sent through multiple channels</li>
+              <li>Updated without notification</li>
+              <li>Shared too close to the shift start</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Clear communication means guards know when and where they are
+              working, and supervisors know coverage is confirmed.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Consistency matters more than the specific method used.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "practice",
+        title: "7. What good scheduling looks like in practice",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              In well run security operations:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Schedules are published with enough lead time</li>
+              <li>Guards trust the schedule and check it regularly</li>
+              <li>Changes are tracked and communicated clearly</li>
+              <li>Supervisors spend less time chasing confirmations</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Scheduling becomes a stable foundation rather than a daily source
+              of stress.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+    ],
+    callout: (
+      <>
+        <p className="text-xsm text-gray-700 mb-4 leading-relaxed">
+          Scheduling does not have to be chaotic.
+        </p>
+
+        <p className="text-xsm text-gray-700 mb-4 leading-relaxed">
+          When shifts are clearly defined, availability is respected, and
+          communication is consistent, scheduling becomes manageable even as
+          operations grow. The goal is not perfection, but reliability.
+        </p>
+
+        <p className="text-xsm text-gray-700 mb-0 leading-relaxed">
+          Modern security platforms like Opspot are designed to support
+          structured scheduling, but the real improvement comes from aligning
+          schedules with how guards and supervisors actually work.
         </p>
       </>
     ),

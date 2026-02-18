@@ -12,6 +12,7 @@ import {
   ClipboardDocumentCheckIcon,
   CalendarDaysIcon,
   BookOpenIcon,
+  ScaleIcon,
   DocumentTextIcon,
   PlayIcon,
 } from "@heroicons/react/24/outline";
@@ -52,11 +53,17 @@ const Navigation = () => {
     "/resources/security-operations-guides",
     "/resources/how-to-articles",
     "/resources/walkthroughs",
+    "/ressources/comparisons",
+    "/resources/comparisons",
   ];
   const isResourcesActive = 
     resourcesRoutes.includes(location.pathname) ||
     (location.pathname.startsWith("/resources/security-operations-guides/") &&
-      location.pathname !== "/resources/security-operations-guides");
+      location.pathname !== "/resources/security-operations-guides") ||
+    (location.pathname.startsWith("/ressources/comparisons/") &&
+      location.pathname !== "/ressources/comparisons") ||
+    (location.pathname.startsWith("/resources/comparisons/") &&
+      location.pathname !== "/resources/comparisons");
 
   // Check if current route should have white background (default is black)
   // Individual guide articles have white background, listing page has black
@@ -64,7 +71,11 @@ const Navigation = () => {
   const isWhiteBackgroundPage =
     whiteBackgroundRoutes.includes(location.pathname) ||
     (location.pathname.startsWith("/resources/security-operations-guides/") &&
-      location.pathname !== "/resources/security-operations-guides");
+      location.pathname !== "/resources/security-operations-guides") ||
+    (location.pathname.startsWith("/ressources/comparisons/") &&
+      location.pathname !== "/ressources/comparisons") ||
+    (location.pathname.startsWith("/resources/comparisons/") &&
+      location.pathname !== "/resources/comparisons");
 
   const productMenuRef = useRef(null);
   const resourcesMenuRef = useRef(null);
@@ -364,6 +375,22 @@ const Navigation = () => {
                     >
                       <BookOpenIcon className="mr-2 h-5 w-5" />
                       Security operations guides
+                    </Link>
+                    <Link
+                      to="/ressources/comparisons"
+                      onClick={() => {
+                        setResourcesMenuOpen(false);
+                        trackLinkClick(
+                          "Comparisons",
+                          "/ressources/comparisons",
+                          "navigation_dropdown"
+                        );
+                      }}
+                      className="flex items-center px-2 py-1 text-xsm text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition duration-150 ease-in-out"
+                      reloadDocument
+                    >
+                      <ScaleIcon className="mr-2 h-5 w-5" />
+                      Comparisons
                     </Link>
                     {/* <Link
                       to="/resources/how-to-articles"

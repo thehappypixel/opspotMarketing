@@ -16,6 +16,8 @@ import AboutScreen from "./screens/About";
 import ContactScreen from "./screens/contact/Contact";
 import GuidesScreen from "./screens/resources/Guides";
 import GuideArticle from "./screens/resources/guides/GuideArticle";
+import ComparisonsScreen from "./screens/resources/Comparisons";
+import ComparisonArticle from "./screens/resources/comparisons/ComparisonArticle";
 import HowToArticlesScreen from "./screens/resources/HowToArticles";
 import WalkthroughsScreen from "./screens/resources/Walkthroughs";
 import { trackPageView } from "./utils/analytics";
@@ -56,6 +58,16 @@ function App() {
           <Route
             path="/resources/security-operations-guides/:slug"
             element={<GuideArticle />}
+          />
+          <Route path="/ressources/comparisons" element={<ComparisonsScreen />} />
+          <Route
+            path="/ressources/comparisons/:slug"
+            element={<ComparisonArticle />}
+          />
+          <Route path="/resources/comparisons" element={<ComparisonsScreen />} />
+          <Route
+            path="/resources/comparisons/:slug"
+            element={<ComparisonArticle />}
           />
           <Route
             path="/resources/how-to-articles"

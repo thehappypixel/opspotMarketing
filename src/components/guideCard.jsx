@@ -3,7 +3,15 @@ import { Link } from "react-router-dom";
 import { BookOpenIcon } from "@heroicons/react/24/outline";
 import PillButton from "./pillButton";
 
-const GuideCard = ({ title, intro, image, imageAlt, link, readTime }) => {
+const GuideCard = ({
+  title,
+  intro,
+  image,
+  imageAlt,
+  link,
+  readTime,
+  buttonText = "Read guide",
+}) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden transition-all duration-300 ease-in-out group flex flex-col shadow-md hover:shadow-xl hover:-translate-y-2">
       <Link to={link} className="flex flex-col flex-1">
@@ -33,7 +41,7 @@ const GuideCard = ({ title, intro, image, imageAlt, link, readTime }) => {
 
       {/* Read more button */}
       <div className="px-6 pb-6">
-        <PillButton text="Read guide" link={link} />
+        <PillButton text={buttonText} link={link} />
       </div>
     </div>
   );

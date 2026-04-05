@@ -15,13 +15,15 @@ const GuideCard = ({
   return (
     <div className="bg-white rounded-lg overflow-hidden transition-all duration-300 ease-in-out group flex flex-col shadow-md hover:shadow-xl hover:-translate-y-2">
       <Link to={link} className="flex flex-col flex-1">
-        <div className="aspect-video bg-white overflow-hidden">
-          <img
-            src={image}
-            alt={imageAlt || title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          />
-        </div>
+        {image && (
+          <div className="aspect-video bg-white overflow-hidden">
+            <img
+              src={image}
+              alt={imageAlt || title}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+        )}
         <div className="p-6 flex-1 flex flex-col">
           {/* Read time metadata */}
           {readTime && (

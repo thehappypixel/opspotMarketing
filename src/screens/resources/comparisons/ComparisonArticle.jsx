@@ -88,10 +88,10 @@ function ComparisonArticle() {
             Back to comparisons
           </Link>
 
-          {/* Header Section with Image */}
+          {/* Header Section */}
           <div className="px-8 py-4">
-            <div className="flex flex-col lg:flex-row gap-8">
-              <div className="flex-1">
+            <div className="flex flex-col gap-8">
+              <div>
                 {comparison.readTime && (
                   <div className="flex items-center text-xs text-gray-600 mb-4">
                     <BookOpenIcon className="h-4 w-4 mr-1.5" />
@@ -102,14 +102,6 @@ function ComparisonArticle() {
                 <h1 className="text-xl leading-tight font-bold text-gray-900">
                   {comparison.title}
                 </h1>
-              </div>
-
-              <div className="flex-shrink-0 lg:w-96">
-                <img
-                  src={comparison.image}
-                  alt={comparison.imageAlt || comparison.title}
-                  className="w-full h-auto rounded-lg object-cover"
-                />
               </div>
             </div>
           </div>

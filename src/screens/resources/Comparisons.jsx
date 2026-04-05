@@ -75,8 +75,6 @@ function ComparisonsScreen() {
                 key={comparison.id}
                 title={comparison.title}
                 intro={comparison.intro}
-                image={comparison.image}
-                imageAlt={comparison.imageAlt}
                 link={`/ressources/comparisons/${comparison.slug}`}
                 readTime={comparison.readTime}
                 buttonText="Read comparison"

@@ -5,9 +5,9 @@ import securityOperations2026 from "../assets/images/guides/security-operations-
 import howToTrackGuardsImage from "../assets/images/guides/how-to-track-security-guards-without-micromanaging.png";
 import patrolTrackingImage from "../assets/images/guides/security-guard-patrol-tracking-explained.png";
 import schedulingGuideImage from "../assets/images/guides/how-to-schedule-security-guards-and-shifts-without-chaos.png";
-
-// TODO: Add image for modern security operations guide
-// import modernSecurityOperationsImage from "../assets/images/guides/what-modern-security-operations-look-like-in-2026.png";
+import incidentReportingGuideImage from "../assets/images/guides/incident-reporting-for-security-companies.png";
+import mobileAppsGuideImage from "../assets/images/guides/mobile-apps-for-security-guards.png";
+import whatToLookForGuideImage from "../assets/images/guides/what-to-look-for-in-security-guard-management-software.png";
 
 const securityOperationsGuidesContent = [
   {
@@ -1136,10 +1136,10 @@ const securityOperationsGuidesContent = [
         </p>
 
         <p className="text-sm text-gray-700 mb-6 leading-relaxed">
-          Whether guarding commercial properties, residential sites, or industrial
-          locations, patrols are how security teams demonstrate presence,
-          consistency, and accountability. Yet for many companies, patrol tracking
-          is either overly manual or unnecessarily complex.
+          Whether guarding commercial properties, residential sites, or
+          industrial locations, patrols are how security teams demonstrate
+          presence, consistency, and accountability. Yet for many companies,
+          patrol tracking is either overly manual or unnecessarily complex.
         </p>
 
         <p className="text-sm text-gray-700 mb-6 leading-relaxed">
@@ -1151,7 +1151,8 @@ const securityOperationsGuidesContent = [
 
         <p className="text-sm text-gray-700 mb-8 leading-relaxed">
           The goal is not to recommend a specific technology, but to help you
-          understand how patrol tracking works in real-world security operations.
+          understand how patrol tracking works in real-world security
+          operations.
         </p>
       </>
     ),
@@ -1162,8 +1163,8 @@ const securityOperationsGuidesContent = [
         content: (
           <>
             <p className="text-sm text-gray-700 mb-4 leading-relaxed">
-              Patrol tracking is not about surveillance. It is about verification
-              and consistency.
+              Patrol tracking is not about surveillance. It is about
+              verification and consistency.
             </p>
 
             <p className="text-sm text-gray-700 mb-4 leading-relaxed">
@@ -1198,8 +1199,8 @@ const securityOperationsGuidesContent = [
         content: (
           <>
             <p className="text-sm text-gray-700 mb-4 leading-relaxed">
-              Many patrol systems fail not because of the technology, but because
-              of how they are designed or applied.
+              Many patrol systems fail not because of the technology, but
+              because of how they are designed or applied.
             </p>
 
             <p className="text-sm text-gray-700 mb-4 leading-relaxed">
@@ -1214,9 +1215,9 @@ const securityOperationsGuidesContent = [
             </ul>
 
             <p className="text-sm text-gray-700 mb-4 leading-relaxed">
-              When patrols feel burdensome, guards rush through them or disengage
-              altogether. When supervisors receive inconsistent data, patrol
-              tracking loses credibility.
+              When patrols feel burdensome, guards rush through them or
+              disengage altogether. When supervisors receive inconsistent data,
+              patrol tracking loses credibility.
             </p>
 
             <p className="text-sm text-gray-700 mb-0 leading-relaxed">
@@ -1243,8 +1244,8 @@ const securityOperationsGuidesContent = [
             </h3>
 
             <p className="text-sm text-gray-700 mb-6 leading-relaxed">
-              QR codes are placed at designated patrol points. Guards scan the code
-              using a mobile app during their patrol.
+              QR codes are placed at designated patrol points. Guards scan the
+              code using a mobile app during their patrol.
             </p>
 
             <h3 className="text-sm font-bold text-gray-900 mb-3 mt-6">
@@ -1263,7 +1264,9 @@ const securityOperationsGuidesContent = [
 
             <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
               <li>Codes must be placed securely to prevent tampering</li>
-              <li>Scanning requires the guard to physically reach the location</li>
+              <li>
+                Scanning requires the guard to physically reach the location
+              </li>
               <li>Lighting and weather conditions should be considered</li>
             </ul>
 
@@ -1282,8 +1285,8 @@ const securityOperationsGuidesContent = [
         content: (
           <>
             <p className="text-sm text-gray-700 mb-4 leading-relaxed">
-              NFC checkpoints use short-range communication, typically requiring a
-              guard to tap their phone against a physical tag.
+              NFC checkpoints use short-range communication, typically requiring
+              a guard to tap their phone against a physical tag.
             </p>
 
             <h3 className="text-sm font-bold text-gray-900 mb-3 mt-6">
@@ -1291,8 +1294,8 @@ const securityOperationsGuidesContent = [
             </h3>
 
             <p className="text-sm text-gray-700 mb-6 leading-relaxed">
-              NFC tags are installed at patrol points. Guards tap their device to
-              the tag to record completion.
+              NFC tags are installed at patrol points. Guards tap their device
+              to the tag to record completion.
             </p>
 
             <h3 className="text-sm font-bold text-gray-900 mb-3 mt-6">
@@ -1316,8 +1319,8 @@ const securityOperationsGuidesContent = [
             </ul>
 
             <p className="text-sm text-gray-700 mb-0 leading-relaxed">
-              NFC tracking provides strong verification while remaining quick and
-              intuitive for guards.
+              NFC tracking provides strong verification while remaining quick
+              and intuitive for guards.
             </p>
           </>
         ),
@@ -1330,8 +1333,8 @@ const securityOperationsGuidesContent = [
         content: (
           <>
             <p className="text-sm text-gray-700 mb-4 leading-relaxed">
-              GPS tracking verifies patrol activity based on location data rather
-              than fixed checkpoints.
+              GPS tracking verifies patrol activity based on location data
+              rather than fixed checkpoints.
             </p>
 
             <h3 className="text-sm font-bold text-gray-900 mb-3 mt-6">
@@ -1398,8 +1401,8 @@ const securityOperationsGuidesContent = [
             </ul>
 
             <p className="text-sm text-gray-700 mb-4 leading-relaxed">
-              Many operations use a combination of methods depending on the site.
-              The key is consistency, not complexity.
+              Many operations use a combination of methods depending on the
+              site. The key is consistency, not complexity.
             </p>
           </>
         ),
@@ -1449,9 +1452,9 @@ const securityOperationsGuidesContent = [
         </p>
 
         <p className="text-xsm text-gray-700 mb-0 leading-relaxed">
-          Modern security platforms, like Opspot, are designed to support flexible
-          patrol tracking approaches, but lasting success always comes from
-          thoughtful setup and steady adoption.
+          Modern security platforms, like Opspot, are designed to support
+          flexible patrol tracking approaches, but lasting success always comes
+          from thoughtful setup and steady adoption.
         </p>
       </>
     ),
@@ -1479,18 +1482,18 @@ const securityOperationsGuidesContent = [
         </p>
 
         <p className="text-sm text-gray-700 mb-6 leading-relaxed">
-          As teams grow, schedules become harder to manage. Availability changes,
-          last minute call offs happen, and coverage gaps create constant
-          pressure for supervisors and owners. Many security companies rely on
-          spreadsheets, text messages, or paper schedules long past the point
-          where those tools are effective.
+          As teams grow, schedules become harder to manage. Availability
+          changes, last minute call offs happen, and coverage gaps create
+          constant pressure for supervisors and owners. Many security companies
+          rely on spreadsheets, text messages, or paper schedules long past the
+          point where those tools are effective.
         </p>
 
         <p className="text-sm text-gray-700 mb-8 leading-relaxed">
           This guide explains how well run security teams approach guard
-          scheduling in a practical, structured way. The focus is not on software
-          features, but on building schedules that are clear, reliable, and
-          sustainable day to day.
+          scheduling in a practical, structured way. The focus is not on
+          software features, but on building schedules that are clear, reliable,
+          and sustainable day to day.
         </p>
       </>
     ),
@@ -1618,9 +1621,9 @@ const securityOperationsGuidesContent = [
             </ul>
 
             <p className="text-sm text-gray-700 mb-4 leading-relaxed">
-              When availability is ignored, schedules fail. When it is respected,
-              coverage becomes more predictable and guards feel supported rather
-              than pressured.
+              When availability is ignored, schedules fail. When it is
+              respected, coverage becomes more predictable and guards feel
+              supported rather than pressured.
             </p>
           </>
         ),
@@ -1637,8 +1640,8 @@ const securityOperationsGuidesContent = [
             </p>
 
             <p className="text-sm text-gray-700 mb-4 leading-relaxed">
-              Rather than trying to prevent them entirely, well run teams plan for
-              them.
+              Rather than trying to prevent them entirely, well run teams plan
+              for them.
             </p>
 
             <p className="text-sm text-gray-700 mb-4 leading-relaxed">
@@ -1734,6 +1737,853 @@ const securityOperationsGuidesContent = [
           Modern security platforms like Opspot are designed to support
           structured scheduling, but the real improvement comes from aligning
           schedules with how guards and supervisors actually work.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "incident-reporting-for-security-companies-best-practices",
+    slug: "incident-reporting-for-security-companies-best-practices",
+    title: "Incident reporting for security companies: best practices",
+    intro:
+      "A practical guide to building clearer, more consistent incident reporting across your security operation.",
+    readTime: 8,
+    image: incidentReportingGuideImage,
+    imageAlt: "Incident reporting for security companies: best practices",
+    meta: {
+      description:
+        "Learn best practices for incident reporting in security operations. A practical guide to clearer, more consistent reporting that supports guards, supervisors, and clients.",
+      keywords:
+        "incident reporting security, security guard incident report, incident report best practices, security operations reporting, guard incident documentation",
+    },
+    articleIntro: (
+      <>
+        <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+          Incident reporting is one of the most important responsibilities in
+          security operations.
+        </p>
+
+        <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+          A well written incident report creates clarity, protects both guards
+          and clients, and helps supervisors understand what actually happened
+          in the field. Yet many security companies still struggle with
+          inconsistent reporting, vague details, or reports that are difficult
+          to review later.
+        </p>
+
+        <p className="text-sm text-gray-700 mb-8 leading-relaxed">
+          This guide explains how modern security teams approach incident
+          reporting in a practical, structured way. The goal is not to create
+          longer reports, but clearer and more consistent ones.
+        </p>
+      </>
+    ),
+    sections: [
+      {
+        type: "why",
+        title: "1. Why incident reporting matters",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Incident reports are more than administrative paperwork.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              They help security teams:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Document important events clearly</li>
+              <li>Create accountability across sites and shifts</li>
+              <li>Provide accurate information to clients</li>
+              <li>Support follow up investigations when needed</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Without structured reporting, important details are forgotten,
+              timelines become unclear, and supervisors spend time chasing
+              information after the fact.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Good reporting improves operational visibility and builds client
+              confidence.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "challenges",
+        title: "2. Common problems with incident reporting",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Most reporting issues come from inconsistency rather than lack of
+              effort.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Common problems include:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Reports written hours after the incident</li>
+              <li>Missing timestamps or locations</li>
+              <li>Vague language without specific details</li>
+              <li>Different guards documenting incidents differently</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              When reporting standards vary from guard to guard, reviewing
+              incidents becomes difficult and clients receive inconsistent
+              information.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Strong reporting processes reduce confusion before it starts.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "approach",
+        title: "3. Focus on clarity over length",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              A good incident report does not need to be long.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              It needs to be clear, factual, and easy to understand.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Effective reports typically include:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>What happened</li>
+              <li>When it happened</li>
+              <li>Where it happened</li>
+              <li>Who was involved</li>
+              <li>What actions were taken</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              The goal is to document observable facts, not assumptions or
+              opinions.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Clear reporting is more valuable than overly detailed reporting
+              that is difficult to review quickly.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "best-practices",
+        title: "4. Create consistent reporting standards",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Well run security operations establish consistent reporting
+              expectations across the team.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              This includes:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Standard report formats</li>
+              <li>Clear terminology</li>
+              <li>Required fields or information</li>
+              <li>Expectations around photos or supporting evidence</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Consistency helps guards know what is expected and makes reports
+              easier for supervisors and clients to review.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Structured reporting also reduces the need for follow up questions
+              later.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "considerations",
+        title: "5. Make reporting easy in the field",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Reporting processes should match the realities of field work.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Complicated forms or lengthy workflows often lead to incomplete
+              reports or delayed submissions.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Effective teams focus on:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Simple workflows</li>
+              <li>Mobile friendly reporting</li>
+              <li>Fast photo attachment</li>
+              <li>Clear submission processes</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              When reporting is easy to complete during a shift, accuracy and
+              consistency improve naturally.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "best-practices",
+        title: "6. Use reporting to improve operations",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Incident reports should not disappear into a folder after
+              submission.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Strong operations teams review reports regularly to identify:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Recurring site issues</li>
+              <li>Patrol gaps</li>
+              <li>Training opportunities</li>
+              <li>Operational trends</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Reporting becomes much more valuable when it supports operational
+              improvement instead of acting only as documentation.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "practice",
+        title: "7. What good incident reporting looks like in practice",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              In well run security operations:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Guards submit reports consistently and on time</li>
+              <li>Supervisors can quickly understand what happened</li>
+              <li>Clients receive professional, organized documentation</li>
+              <li>
+                Reports support accountability without creating unnecessary
+                admin work
+              </li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Good reporting creates confidence across the operation.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+    ],
+    callout: (
+      <>
+        <p className="text-xsm text-gray-700 mb-4 leading-relaxed">
+          Incident reporting does not need to be complicated to be effective.
+        </p>
+
+        <p className="text-xsm text-gray-700 mb-4 leading-relaxed">
+          When reporting standards are clear, workflows are simple, and
+          expectations are consistent, guards can document incidents confidently
+          and supervisors can review information quickly. The best reporting
+          processes support real operations rather than slowing them down.
+        </p>
+
+        <p className="text-xsm text-gray-700 mb-0 leading-relaxed">
+          Modern security platforms like Opspot are designed to simplify
+          incident reporting in the field, but long term success always comes
+          from clear expectations and practical workflows.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "mobile-apps-for-security-guards-what-actually-matters",
+    slug: "mobile-apps-for-security-guards-what-actually-matters",
+    title: "Mobile apps for security guards: what actually matters",
+    intro:
+      "A practical look at what makes a security guard mobile app genuinely useful in the field, beyond long feature lists.",
+    readTime: 7,
+    image: mobileAppsGuideImage,
+    imageAlt: "Mobile apps for security guards: what actually matters",
+    meta: {
+      description:
+        "Learn what actually matters in a security guard mobile app. A practical guide to mobile workflows, usability, and reliability for modern security operations.",
+      keywords:
+        "security guard mobile app, guard app features, mobile security operations, security guard app usability, patrol app, guard management mobile",
+    },
+    articleIntro: (
+      <>
+        <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+          Mobile apps have become a standard part of modern security operations.
+        </p>
+
+        <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+          From patrol tracking to incident reporting and scheduling, guards
+          increasingly rely on mobile devices throughout their shifts. Yet many
+          security companies discover that complicated apps create frustration
+          instead of efficiency.
+        </p>
+
+        <p className="text-sm text-gray-700 mb-8 leading-relaxed">
+          This guide explains what actually matters in a security guard mobile
+          app from an operational perspective. The focus is not on long feature
+          lists, but on the workflows that genuinely help guards and supervisors
+          in the field.
+        </p>
+      </>
+    ),
+    sections: [
+      {
+        type: "why",
+        title: "1. Why mobile usability matters in security operations",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Security guards work in fast moving and unpredictable
+              environments.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              During a shift, guards may need to:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Complete patrols</li>
+              <li>Submit reports</li>
+              <li>Respond to incidents</li>
+              <li>Check schedules</li>
+              <li>Communicate with supervisors</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              If the mobile experience is slow or confusing, adoption drops
+              quickly.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Well designed mobile workflows reduce friction and help guards
+              stay focused on the job rather than the software itself.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "approach",
+        title: "2. Simple workflows outperform complex feature sets",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Many security platforms try to solve every operational problem at
+              once.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              In practice, overloaded apps often create:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Longer training times</li>
+              <li>Inconsistent usage</li>
+              <li>More support requests</li>
+              <li>Frustration in the field</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              The most effective guard apps focus on simplicity and clarity.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Core workflows should be:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Easy to learn</li>
+              <li>Fast to complete</li>
+              <li>Consistent across devices</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Good mobile apps support operations quietly in the background
+              rather than becoming the center of attention.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "considerations",
+        title: "3. Reliability matters more than appearance",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              A visually impressive app means very little if it fails during a
+              shift.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Security operations depend on reliability in real world
+              conditions, including:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Poor connectivity</li>
+              <li>Outdoor environments</li>
+              <li>Long shifts</li>
+              <li>Different device types</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Effective mobile tools prioritize:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Fast loading times</li>
+              <li>Stable performance</li>
+              <li>Offline support where possible</li>
+              <li>Consistent functionality across devices</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Reliability builds trust with guards and supervisors over time.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "best-practices",
+        title: "4. Mobile apps should reduce admin work",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              The best guard apps simplify operational tasks rather than adding
+              new layers of process.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Strong mobile workflows help teams:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Submit reports quickly</li>
+              <li>Confirm patrol completion easily</li>
+              <li>Access schedules without supervisor follow ups</li>
+              <li>Reduce paperwork and duplicate entry</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              When mobile tools reduce repetitive tasks, adoption improves
+              naturally.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "considerations",
+        title: "5. Training should be minimal",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              If guards require extensive training to use the app, the workflows
+              are probably too complicated.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Well designed mobile systems rely on:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Clear navigation</li>
+              <li>Familiar interactions</li>
+              <li>Simple terminology</li>
+              <li>Straightforward task flows</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              The goal is confidence, not technical expertise.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Guards should be able to complete core workflows comfortably after
+              a short introduction.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "practice",
+        title: "6. What good mobile workflows look like in practice",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              In well run security operations:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Guards can complete tasks quickly during shifts</li>
+              <li>Supervisors spend less time answering app questions</li>
+              <li>Patrols and reports are completed consistently</li>
+              <li>
+                Technology supports the workflow instead of interrupting it
+              </li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              The mobile app becomes part of normal operations rather than a
+              separate system guards need to manage.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+    ],
+    callout: (
+      <>
+        <p className="text-xsm text-gray-700 mb-4 leading-relaxed">
+          Mobile apps play an important role in modern security operations, but
+          simplicity and reliability matter far more than long feature lists.
+        </p>
+
+        <p className="text-xsm text-gray-700 mb-4 leading-relaxed">
+          The most effective platforms help guards complete essential tasks
+          quickly and confidently while reducing operational friction for
+          supervisors and clients alike.
+        </p>
+
+        <p className="text-xsm text-gray-700 mb-0 leading-relaxed">
+          Modern security platforms like Opspot are designed around practical
+          field workflows, but successful adoption always depends on keeping
+          processes clear and easy to follow.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "what-to-look-for-in-security-guard-management-software",
+    slug: "what-to-look-for-in-security-guard-management-software",
+    title: "What to look for in security guard management software",
+    intro:
+      "A practical guide to evaluating security guard management software based on operational fit rather than feature volume.",
+    readTime: 9,
+    image: whatToLookForGuideImage,
+    imageAlt: "What to look for in security guard management software",
+    meta: {
+      description:
+        "Learn what to look for in security guard management software. A practical guide to evaluating platforms based on operational fit, usability, and long-term value for security teams.",
+      keywords:
+        "security guard management software, what to look for in security software, guard management platform evaluation, security operations software buying guide, choosing security software",
+    },
+    articleIntro: (
+      <>
+        <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+          Choosing security guard management software is an important
+          operational decision.
+        </p>
+
+        <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+          The right platform can improve visibility, simplify workflows, and
+          help security teams scale more consistently. The wrong platform often
+          creates unnecessary complexity, slows adoption, and increases
+          administrative work.
+        </p>
+
+        <p className="text-sm text-gray-700 mb-8 leading-relaxed">
+          This guide explains the most important things to consider when
+          evaluating security guard management software from a practical
+          operational perspective.
+        </p>
+      </>
+    ),
+    sections: [
+      {
+        type: "considerations",
+        title: "1. Start with operational fit",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Not every platform is designed for the same type of security
+              operation.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Before comparing features, strong teams focus on whether the
+              software aligns with:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Their size and structure</li>
+              <li>Their workflows</li>
+              <li>Their sites and patrol requirements</li>
+              <li>Their day to day operational reality</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Software that looks impressive in a demo may still create friction
+              if it does not match how the team actually operates.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Operational fit matters more than feature volume.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "considerations",
+        title: "2. Prioritize usability for guards and supervisors",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Even powerful software fails if the team does not use it
+              consistently.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Good security platforms should feel:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Clear</li>
+              <li>Predictable</li>
+              <li>Easy to navigate</li>
+              <li>Simple to learn</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              This is especially important for mobile workflows like patrols,
+              incident reporting, and scheduling.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              The easier the platform is to use, the smoother adoption tends to
+              be across the operation.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "challenges",
+        title: "3. Avoid unnecessary complexity",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Many security companies end up paying for features they never use.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Overly complicated systems often create:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Longer onboarding periods</li>
+              <li>Increased support requests</li>
+              <li>Workflow confusion</li>
+              <li>Resistance from guards and supervisors</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Strong operations usually benefit more from a focused, reliable
+              system than a large platform filled with rarely used
+              functionality.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Simple systems are often easier to scale successfully.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "considerations",
+        title: "4. Look for flexibility in workflows",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Security operations vary significantly from site to site.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Effective platforms should support flexibility in areas like:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Patrol structures</li>
+              <li>Incident reporting</li>
+              <li>Scheduling workflows</li>
+              <li>Site configurations</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              The goal is to support operations without forcing every site into
+              the exact same process.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Flexibility helps teams adapt the platform as the business grows.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "considerations",
+        title: "5. Consider implementation and support",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Software adoption does not end after setup.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Well run teams evaluate:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>How difficult implementation will be</li>
+              <li>How quickly guards can learn the system</li>
+              <li>What onboarding support is available</li>
+              <li>How responsive support teams are after rollout</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              A simple implementation process often leads to stronger long term
+              adoption.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "best-practices",
+        title: "6. Focus on long term operational value",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              The best software decisions support operations over time, not just
+              during the initial rollout.
+            </p>
+
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Strong teams evaluate whether the platform will help them:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Improve visibility</li>
+              <li>Reduce administrative work</li>
+              <li>Maintain consistency as they grow</li>
+              <li>Support clients more effectively</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              The goal is not simply to digitize operations, but to create more
+              reliable and scalable workflows.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+      {
+        type: "practice",
+        title: "7. What good software adoption looks like in practice",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              In effective security operations:
+            </p>
+
+            <ul className="text-sm text-gray-700 mb-6 list-disc list-inside space-y-2 ml-4">
+              <li>Guards use the platform consistently without confusion</li>
+              <li>Supervisors rely on the system confidently</li>
+              <li>Operational workflows feel clearer and more organized</li>
+              <li>Clients benefit from improved visibility and reporting</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 mb-0 leading-relaxed">
+              Good software becomes part of normal operations rather than an
+              additional layer of work.
+            </p>
+          </>
+        ),
+        image: null,
+        imageAlt: null,
+      },
+    ],
+    callout: (
+      <>
+        <p className="text-xsm text-gray-700 mb-4 leading-relaxed">
+          Choosing security guard management software is less about finding the
+          platform with the most features and more about finding the right
+          operational fit.
+        </p>
+
+        <p className="text-xsm text-gray-700 mb-4 leading-relaxed">
+          The most effective systems support guards, supervisors, and clients
+          without introducing unnecessary complexity. Strong adoption comes from
+          usability, clarity, and alignment with real world workflows.
+        </p>
+
+        <p className="text-xsm text-gray-700 mb-0 leading-relaxed">
+          Modern security platforms like Opspot are designed around these
+          operational realities, but successful implementation always starts
+          with understanding how your team actually works day to day.
         </p>
       </>
     ),

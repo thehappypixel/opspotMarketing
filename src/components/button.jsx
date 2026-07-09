@@ -28,6 +28,11 @@ export default function Button({
     buttonClasses = `${
       densityClasses[density] || densityClasses.default
     } rounded-lg md:text-sm font-medium text-brand-primary bg-white border-2 border-brand-primary hover:text-brand-200 hover:border-brand-200 hover:bg-brand-200 hover:bg-opacity-75 hover:text-white`;
+  } else if (type === "ghost") {
+    // For use on dark/black backgrounds — white outlined style
+    buttonClasses = `${
+      densityClasses[density] || densityClasses.default
+    } rounded-lg md:text-sm font-medium text-white bg-transparent border-2 border-white/30 hover:border-white/60 hover:bg-white/10`;
   } else if (type === "subtle") {
     buttonClasses = "text-brand-primary border-brand-primary";
   } else {

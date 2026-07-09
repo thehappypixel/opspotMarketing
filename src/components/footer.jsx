@@ -27,7 +27,6 @@ const footerSections = [
   {
     heading: "Company",
     links: [
-      { label: "About", to: "/about" },
       { label: "Contact", to: "/contact" },
     ],
   },

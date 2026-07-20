@@ -53,7 +53,7 @@ function MobileGuardScreen() {
         />
       </Helmet>
       <Navigation />
-      <div className="mt-24 py-16 sm:px-4 lg:px-24 w-full bg-black">
+      <div className="mt-24 pt-16 sm:px-4 lg:px-24 w-full bg-black">
         <h2 className="text-xl leading-tight font-bold text-white text-center">
           Mobile guard & patrol
         </h2>

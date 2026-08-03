@@ -1,7 +1,10 @@
 /**
  * Google Analytics utility functions
- * Provides helper functions for tracking events and page views
+ * Provides helper functions for tracking events and page views.
+ * These also mirror the relevant conversions into Opinly (see ./opinly).
  */
+
+import { trackEvent as opinlyTrack, page as opinlyPage } from "./opinly";
 
 /**
  * Check if current traffic should be marked as internal
@@ -111,6 +114,9 @@ export const trackPageView = (pagePath, pageTitle = "") => {
       }
     }
   }
+
+  // Mirror SPA navigations into Opinly (initial load is auto-tracked).
+  opinlyPage();
 };
 
 /**
@@ -141,6 +147,11 @@ export const trackButtonClick = (
       "conversion",
       `${buttonLocation} | ${destination}`
     );
+    // Opinly conversion: clicking a "Get started" CTA is a sign-up intent.
+    opinlyTrack("sign_up", {
+      location: buttonLocation,
+      destination,
+    });
   } else if (
     buttonText.toLowerCase().includes("demo") ||
     buttonText.toLowerCase().includes("request")

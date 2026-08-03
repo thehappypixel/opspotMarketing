@@ -13,6 +13,7 @@ import {
   trackLinkClick,
   trackButtonClick,
 } from "../../utils/analytics";
+import { identify as opinlyIdentify, trackEvent as opinlyTrack } from "../../utils/opinly";
 
 // Zod schema for validation
 const formSchema = z.object({
@@ -45,6 +46,12 @@ function ContactScreen() {
       });
 
       trackFormSubmit("contact", true);
+
+      // Opinly: tie this visitor to their email, then record the lead.
+      // Identify first so the generate_lead event is attributed to the email.
+      opinlyIdentify({ email: data.email });
+      opinlyTrack("generate_lead", { email: data.email, form: "contact" });
+
       setIsComplete(true);
       reset();
     } catch (error) {

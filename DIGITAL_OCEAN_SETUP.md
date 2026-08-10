@@ -26,12 +26,15 @@ REACT_APP_KINDE_DOMAIN=https://auth.opspot.io
 REACT_APP_KINDE_REDIRECT_URI=https://app.opspot.io/auth/callback
 REACT_APP_KINDE_LOGOUT_URI=https://app.opspot.io/auth/logout
 REACT_APP_DOMAIN=https://app.opspot.io
+REACT_APP_SITE_URL=https://opspot.io
 REACT_APP_STARTER_PLAN=price_1QHCW9055Q5v4CGclCNN5zmw
 REACT_APP_PROFESSIONAL_PLAN_MONTHLY=price_1QHCX8055Q5v4CGcb6sMFzOZ
 REACT_APP_PROFESSIONAL_PLAN_YEARLY=price_1QLFcw055Q5v4CGcjIE9awyO
 REACT_APP_PREMIUM_PLAN_MONTHLY=price_1QHCYi055Q5v4CGcNcsOE8RE
 REACT_APP_PREMIUM_PLAN_YEARLY=price_1QLFf4055Q5v4CGcCzOeCjPl
 ```
+
+> **`REACT_APP_DOMAIN` vs `REACT_APP_SITE_URL`:** `REACT_APP_DOMAIN` is the **app** host that sign-up / login / checkout CTAs redirect to (`https://app.opspot.io`). `REACT_APP_SITE_URL` is this **marketing site's** own public host (`https://opspot.io`) and is used for SEO canonical tags, Open Graph URLs, and the sitemap. Keep them distinct — pointing canonicals at the app domain tells Google the marketing pages live on `app.opspot.io`.
 
 4. **Save and Redeploy**
    - Click **Save**

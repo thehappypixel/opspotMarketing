@@ -4,7 +4,7 @@ import Navigation from "../../components/navigation";
 import Footer from "../../components/footer";
 
 function WalkthroughsScreen() {
-  const siteUrl = process.env.REACT_APP_DOMAIN || "https://opspot.com";
+  const siteUrl = process.env.REACT_APP_SITE_URL || "https://opspot.io";
 
   return (
     <>

@@ -8,7 +8,7 @@ import securityOperationsGuidesContent from "../../../content/securityOperations
 
 function GuideArticle() {
   const { slug } = useParams();
-  const siteUrl = process.env.REACT_APP_DOMAIN || "https://opspot.com";
+  const siteUrl = process.env.REACT_APP_SITE_URL || "https://opspot.io";
 
   // Find the guide by slug
   const guide = securityOperationsGuidesContent.find((g) => g.slug === slug);

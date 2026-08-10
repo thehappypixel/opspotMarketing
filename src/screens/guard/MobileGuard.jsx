@@ -10,7 +10,7 @@ import Footer from "../../components/footer";
 import Button from "../../components/button";
 
 function MobileGuardScreen() {
-  const siteUrl = process.env.REACT_APP_DOMAIN || "https://opspot.com";
+  const siteUrl = process.env.REACT_APP_SITE_URL || "https://opspot.io";
 
   return (
     <>

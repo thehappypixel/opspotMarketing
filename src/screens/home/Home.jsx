@@ -12,7 +12,7 @@ import mobileImage from "../../assets/images/opspot-security-guard-software.png"
 import { trackLinkClick } from "../../utils/analytics";
 
 function HomeScreen() {
-  const siteUrl = process.env.REACT_APP_DOMAIN || "https://opspot.com";
+  const siteUrl = process.env.REACT_APP_SITE_URL || "https://opspot.io";
 
   return (
     <>

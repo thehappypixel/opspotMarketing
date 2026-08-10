@@ -6,7 +6,7 @@ import GuideCard from "../../components/guideCard";
 import securityOperationsGuidesContent from "../../content/securityOperationsGuidesContent";
 
 function GuidesScreen() {
-  const siteUrl = process.env.REACT_APP_DOMAIN || "https://opspot.com";
+  const siteUrl = process.env.REACT_APP_SITE_URL || "https://opspot.io";
 
   return (
     <>

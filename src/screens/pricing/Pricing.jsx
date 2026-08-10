@@ -52,7 +52,7 @@ const PricingScreen = () => {
 
   // Filter to show only first two plans (keeping third for future use)
   const visiblePlans = plans.slice(0, 2);
-  const siteUrl = process.env.REACT_APP_DOMAIN || "https://opspot.com";
+  const siteUrl = process.env.REACT_APP_SITE_URL || "https://opspot.io";
 
   return (
     <>

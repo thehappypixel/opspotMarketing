@@ -6,8 +6,8 @@ const plans = [
     buttonText: "Get started for free",
     type: "plan",
     id: {
-      monthly: `${process.env.REACT_APP_STARTER_PLAN}`,
-      yearly: `${process.env.REACT_APP_STARTER_PLAN}`,
+      monthly: `${import.meta.env.PUBLIC_STARTER_PLAN}`,
+      yearly: `${import.meta.env.PUBLIC_STARTER_PLAN}`,
     },
     highlight: false,
     features: {
@@ -40,8 +40,8 @@ const plans = [
     buttonText: "Go pro with a 2 week trial",
     type: "plan",
     id: {
-      monthly: `${process.env.REACT_APP_PROFESSIONAL_PLAN_MONTHLY}`,
-      yearly: `${process.env.REACT_APP_PROFESSIONAL_PLAN_YEARLY}`,
+      monthly: `${import.meta.env.PUBLIC_PROFESSIONAL_PLAN_MONTHLY}`,
+      yearly: `${import.meta.env.PUBLIC_PROFESSIONAL_PLAN_YEARLY}`,
     },
     highlight: true,
     features: {
@@ -71,8 +71,8 @@ const plans = [
     buttonText: "Start 2 week trial",
     type: "plan",
     id: {
-      monthly: `${process.env.REACT_APP_PREMIUM_PLAN_MONTHLY}`,
-      yearly: `${process.env.REACT_APP_PREMIUM_PLAN_YEARLY}`,
+      monthly: `${import.meta.env.PUBLIC_PREMIUM_PLAN_MONTHLY}`,
+      yearly: `${import.meta.env.PUBLIC_PREMIUM_PLAN_YEARLY}`,
     },
     highlight: false,
     features: {

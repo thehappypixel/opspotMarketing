@@ -1,0 +1,47 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/navigation.jsx";
+import PricingTable from "../components/pricingTable.jsx";
+import PricingFAQGrid from "../components/pricingFaq.jsx";
+import Footer from "../components/footer.jsx";
+
+const title =
+  "Pricing - Simple, Flexible Security Guard Management Software Plans | Opspot";
+const description =
+  "Simple, flexible pricing for security guard operations. Start free, scale your team, and pay for only the guards you manage. Affordable security guard management software with transparent pricing.";
+const keywords =
+  "security guard software pricing, security operations software cost, guard management software plans, affordable security software, security guard software pricing plans";
+---
+
+<Layout
+  title={title}
+  description={description}
+  keywords={keywords}
+  twitterCard="summary"
+>
+  <Navigation client:load pathname="/pricing" />
+
+  <div class="mt-48 py-16 sm:px-4 lg:px-24 w-3/4 mx-auto bg-black">
+    <h1 class="text-xl leading-tight font-bold text-white text-center">
+      Simple, flexible pricing for your security guard operations
+    </h1>
+    <p
+      class="pt-6 mb-16 text-md tracking-wider leading-snug font-normal text-white text-center"
+    >
+      Start free, scale your team, and pay for only the guards you manage
+    </p>
+
+    <PricingTable />
+
+    <div class="mt-32">
+      <h3 class="text-center text-lg font-bold text-white">
+        Frequently asked questions
+      </h3>
+      <div>
+        <PricingFAQGrid />
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>

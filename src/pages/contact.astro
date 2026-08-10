@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/navigation.jsx";
+import ContactForm from "../components/contactForm.jsx";
+import Footer from "../components/footer.jsx";
+
+const title = "Contact Us - Opspot Security Guard Management Software";
+const description =
+  "Have questions about Opspot security guard management software? Need support or want to learn more? Contact our team today. We're here to help with your security operations needs.";
+const keywords =
+  "contact Opspot, security software support, security guard software demo, security operations help, Opspot contact";
+---
+
+<Layout
+  title={title}
+  description={description}
+  keywords={keywords}
+  twitterCard="summary"
+  bodyClass="bg-white"
+>
+  <Navigation client:load pathname="/contact" />
+  <ContactForm client:load />
+  <Footer />
+</Layout>

@@ -10,7 +10,9 @@ import {
   trackButtonClick,
   trackLinkClick,
   trackExternalLink,
+  trackEvent,
 } from "../utils/analytics";
+import { trackEvent as opinlyTrack } from "../utils/opinly";
 
 export function initAnalyticsClient() {
   document.addEventListener("click", (event) => {
@@ -26,6 +28,12 @@ export function initAnalyticsClient() {
       trackExternalLink(d.trackDest || "", d.trackText || "");
     } else if (kind === "link") {
       trackLinkClick(d.trackText || "", d.trackDest || "", d.trackLocation || "");
+    }
+
+    // Explicit conversion events (e.g. pricing signup CTAs) via data-track-cta.
+    if (d.trackCta) {
+      trackEvent(d.trackCta, "conversion", d.trackCtaLabel || "");
+      opinlyTrack("sign_up", { location: d.trackCtaLabel || "" });
     }
   });
 }

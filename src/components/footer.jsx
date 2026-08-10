@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import logoLight from "../assets/images/opspot-logo-light.svg";
-import { trackExternalLink } from "../utils/analytics";
+import { imgSrc } from "../utils/img";
 
 const footerSections = [
   {
@@ -38,7 +37,7 @@ export default function Footer() {
       <div className="px-10 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Brand column */}
         <div>
-          <img src={logoLight} alt="Opspot" className="h-6 mb-4" />
+          <img src={imgSrc(logoLight)} alt="Opspot" className="h-6 mb-4" />
           <p className="text-gray-500 text-xxs leading-relaxed max-w-xs">
             Security operations software for small and mid-size teams.
           </p>
@@ -53,12 +52,12 @@ export default function Footer() {
             <ul className="flex flex-col gap-3">
               {section.links.map((link) => (
                 <li key={link.to}>
-                  <Link
-                    to={link.to}
+                  <a
+                    href={link.to}
                     className="text-gray-400 text-xxs hover:text-white transition-colors"
                   >
                     {link.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -77,12 +76,9 @@ export default function Footer() {
           rel="noreferrer"
           className="text-gray-500 hover:text-white transition-colors"
           aria-label="Opspot on LinkedIn"
-          onClick={() =>
-            trackExternalLink(
-              "https://www.linkedin.com/company/opspot-io",
-              "footer_linkedin"
-            )
-          }
+          data-track="external"
+          data-track-dest="https://www.linkedin.com/company/opspot-io"
+          data-track-text="footer_linkedin"
         >
           <svg
             width="16"

@@ -20,7 +20,7 @@ function whenReady(fn, attempt = 0) {
       fn(window.opinly);
     } catch (err) {
       // Never let analytics break the page.
-      if (process.env.NODE_ENV === "development") {
+      if (import.meta.env.DEV) {
         console.error("Opinly call failed:", err);
       }
     }

@@ -20,7 +20,7 @@ const isInternalTraffic = () => {
   if (manualFlag === "true") return true;
 
   // Mark as internal in development mode
-  if (process.env.NODE_ENV === "development") return true;
+  if (import.meta.env.DEV) return true;
 
   return false;
 };
@@ -55,14 +55,14 @@ export const trackEvent = (
       }
 
       // Log to console in development for debugging
-      if (process.env.NODE_ENV === "development") {
+      if (import.meta.env.DEV) {
         console.log("📊 GA Event:", eventName, eventParams);
       }
 
       window.gtag("event", eventName, eventParams);
     } else {
       // Log warning if gtag is not available
-      if (process.env.NODE_ENV === "development") {
+      if (import.meta.env.DEV) {
         console.warn(
           "⚠️ Google Analytics gtag not available. Event not tracked:",
           eventName,
@@ -72,7 +72,7 @@ export const trackEvent = (
     }
   } else {
     // Log if window is not available (shouldn't happen in browser)
-    if (process.env.NODE_ENV === "development") {
+    if (import.meta.env.DEV) {
       console.warn(
         "⚠️ Window object not available. Event not tracked:",
         eventName
@@ -100,13 +100,13 @@ export const trackPageView = (pagePath, pageTitle = "") => {
       }
 
       // Log to console in development for debugging
-      if (process.env.NODE_ENV === "development") {
+      if (import.meta.env.DEV) {
         console.log("📄 GA Page View:", pagePath, pageTitle);
       }
 
       window.gtag("config", "G-6JNFK4F9RY", configParams);
     } else {
-      if (process.env.NODE_ENV === "development") {
+      if (import.meta.env.DEV) {
         console.warn(
           "⚠️ Google Analytics gtag not available. Page view not tracked:",
           pagePath

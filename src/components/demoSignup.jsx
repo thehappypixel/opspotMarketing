@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./button";
+import { registerUrl } from "../config";
 
 export default function DemoSignup() {
   return (
@@ -20,9 +21,7 @@ export default function DemoSignup() {
             iconPosition="right"
             density="tight"
             location="demo_signup_section"
-            link={`${
-              process.env.REACT_APP_DOMAIN || "http://localhost:3000"
-            }/auth/register/?priceId=${process.env.REACT_APP_STARTER_PLAN}`}
+            link={registerUrl()}
           />
           <Button
             text="Request a demo"

@@ -1,0 +1,65 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/navigation.jsx";
+import Footer from "../../components/footer.jsx";
+
+const title = "Walkthroughs - Opspot Security Guard Management Software";
+const description =
+  "Interactive walkthroughs for Opspot security guard management software. Follow along with detailed walkthroughs of key features and workflows.";
+const keywords =
+  "security guard software walkthroughs, Opspot walkthroughs, security operations walkthroughs, guard management walkthroughs";
+
+const sections = [
+  {
+    title: "Complete System Walkthrough",
+    body: "A comprehensive walkthrough of the entire Opspot system from setup to daily operations.",
+  },
+  {
+    title: "Mobile Guard App Walkthrough",
+    body: "Step-by-step walkthrough of the mobile guard application features and functionality.",
+  },
+  {
+    title: "Reporting Dashboard Walkthrough",
+    body: "Learn how to navigate and utilize the reporting dashboard effectively.",
+  },
+  {
+    title: "Incident Management Workflow Walkthrough",
+    body: "Follow along as we walk through the complete incident management workflow.",
+  },
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  keywords={keywords}
+  twitterCard="summary"
+>
+  <Navigation client:load pathname="/resources/walkthroughs" />
+  <div class="mt-24 py-16 sm:px-4 lg:px-24 w-full bg-black min-h-screen">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-xl leading-tight font-bold text-white text-center mb-6">
+        Walkthroughs
+      </h1>
+      <p
+        class="text-md tracking-wider leading-snug font-normal text-white text-center mb-12"
+      >
+        Interactive walkthroughs to help you master Opspot's features and
+        workflows.
+      </p>
+
+      {
+        sections.map((s) => (
+          <div class="bg-gray-900 rounded-lg p-8 mb-8">
+            <h2 class="text-lg font-bold text-white mb-4">{s.title}</h2>
+            <p class="text-sm text-gray-300 mb-4">{s.body}</p>
+            <div class="bg-gray-800 rounded p-4 text-gray-400 text-sm">
+              Content coming soon...
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <Footer />
+</Layout>

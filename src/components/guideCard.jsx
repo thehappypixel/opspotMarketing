@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { BookOpenIcon } from "@heroicons/react/24/outline";
 import PillButton from "./pillButton";
+import { imgSrc } from "../utils/img";
 
 const GuideCard = ({
   title,
@@ -14,11 +14,11 @@ const GuideCard = ({
 }) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden transition-all duration-300 ease-in-out group flex flex-col shadow-md hover:shadow-xl hover:-translate-y-2">
-      <Link to={link} className="flex flex-col flex-1">
+      <a href={link} className="flex flex-col flex-1">
         {image && (
           <div className="aspect-video bg-white overflow-hidden">
             <img
-              src={image}
+              src={imgSrc(image)}
               alt={imageAlt || title}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
@@ -39,7 +39,7 @@ const GuideCard = ({
             {intro}
           </p>
         </div>
-      </Link>
+      </a>
 
       {/* Read more button */}
       <div className="px-6 pb-6">

@@ -1,0 +1,45 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Navigation from "../../../components/navigation.jsx";
+import Footer from "../../../components/footer.jsx";
+import ComparisonArticleBody from "../../../components/comparisonArticleBody.jsx";
+import comparisonsContent from "../../../content/comparisonsContent.jsx";
+
+export function getStaticPaths() {
+  return comparisonsContent.map((comparison) => ({
+    params: { slug: comparison.slug },
+    props: { comparison },
+  }));
+}
+
+const { comparison } = Astro.props;
+
+const title = `${comparison.title} - Opspot`;
+const description = comparison.meta.description;
+const keywords = comparison.meta.keywords;
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: comparison.title,
+    description: comparison.meta.description,
+    author: { "@type": "Organization", name: "Opspot" },
+    publisher: { "@type": "Organization", name: "Opspot" },
+  },
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  keywords={keywords}
+  ogTitle={`${comparison.title} - Opspot`}
+  ogType="article"
+  twitterCard="summary"
+  jsonLd={jsonLd}
+>
+  <Navigation client:load pathname={`/ressources/comparisons/${comparison.slug}`} />
+  <ComparisonArticleBody comparison={comparison} />
+  <Footer />
+</Layout>

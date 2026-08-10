@@ -12,6 +12,13 @@ const SITE = process.env.PUBLIC_SITE_URL || "https://opspot.io";
 // https://astro.build/config
 export default defineConfig({
   site: SITE,
+  // The comparisons section lives at the (historical) /ressources spelling,
+  // which is what nav, footer, content links, and canonicals use. Redirect the
+  // /resources/comparisons duplicates to it to avoid duplicate content.
+  redirects: {
+    "/resources/comparisons": "/ressources/comparisons",
+    "/resources/comparisons/[slug]": "/ressources/comparisons/[slug]",
+  },
   integrations: [
     react(),
     // Let our existing tailwind.config.js own the config; don't inject a

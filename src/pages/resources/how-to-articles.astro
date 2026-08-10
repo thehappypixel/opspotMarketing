@@ -1,0 +1,64 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/navigation.jsx";
+import Footer from "../../components/footer.jsx";
+
+const title = "How To Articles - Opspot Security Guard Management Software";
+const description =
+  "Step-by-step how-to articles for Opspot security guard management software. Learn how to perform specific tasks and operations.";
+const keywords =
+  "security guard software how-to, Opspot tutorials, security operations how-to, guard management tutorials";
+
+const sections = [
+  {
+    title: "How to Set Up Your First Guard Schedule",
+    body: "Learn how to create and manage guard schedules for your security operations.",
+  },
+  {
+    title: "How to Create and Manage Incident Reports",
+    body: "Step-by-step guide to creating, tracking, and managing incident reports.",
+  },
+  {
+    title: "How to Generate Activity Reports",
+    body: "Discover how to create comprehensive activity reports for your security team.",
+  },
+  {
+    title: "How to Configure Mobile Guard Settings",
+    body: "Learn how to configure and customize mobile guard settings for your team.",
+  },
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  keywords={keywords}
+  twitterCard="summary"
+>
+  <Navigation client:load pathname="/resources/how-to-articles" />
+  <div class="mt-24 py-16 sm:px-4 lg:px-24 w-full bg-black min-h-screen">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-xl leading-tight font-bold text-white text-center mb-6">
+        How To Articles
+      </h1>
+      <p
+        class="text-md tracking-wider leading-snug font-normal text-white text-center mb-12"
+      >
+        Step-by-step instructions for common tasks and operations in Opspot.
+      </p>
+
+      {
+        sections.map((s) => (
+          <div class="bg-gray-900 rounded-lg p-8 mb-8">
+            <h2 class="text-lg font-bold text-white mb-4">{s.title}</h2>
+            <p class="text-sm text-gray-300 mb-4">{s.body}</p>
+            <div class="bg-gray-800 rounded p-4 text-gray-400 text-sm">
+              Content coming soon...
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <Footer />
+</Layout>

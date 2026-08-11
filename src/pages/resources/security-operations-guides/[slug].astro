@@ -14,7 +14,7 @@ export function getStaticPaths() {
 
 const { guide } = Astro.props;
 
-const title = `${guide.title} - Opspot Security Guard Management Software`;
+const title = `${guide.metaTitle ?? guide.title} | Opspot`;
 const description = guide.meta.description;
 const keywords = guide.meta.keywords;
 
@@ -34,7 +34,7 @@ const jsonLd = [
   title={title}
   description={description}
   keywords={keywords}
-  ogTitle={`${guide.title} - Opspot`}
+  ogTitle={`${guide.title} | Opspot`}
   ogType="article"
   twitterCard="summary"
   jsonLd={jsonLd}

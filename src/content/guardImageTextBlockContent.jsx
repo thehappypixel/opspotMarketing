@@ -36,7 +36,7 @@ const GuardImageTextBlockContent = [
   {
     firstItem: "image",
     header: "Automatic daily activity reports",
-    body: "Daily Activity Reports (DARs) are automatically generated and tied to each guard's shift — giving you a complete timeline of tasks, patrols, and incidents with zero extra effort.",
+    body: "Daily Activity Reports (DARs) are automatically generated and tied to each guard's shift, giving you a complete timeline of tasks, patrols, and incidents with zero extra effort.",
     imageUrl: mobileActivityReports,
     listItems: [
       {
@@ -62,7 +62,7 @@ const GuardImageTextBlockContent = [
   {
     firstItem: "image",
     header: "Flexible checkpoint logging",
-    body: "Log checkpoints however your site requires — QR codes, NFC tags, or manual entry. Ideal for indoor, outdoor, and high-security environments.",
+    body: "Log checkpoints however your site requires: QR codes, NFC tags, or manual entry. Ideal for indoor, outdoor, and high-security environments.",
     imageUrl: mobileCheckpoint,
     listItems: [
       { icon: <QrCodeIcon className="h-5 w-5" />, text: "QR checkpoints" },

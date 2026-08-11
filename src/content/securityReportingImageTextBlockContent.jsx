@@ -29,7 +29,7 @@ const SecurityReportingImageTextBlockContent = [
   {
     firstItem: "image",
     header: "Robust activity tracking",
-    body: "Monitor everything happening in the field—from patrol checkpoints and incident reports to emergency calls. Every action is logged with real-time detail for complete operational visibility.",
+    body: "Monitor everything happening in the field, from patrol checkpoints and incident reports to emergency calls. Every action is logged with real-time detail for complete operational visibility.",
     imageUrl: activityTracking,
     listItems: [
       {

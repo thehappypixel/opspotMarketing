@@ -1,5 +1,5 @@
 // Only two plans are shown (Starter + Pro), monthly billing only. Annual
-// pricing and the Premium plan were removed as unused — re-add here if they
+// pricing and the Premium plan were removed as unused; re-add here if they
 // come back (and add the matching PUBLIC_* price-id env vars).
 const plans = [
   {

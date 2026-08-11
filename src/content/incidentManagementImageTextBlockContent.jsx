@@ -13,7 +13,7 @@ const IncidentManagementImageTextBlockContent = [
   {
     firstItem: "text",
     header: "Flexible, customizable reports",
-    body: "Build incident reports that fit the situation—not the other way around. Guards can adjust fields, add detailed notes, attach images, and capture every critical detail without slowing down.",
+    body: "Build incident reports that fit the situation, not the other way around. Guards can adjust fields, add detailed notes, attach images, and capture every critical detail without slowing down.",
     imageUrl: incidentFlexible,
     listItems: [
       {
@@ -29,7 +29,7 @@ const IncidentManagementImageTextBlockContent = [
   {
     firstItem: "image",
     header: "Accurate location tracking",
-    body: "Each incident is automatically GPS-tagged with precise coordinates, giving supervisors and clients full clarity on where events occurred—no guesswork, no missing data.",
+    body: "Each incident is automatically GPS-tagged with precise coordinates, giving supervisors and clients full clarity on where events occurred: no guesswork, no missing data.",
     imageUrl: incidentLocation,
     listItems: [
       {

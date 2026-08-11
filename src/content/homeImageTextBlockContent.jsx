@@ -63,7 +63,7 @@ const HomeImageTextBlockContent = [
   {
     firstItem: "image",
     header: "Simple guard scheduling and shift management",
-    body: "Create schedules quickly with activities, checkpoints, and tours. Use templates to copy schedules week to week, saving hours of admin time. Guards clock in and follow their scheduled activities in the mobile app—making it fast and easy to know what to do and complete their duties.",
+    body: "Create schedules quickly with activities, checkpoints, and tours. Use templates to copy schedules week to week, saving hours of admin time. Guards clock in and follow their scheduled activities in the mobile app, making it fast and easy to know what to do and complete their duties.",
     ctaLink: "/scheduling",
     ctaText: "Learn about guard scheduling",
     imageUrl: scheduling,

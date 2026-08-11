@@ -14,6 +14,7 @@ const securityOperationsGuidesContent = [
     id: "what-to-consider-when-adopting-security-guard-management-software",
     slug: "what-to-consider-when-adopting-security-guard-management-software",
     title: "What to consider when adopting security guard management software",
+    metaTitle: "Adopting security guard management software",
     intro:
       "Before adopting new security software, there are a few things every security company should consider. This guide walks you through them.",
     readTime: 8,
@@ -307,6 +308,7 @@ const securityOperationsGuidesContent = [
     slug: "how-to-successfully-implement-security-workforce-management-software",
     title:
       "How to successfully implement security workforce management software",
+    metaTitle: "How to implement guard management software",
     intro:
       "Practical guidance for implementing security workforce software in real-world security operations.",
     readTime: 7,
@@ -1118,6 +1120,7 @@ const securityOperationsGuidesContent = [
     id: "security-guard-patrol-tracking-explained-qr-nfc-gps",
     slug: "security-guard-patrol-tracking-explained-qr-nfc-gps",
     title: "Security guard patrol tracking explained (QR, NFC, and GPS)",
+    metaTitle: "Security guard patrol tracking: QR, NFC, GPS",
     intro:
       "Learn about the most common patrol tracking methods used by modern security teams: QR codes, NFC checkpoints, and GPS-based tracking.",
     readTime: 9,
@@ -1463,6 +1466,7 @@ const securityOperationsGuidesContent = [
     id: "how-to-schedule-security-guards-and-shifts-without-chaos",
     slug: "how-to-schedule-security-guards-and-shifts-without-chaos",
     title: "How to schedule security guards and shifts without chaos",
+    metaTitle: "How to schedule security guards and shifts",
     intro:
       "Learn how well-run security teams approach guard scheduling in a practical, structured way that builds schedules that are clear, reliable, and sustainable.",
     readTime: 8,
@@ -1745,6 +1749,7 @@ const securityOperationsGuidesContent = [
     id: "incident-reporting-for-security-companies-best-practices",
     slug: "incident-reporting-for-security-companies-best-practices",
     title: "Incident reporting for security companies: best practices",
+    metaTitle: "Incident reporting best practices for security",
     intro:
       "A practical guide to building clearer, more consistent incident reporting across your security operation.",
     readTime: 8,
@@ -2040,6 +2045,7 @@ const securityOperationsGuidesContent = [
     id: "mobile-apps-for-security-guards-what-actually-matters",
     slug: "mobile-apps-for-security-guards-what-actually-matters",
     title: "Mobile apps for security guards: what actually matters",
+    metaTitle: "Mobile apps for security guards",
     intro:
       "A practical look at what makes a security guard mobile app genuinely useful in the field, beyond long feature lists.",
     readTime: 7,
@@ -2311,6 +2317,7 @@ const securityOperationsGuidesContent = [
     id: "what-to-look-for-in-security-guard-management-software",
     slug: "what-to-look-for-in-security-guard-management-software",
     title: "What to look for in security guard management software",
+    metaTitle: "What to look for in guard management software",
     intro:
       "A practical guide to evaluating security guard management software based on operational fit rather than feature volume.",
     readTime: 9,

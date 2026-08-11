@@ -1,0 +1,84 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/navigation.jsx";
+import ImageTextBlock from "../components/imageTextBlock.jsx";
+import HomeImageTextBlockContent from "../content/homeImageTextBlockContent.jsx";
+import DemoSignup from "../components/demoSignup.jsx";
+import Footer from "../components/footer.jsx";
+import Button from "../components/button.jsx";
+import { registerUrl } from "../config";
+import heroImage from "../assets/images/opspot-security-guard-software.png";
+
+const title =
+  "Opspot - Simple, Powerful & Affordable Security Guard Management Software";
+const description =
+  "Manage your security guard team with Opspot's all-in-one platform. Track patrols, incidents, schedules, and GPS tracking. Simple, powerful, and affordable security operations software built for security teams.";
+const keywords =
+  "security guard management software, security operations software, guard patrol software, incident management, GPS tracking, security reporting, mobile guard app, security team management";
+---
+
+<Layout title={title} description={description} keywords={keywords}>
+  <Navigation client:load pathname="/" />
+
+  <div class="mt-32 pt-16 sm:px-4 lg:px-14 w-full bg-black">
+    <h1
+      class="sm:text-lg md:text-xl leading-tight font-bold text-white text-center md:w-3/4 mx-auto"
+    >
+      Simple, powerful & affordable tools to manage your security guard team
+    </h1>
+    <div class="flex justify-center">
+      <p
+        class="pt-6 mb-6 text-sm tracking-wider leading-relaxed font-normal text-white text-center md:w-1/2 mx-auto"
+      >
+        Patrols, incidents, schedules, and GPS tracking all in one place,
+        helping your team stay organized, responsive, and safe.
+      </p>
+    </div>
+    <div class="py-4 mb-12 flex justify-center items-center gap-4">
+      <Button
+        text="Get started for free"
+        icon={true}
+        iconPosition="right"
+        density="tight"
+        location="hero"
+        link={registerUrl()}
+      />
+      <a
+        href="/contact"
+        data-track="link"
+        data-track-text="Request a demo"
+        data-track-dest="/contact"
+        data-track-location="hero"
+        class="text-white md:text-sm font-medium px-6 hover:text-opacity-80 transition duration-150 ease-in-out"
+      >
+        Request a demo
+      </a>
+    </div>
+    <div>
+      <img
+        src={heroImage.src}
+        alt="Opspot Security Guard Software Screenshot"
+        class="lg:w-7/8 mx-auto"
+      />
+    </div>
+  </div>
+
+  <div class="bg-white flex flex-col">
+    {
+      HomeImageTextBlockContent.map((block) => (
+        <ImageTextBlock
+          firstItem={block.firstItem}
+          header={block.header}
+          body={block.body}
+          ctaLink={block.ctaLink}
+          ctaText={block.ctaText}
+          imageUrl={block.imageUrl}
+          listItems={block.listItems}
+        />
+      ))
+    }
+  </div>
+
+  <DemoSignup />
+  <Footer />
+</Layout>

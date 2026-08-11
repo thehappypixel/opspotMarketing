@@ -1,0 +1,70 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/navigation.jsx";
+import ImageTextBlock from "../components/imageTextBlock.jsx";
+import GuardImageTextBlockContent from "../content/guardImageTextBlockContent.jsx";
+import MobileApps from "../components/mobileApps.jsx";
+import DemoSignup from "../components/demoSignup.jsx";
+import Footer from "../components/footer.jsx";
+import Button from "../components/button.jsx";
+import { registerUrl } from "../config";
+import heroImage from "../assets/images/screen-mobile.png";
+
+const title =
+  "Mobile Guard & Patrol App - Security Guard Mobile Software | Opspot";
+const description =
+  "Empower your guards with simple, reliable mobile tools for patrols, tours, and real-time activity tracking. QR code checkpoints, NFC support, live GPS tracking, and automatic daily activity reports. All in one mobile guard app.";
+const keywords =
+  "mobile guard app, security guard mobile app, patrol app, guard patrol software, mobile security software, QR code checkpoints, GPS tracking guards, security guard clock in, daily activity reports";
+---
+
+<Layout title={title} description={description} keywords={keywords}>
+  <Navigation client:load pathname="/mobile-guard" />
+
+  <div class="mt-24 pt-16 sm:px-4 lg:px-24 w-full bg-black">
+    <h1 class="text-xl leading-tight font-bold text-white text-center">
+      Mobile guard & patrol
+    </h1>
+    <div class="flex justify-center">
+      <p
+        class="pt-6 mb-6 text-md tracking-wider leading-snug font-normal text-white text-center md:w-3/4 lg:w-1/2"
+      >
+        Empower your guards with simple, reliable mobile tools for patrols,
+        tours, and real-time activity tracking. All in one app.
+      </p>
+    </div>
+    <div class="py-4 mb-8 flex justify-center">
+      <Button
+        text="Get started for free"
+        icon={true}
+        iconPosition="right"
+        density="tight"
+        location="mobile_guard_hero"
+        link={registerUrl()}
+      />
+    </div>
+    <div>
+      <img src={heroImage.src} alt="Mobile guard and operations screenshot" />
+    </div>
+  </div>
+
+  <div class="bg-white flex flex-col">
+    {
+      GuardImageTextBlockContent.map((block) => (
+        <ImageTextBlock
+          firstItem={block.firstItem}
+          header={block.header}
+          body={block.body}
+          ctaLink={block.ctaLink}
+          ctaText={block.ctaText}
+          imageUrl={block.imageUrl}
+          listItems={block.listItems}
+        />
+      ))
+    }
+  </div>
+
+  <MobileApps />
+  <DemoSignup />
+  <Footer />
+</Layout>

@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Button from "./button";
-import { trackLinkClick } from "../utils/analytics";
+import { imgSrc } from "../utils/img";
 
 const ImageTextBlock = ({
   firstItem,
@@ -63,7 +62,7 @@ const ImageTextBlock = ({
           }`}
         >
           <img
-            src={imageUrl}
+            src={imgSrc(imageUrl)}
             alt={header}
             className="lg:w-full lg:h-full md:w-3/4 md:h-3/4 md:mx-auto object-contain"
             style={{ maxHeight: "100%", display: "block" }}

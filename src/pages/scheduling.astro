@@ -1,0 +1,75 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/navigation.jsx";
+import ImageTextBlock from "../components/imageTextBlock.jsx";
+import SchedulingImageTextBlockContent from "../content/schedulingImageTextBlockContent.jsx";
+import DemoSignup from "../components/demoSignup.jsx";
+import Footer from "../components/footer.jsx";
+import Button from "../components/button.jsx";
+import { registerUrl } from "../config";
+import heroImage from "../assets/images/opspot-scheduling-guard-software.png";
+
+const title =
+  "Security Guard Scheduling Software - Create & Manage Guard Schedules | Opspot";
+const description =
+  "Create guard schedules quickly and easily with Opspot's scheduling software. Build schedules with activities, checkpoints, and tours. Use templates to copy schedules week to week. Guards follow their scheduled activities in the mobile app.";
+const keywords =
+  "security guard scheduling software, guard schedule management, security workforce scheduling, guard shift scheduling, security operations scheduling, guard management scheduling, schedule templates for security guards";
+---
+
+<Layout title={title} description={description} keywords={keywords}>
+  <Navigation client:load pathname="/scheduling" />
+
+  <div class="mt-32 pt-16 sm:px-4 lg:px-14 w-full bg-black">
+    <h1
+      class="sm:text-lg md:text-xl leading-tight font-bold text-white text-center md:w-3/4 mx-auto"
+    >
+      Guard scheduling
+    </h1>
+    <div class="flex justify-center">
+      <p
+        class="pt-6 mb-6 text-sm tracking-wider leading-relaxed font-normal text-white text-center md:w-1/2 mx-auto"
+      >
+        Create schedules faster with less admin. Build clear, structured shifts
+        that include activities, checkpoints, and tours so guards always know
+        what's expected.
+      </p>
+    </div>
+    <div class="py-4 mb-12 flex justify-center">
+      <Button
+        text="Get started for free"
+        icon={true}
+        iconPosition="right"
+        density="tight"
+        location="scheduling_hero"
+        link={registerUrl()}
+      />
+    </div>
+    <div>
+      <img
+        src={heroImage.src}
+        alt="Guard scheduling screenshot"
+        class="lg:w-7/8 mx-auto"
+      />
+    </div>
+  </div>
+
+  <div class="bg-white flex flex-col">
+    {
+      SchedulingImageTextBlockContent.map((block) => (
+        <ImageTextBlock
+          firstItem={block.firstItem}
+          header={block.header}
+          body={block.body}
+          ctaLink={block.ctaLink}
+          ctaText={block.ctaText}
+          imageUrl={block.imageUrl}
+          listItems={block.listItems}
+        />
+      ))
+    }
+  </div>
+
+  <DemoSignup />
+  <Footer />
+</Layout>

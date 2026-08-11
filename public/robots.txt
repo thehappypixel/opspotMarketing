@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://opspot.io/sitemap.xml
+Sitemap: https://opspot.io/sitemap-index.xml

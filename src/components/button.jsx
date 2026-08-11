@@ -1,7 +1,9 @@
 import React from "react";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import { trackButtonClick } from "../utils/analytics";
 
+// Presentational link/button. Server-rendered by Astro to static HTML (no JS).
+// Click analytics are handled globally via the data-track-* attributes below
+// (see src/scripts/analyticsClient.js) instead of an onClick handler.
 export default function Button({
   text,
   link,
@@ -42,14 +44,13 @@ export default function Button({
     } rounded-lg md:text-sm font-medium text-white bg-brand-primary border-2 border-brand-primary hover:bg-brand-200 hover:border-brand-200`;
   }
 
-  const handleClick = () => {
-    trackButtonClick(text, location, link);
-  };
-
   return (
     <a
       href={link}
-      onClick={handleClick}
+      data-track="button"
+      data-track-text={text}
+      data-track-location={location}
+      data-track-dest={link}
       className={`${baseClasses} ${buttonClasses}`}
     >
       <div className="flex items-center">

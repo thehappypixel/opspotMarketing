@@ -1,0 +1,68 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/navigation.jsx";
+import ImageTextBlock from "../components/imageTextBlock.jsx";
+import IncidentManagementImageTextBlockContent from "../content/incidentManagementImageTextBlockContent.jsx";
+import DemoSignup from "../components/demoSignup.jsx";
+import Footer from "../components/footer.jsx";
+import Button from "../components/button.jsx";
+import { registerUrl } from "../config";
+import heroImage from "../assets/images/incident-management-screen.png";
+
+const title =
+  "Incident Management Software - Fast, Accurate Field Incident Reporting | Opspot";
+const description =
+  "Empower your security team with fast, accurate field incident reporting. Customizable reports with photos, GPS location tracking, and automatic time stamps. No more delays in incident documentation.";
+const keywords =
+  "incident management software, security incident reporting, field incident reporting, incident report software, security incident management, GPS incident tracking, incident documentation software";
+---
+
+<Layout title={title} description={description} keywords={keywords}>
+  <Navigation client:load pathname="/incident-management" />
+
+  <div class="mt-24 py-16 sm:px-4 lg:px-24 w-full bg-black">
+    <h1 class="text-xl leading-tight font-bold text-white text-center">
+      Incident management
+    </h1>
+    <div class="flex justify-center">
+      <p
+        class="pt-6 mb-6 text-md tracking-wider leading-snug font-normal text-white text-center md:w-3/4 lg:w-1/2"
+      >
+        Empower your security team with fast, accurate field incident reporting.
+        No more delays.
+      </p>
+    </div>
+    <div class="py-4 mb-8 flex justify-center">
+      <Button
+        text="Get started for free"
+        icon={true}
+        iconPosition="right"
+        density="tight"
+        location="incident_management_hero"
+        link={registerUrl()}
+      />
+    </div>
+    <div class="flex justify-center">
+      <img src={heroImage.src} alt="Incident reporting screenshot" class="w-3/4" />
+    </div>
+  </div>
+
+  <div class="bg-white flex flex-col">
+    {
+      IncidentManagementImageTextBlockContent.map((block) => (
+        <ImageTextBlock
+          firstItem={block.firstItem}
+          header={block.header}
+          body={block.body}
+          ctaLink={block.ctaLink}
+          ctaText={block.ctaText}
+          imageUrl={block.imageUrl}
+          listItems={block.listItems}
+        />
+      ))
+    }
+  </div>
+
+  <DemoSignup />
+  <Footer />
+</Layout>

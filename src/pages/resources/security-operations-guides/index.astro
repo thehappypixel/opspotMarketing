@@ -1,0 +1,62 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Navigation from "../../../components/navigation.jsx";
+import Footer from "../../../components/footer.jsx";
+import GuideCard from "../../../components/guideCard.jsx";
+import securityOperationsGuidesContent from "../../../content/securityOperationsGuidesContent.jsx";
+
+const title =
+  "Security Operations Guides - Opspot Security Guard Management Software";
+const description =
+  "Comprehensive security operations guides for using Opspot security guard management software. Learn how to optimize your security operations with our detailed guides.";
+const keywords =
+  "security guard software guides, Opspot guides, security operations guides, guard management guides";
+
+const guides = [...securityOperationsGuidesContent].reverse();
+---
+
+<Layout
+  title={title}
+  description={description}
+  keywords={keywords}
+  twitterCard="summary"
+>
+  <Navigation client:load pathname="/resources/security-operations-guides" />
+
+  <div class="mt-24 py-16 sm:px-4 lg:px-24 w-full bg-black">
+    <div class="max-w-6xl mx-auto">
+      <h1
+        class="text-xl leading-tight font-bold text-white text-center mb-6"
+      >
+        Security operations guides
+      </h1>
+      <p
+        class="text-md tracking-wider leading-snug font-normal text-white text-center mb-12 md:w-3/4 mx-auto"
+      >
+        Straightforward guides to help security companies modernize their
+        operations and successfully adopt security management software
+      </p>
+    </div>
+  </div>
+
+  <div class="bg-white py-16 sm:px-4 lg:px-24 w-full">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {
+          guides.map((guide) => (
+            <GuideCard
+              title={guide.title}
+              intro={guide.intro}
+              image={guide.image}
+              imageAlt={guide.imageAlt}
+              link={`/resources/security-operations-guides/${guide.slug}`}
+              readTime={guide.readTime}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>

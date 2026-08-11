@@ -7,8 +7,7 @@ import { registerUrl } from "../config";
 // in content for future use), so this is fully server-rendered — no JS. Signup
 // clicks are tracked via the delegated analytics handler (data-track-*).
 export default function PricingTable() {
-  // Show only the first two plans (third kept for future use).
-  const visiblePlans = plans.slice(0, 2);
+  const visiblePlans = plans;
 
   return (
     <div className="overflow-x-auto">

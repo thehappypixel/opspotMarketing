@@ -1,14 +1,14 @@
+// Only two plans are shown (Starter + Pro), monthly billing only. Annual
+// pricing and the Premium plan were removed as unused — re-add here if they
+// come back (and add the matching PUBLIC_* price-id env vars).
 const plans = [
   {
     name: "STARTER",
     description: "Perfect for very small teams",
-    price: { monthly: "Free", annual: "Free" },
+    price: { monthly: "Free" },
     buttonText: "Get started for free",
     type: "plan",
-    id: {
-      monthly: `${import.meta.env.PUBLIC_STARTER_PLAN}`,
-      yearly: `${import.meta.env.PUBLIC_STARTER_PLAN}`,
-    },
+    id: { monthly: `${import.meta.env.PUBLIC_STARTER_PLAN}` },
     highlight: false,
     features: {
       Users: ["Up to 3 guards", "Unlimited admin users"],
@@ -29,20 +29,15 @@ const plans = [
         { text: "Unlimited schedules", included: false },
         { text: "Unlimited shifts", included: false },
       ],
-      // "Data & Security": [],
-      // "Branding & integrations": [],
     },
   },
   {
     name: "Pro",
     description: "Excellent value for growing teams",
-    price: { monthly: "$8", annual: "$8" },
+    price: { monthly: "$8" },
     buttonText: "Go pro with a 2 week trial",
     type: "plan",
-    id: {
-      monthly: `${import.meta.env.PUBLIC_PROFESSIONAL_PLAN_MONTHLY}`,
-      yearly: `${import.meta.env.PUBLIC_PROFESSIONAL_PLAN_YEARLY}`,
-    },
+    id: { monthly: `${import.meta.env.PUBLIC_PROFESSIONAL_PLAN_MONTHLY}` },
     highlight: true,
     features: {
       Users: ["Unlimited guards", "Unlimited admin users"],
@@ -60,50 +55,6 @@ const plans = [
         "PDF report exports",
       ],
       "Schedule management": ["Unlimited schedules", "Unlimited shifts"],
-      // "Data & Security": ["Offline mode"],
-      // "Branding & integrations": [],
-    },
-  },
-  {
-    name: "Premium",
-    description: "Get the most out of Opspot",
-    price: { monthly: "$400", annual: "$350" },
-    buttonText: "Start 2 week trial",
-    type: "plan",
-    id: {
-      monthly: `${import.meta.env.PUBLIC_PREMIUM_PLAN_MONTHLY}`,
-      yearly: `${import.meta.env.PUBLIC_PREMIUM_PLAN_YEARLY}`,
-    },
-    highlight: false,
-    features: {
-      Users: ["Up to 25 guards", "Unlimited admin users"],
-      Location: ["Unlimited locations"],
-      "Shift management": [
-        "Clock in and out",
-        // "Break management",
-        // "Geo fencing",
-      ],
-      "Task management": [
-        "Unlimited checkpoints",
-        "5 images per checkpoint",
-        "Unlimited tours",
-      ],
-      Safety: [
-        "Live GPS tracking",
-        "Emergency calls",
-        // "Lone worker",
-        // "Person down",
-      ],
-      Reporting: [
-        "Incident reports",
-        "Activity tracking",
-        // "Starter email & PDF reports",
-        // "Custom email & PDF reports",
-        // "Scheduled reporting",
-      ],
-      "Schedule management": ["Unlimited schedules", "Unlimited shifts"],
-      // "Data & Security": ["Offline mode", "SSO"],
-      // "Branding & integrations": ["Custom branding"],
     },
   },
 ];
@@ -116,8 +67,6 @@ const categories = [
   "Safety",
   "Reporting",
   "Schedule management",
-  // "Data & Security",
-  // "Branding & integrations",
 ];
 
 export { plans, categories };

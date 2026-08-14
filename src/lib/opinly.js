@@ -13,10 +13,13 @@ import { SITE_URL } from "../config";
 // Server/build-time secret — do NOT prefix with PUBLIC_ (must stay off the client).
 const apiKey = import.meta.env.OPINLY_API_KEY;
 
-// Absolute CDN base URL Opinly serves post images from. Set OPINLY_IMAGES_PREFIX
-// to the value from Opinly (Settings → Developers / blog config). If unset,
-// images are skipped instead of rendered broken.
-const imagesPrefix = import.meta.env.OPINLY_IMAGES_PREFIX || "";
+// Absolute CDN base URL Opinly serves post images from. Per Opinly's docs, a
+// static site points imagesPrefix straight at https://cdn.opinly.ai/<namespace>
+// (the namespace is public — it appears in client-side image URLs). Override
+// with OPINLY_IMAGES_PREFIX if the CDN host/namespace ever changes.
+const imagesPrefix =
+  import.meta.env.OPINLY_IMAGES_PREFIX ||
+  "https://cdn.opinly.ai/0FU9R7UCLGPG_6U6wvglG";
 
 // Render/config object consumed by renderToHtml, imageUrl, and the JSON-LD builder.
 export const opinlyConfig = {

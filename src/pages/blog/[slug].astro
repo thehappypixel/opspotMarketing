@@ -1,0 +1,145 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/navigation.jsx";
+import Footer from "../../components/footer.jsx";
+import {
+  getAllPosts,
+  getPost,
+  renderBody,
+  postImage,
+  blogPostingJsonLd,
+} from "../../lib/opinly.js";
+
+export async function getStaticPaths() {
+  const posts = await getAllPosts();
+  return posts.map((p) => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+const post = await getPost(slug);
+if (!post) return Astro.redirect("/blog");
+
+const title = `${post.metaTitle || post.title} | Opspot`;
+const description = post.metaDescription || post.description;
+const heroSrc = postImage(post.titleFile?.fileKey);
+const bodyHtml = renderBody(post.content);
+
+const jsonLd = [blogPostingJsonLd(post)].filter(Boolean);
+
+const fmtDate = (iso) =>
+  iso
+    ? new Date(iso).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    : "";
+---
+
+<Layout
+  title={title}
+  description={description}
+  ogTitle={`${post.title} | Opspot`}
+  ogType="article"
+  twitterCard="summary"
+  jsonLd={jsonLd}
+  bodyClass="bg-white"
+>
+  <Navigation client:load pathname={`/blog/${post.slug}`} />
+
+  <div class="mt-24 py-16 sm:px-4 lg:px-24 w-full bg-white min-h-screen">
+    <div class="max-w-3xl mx-auto">
+      <a
+        href="/blog"
+        class="inline-flex items-center text-xsm text-gray-600 hover:text-gray-900 mb-8 transition duration-150 ease-in-out"
+      >
+        ← Back to blog
+      </a>
+
+      <p class="text-xs text-gray-500 mb-3">
+        {fmtDate(post.firstPublishedAt)}
+        {post.author?.name ? ` · ${post.author.name}` : ""}
+      </p>
+
+      <h1 class="text-xl leading-tight font-bold text-gray-900 mb-8">
+        {post.title}
+      </h1>
+
+      {
+        heroSrc && (
+          <img
+            src={heroSrc}
+            alt={post.titleFile?.altText || post.title}
+            class="w-full h-auto rounded-lg mb-10"
+          />
+        )
+      }
+
+      <div class="opinly-content" set:html={bodyHtml}></div>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
+
+<style is:global>
+  .opinly-content p {
+    color: #48494d;
+    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+  .opinly-content h2 {
+    color: #1e1f21;
+    font-weight: 700;
+    font-size: 20px;
+    margin: 3rem 0 1rem;
+  }
+  .opinly-content h3 {
+    color: #1e1f21;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 2rem 0 0.75rem;
+  }
+  .opinly-content ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #48494d;
+    font-size: 16px;
+  }
+  .opinly-content ol {
+    list-style: decimal;
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #48494d;
+    font-size: 16px;
+  }
+  .opinly-content li {
+    margin-bottom: 0.5rem;
+  }
+  .opinly-content a {
+    color: #5177fc;
+    text-decoration: underline;
+  }
+  .opinly-content a:hover {
+    color: #345ce4;
+  }
+  .opinly-content blockquote {
+    border-left: 4px solid #5177fc;
+    padding-left: 1rem;
+    font-style: italic;
+    color: #737479;
+    margin: 1.5rem 0;
+  }
+  .opinly-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+  }
+  .opinly-content strong {
+    font-weight: 600;
+    color: #1e1f21;
+  }
+</style>

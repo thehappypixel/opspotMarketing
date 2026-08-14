@@ -1,0 +1,41 @@
+name: Rebuild site (publish new Opinly posts)
+
+# The blog is a static build that fetches Opinly posts at build time, so new or
+# newly-published posts only appear after a rebuild. This triggers a fresh
+# DigitalOcean App Platform deployment:
+#   - on a daily schedule, timed just after Opinly's scheduled-publish window
+#   - manually, via the "Run workflow" button
+#   - via repository_dispatch, so an external service can trigger it instantly
+#
+# Requires two repo secrets (Settings -> Secrets and variables -> Actions):
+#   DIGITALOCEAN_ACCESS_TOKEN  - a DO API token with write access
+#   DO_APP_ID                  - the App Platform app id for opspot.io
+
+on:
+  schedule:
+    - cron: "20 16 * * *" # 16:20 UTC daily (Opinly scheduled posts publish at 16:00 UTC)
+  workflow_dispatch: {}
+  repository_dispatch:
+    types: [opinly-content-changed]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger DigitalOcean App Platform deployment
+        env:
+          DO_TOKEN: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+          APP_ID: ${{ secrets.DO_APP_ID }}
+        run: |
+          if [ -z "$DO_TOKEN" ] || [ -z "$APP_ID" ]; then
+            echo "::error::Missing DIGITALOCEAN_ACCESS_TOKEN and/or DO_APP_ID secret."
+            exit 1
+          fi
+          echo "Triggering a fresh deployment for app $APP_ID ..."
+          curl -fsS -X POST \
+            -H "Authorization: Bearer $DO_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"force_build": true}' \
+            "https://api.digitalocean.com/v2/apps/$APP_ID/deployments" \
+            -o /dev/null -w "DO API responded: %{http_code}\n"
+          echo "Deployment triggered — Opinly posts will refresh once the build completes."

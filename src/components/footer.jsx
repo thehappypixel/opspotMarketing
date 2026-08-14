@@ -21,6 +21,7 @@ const footerSections = [
         to: "/resources/security-operations-guides",
       },
       { label: "Comparisons", to: "/ressources/comparisons" },
+      { label: "Blog", to: "/blog" },
     ],
   },
   {

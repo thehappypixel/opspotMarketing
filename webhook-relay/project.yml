@@ -1,0 +1,12 @@
+targetNamespace: ''
+parameters: {}
+packages:
+  - name: blog
+    functions:
+      - name: rebuild
+        runtime: 'nodejs:18'
+        web: true
+        environment:
+          DO_APP_ID: 'e76a0070-b621-42e1-8ef6-8a13b1162012'
+          DO_TOKEN: '${DO_TOKEN}'
+          RELAY_TOKEN: '${RELAY_TOKEN}'

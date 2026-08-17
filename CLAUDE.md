@@ -171,7 +171,7 @@ Tailwind CSS with a **custom font size scale** — the defaults are overridden:
 | `text-xs` | 14px |
 | `text-sm` | 16px (body copy) |
 | `text-md` | 20px |
-| `text-lg` | 42px |
+| `text-lg` | 36px |
 | `text-xl` | 50px |
 | `text-xxl` | 60px |
 

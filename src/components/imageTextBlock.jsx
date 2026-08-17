@@ -10,6 +10,8 @@ const ImageTextBlock = ({
   ctaText,
   imageUrl,
   listItems,
+  headerClassName = "text-lg leading-tight font-bold mb-6",
+  bodyClassName = "text-sm mb-6 text-gray-500 leading-relaxed",
 }) => {
   return (
     <div className="py-12 w-full">
@@ -19,8 +21,8 @@ const ImageTextBlock = ({
             firstItem !== "text" ? "order-2" : "order-1"
           }`}
         >
-          <h2 className="text-lg leading-tight font-bold mb-6">{header}</h2>
-          <p className="text-md mb-6 text-gray-700 tracking-wide">{body}</p>
+          <h2 className={headerClassName}>{header}</h2>
+          <p className={bodyClassName}>{body}</p>
           {listItems && (
             <div className="flex space-x-4 mb-6">
               {listItems.map((item, index) => (
@@ -34,9 +36,10 @@ const ImageTextBlock = ({
             </div>
           )}
           {ctaText && ctaLink && (
-            <p>
-              {/* text, link, type = "primary", // default to primary if no type is
-            provided density = "default", icon = false, iconPosition = "left", */}
+            // Must not be a <p>: the Button renders a block <div> inside its <a>,
+            // and the HTML parser auto-closes a <p> at that <div>, splitting the
+            // anchor and dropping the flex wrapper (breaks icon alignment).
+            <div>
               <Button
                 text={ctaText}
                 link={ctaLink}
@@ -47,13 +50,7 @@ const ImageTextBlock = ({
                   .toLowerCase()
                   .replace(/\s+/g, "_")}`}
               />
-              {/* <Link
-              to={ctaLink}
-              className="text-sm text-brand-primary hover:text-brand-200 transition duration-150 ease-in-out"
-            >
-              {ctaText}
-            </Link> */}
-            </p>
+            </div>
           )}
         </div>
         <div

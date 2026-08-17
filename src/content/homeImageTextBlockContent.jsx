@@ -16,6 +16,8 @@ const HomeImageTextBlockContent = [
     firstItem: "text",
     header: "Mobile patrol app for security guard operations",
     body: "Equip your guards with an intuitive mobile patrol app for tours, checkpoints, and daily tasks. Designed so simple your team won’t need training. All activity is logged automatically and accessible through your web dashboard for oversight and reporting.",
+    // Heading override for this instance only (tighter tracking on the hero block).
+    headerClassName: "text-lg font-bold mb-6 leading-tight tracking-tight",
     ctaLink: "/mobile-guard",
     ctaText: "Explore mobile guard features",
     imageUrl: mobileGuard,

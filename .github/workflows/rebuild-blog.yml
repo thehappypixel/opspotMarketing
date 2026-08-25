@@ -32,7 +32,10 @@ jobs:
             exit 1
           fi
           echo "Triggering a fresh deployment for app $APP_ID ..."
-          curl -fsS -X POST \
+          # Retry transient DigitalOcean API errors (e.g. 504 gateway timeouts)
+          # so a brief blip doesn't fail the whole run. DO supersedes duplicate
+          # concurrent deployments, so a retried trigger is harmless.
+          curl -fsS --retry 5 --retry-all-errors --retry-delay 15 -X POST \
             -H "Authorization: Bearer $DO_TOKEN" \
             -H "Content-Type: application/json" \
             -d '{"force_build": true}' \

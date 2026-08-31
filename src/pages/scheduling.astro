@@ -6,7 +6,7 @@ import SchedulingImageTextBlockContent from "../content/schedulingImageTextBlock
 import DemoSignup from "../components/demoSignup.jsx";
 import Footer from "../components/footer.jsx";
 import Button from "../components/button.jsx";
-import { registerUrl } from "../config";
+import { registerUrl, SITE_URL } from "../config";
 import heroImage from "../assets/images/opspot-scheduling-guard-software.png";
 
 const title =
@@ -15,24 +15,70 @@ const description =
   "Create guard schedules quickly and easily with Opspot's scheduling software. Build schedules with activities, checkpoints, and tours. Use templates to copy schedules week to week. Guards follow their scheduled activities in the mobile app.";
 const keywords =
   "security guard scheduling software, guard schedule management, security workforce scheduling, guard shift scheduling, security operations scheduling, guard management scheduling, schedule templates for security guards";
+
+// Product + FAQ structured data. The FAQ answers below are mirrored exactly by
+// the visible FAQ section so the markup stays valid for rich results.
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Opspot",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web, iOS, Android",
+    url: `${SITE_URL}/scheduling`,
+    description:
+      "Security guard scheduling software for small and mid-size security teams. Build guard schedules with activities, checkpoints, and tours, reuse schedule templates week to week, and let guards follow their shifts in the mobile app.",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is security guard scheduling software?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Security guard scheduling software helps security companies build and manage guard shifts in one place. With Opspot you create schedules with activities, checkpoints, and tours, reuse templates week to week, and guards follow their scheduled shifts in the mobile app.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I reuse guard schedules each week?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Save any schedule as a template, then copy and adjust it week to week. This works well for consistent sites and rotating shifts, and it cuts down repetitive scheduling work.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Do guards see their schedule in the mobile app?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "When guards clock in they see their scheduled activities, checkpoints, and tours in the Opspot mobile app, so there is no confusion about what is expected during the shift.",
+        },
+      },
+    ],
+  },
+];
 ---
 
-<Layout title={title} description={description} keywords={keywords}>
+<Layout title={title} description={description} keywords={keywords} jsonLd={jsonLd}>
   <Navigation client:load pathname="/scheduling" />
 
   <div class="mt-32 pt-16 sm:px-4 lg:px-14 w-full bg-black">
     <h1
       class="sm:text-lg md:text-xl leading-tight font-bold text-white text-center md:w-3/4 mx-auto"
     >
-      Guard scheduling
+      Security guard scheduling software
     </h1>
     <div class="flex justify-center">
       <p
         class="pt-6 mb-6 text-sm tracking-wider leading-relaxed font-normal text-white text-center md:w-1/2 mx-auto"
       >
-        Create schedules faster with less admin. Build clear, structured shifts
-        that include activities, checkpoints, and tours so guards always know
-        what's expected.
+        Opspot is scheduling software built for security teams. Create guard
+        schedules faster with less admin, and build clear, structured shifts
+        with activities, checkpoints, and tours so guards always know what's
+        expected.
       </p>
     </div>
     <div class="py-4 mb-12 flex justify-center">
@@ -68,6 +114,48 @@ const keywords =
         />
       ))
     }
+  </div>
+
+  <div class="bg-white pb-16 sm:px-4 lg:px-14">
+    <div class="md:max-w-3xl mx-auto px-6">
+      <h2 class="text-lg leading-tight font-bold mb-8 text-center">
+        Security guard scheduling software FAQ
+      </h2>
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-md font-bold mb-2">
+            What is security guard scheduling software?
+          </h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            Security guard scheduling software helps security companies build
+            and manage guard shifts in one place. With Opspot you create
+            schedules with activities, checkpoints, and tours, reuse templates
+            week to week, and guards follow their scheduled shifts in the mobile
+            app.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-md font-bold mb-2">
+            Can I reuse guard schedules each week?
+          </h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            Yes. Save any schedule as a template, then copy and adjust it week to
+            week. This works well for consistent sites and rotating shifts, and
+            it cuts down repetitive scheduling work.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-md font-bold mb-2">
+            Do guards see their schedule in the mobile app?
+          </h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            When guards clock in they see their scheduled activities,
+            checkpoints, and tours in the Opspot mobile app, so there is no
+            confusion about what is expected during the shift.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <DemoSignup />

@@ -6,7 +6,7 @@ import SecurityReportingImageTextBlockContent from "../content/securityReporting
 import DemoSignup from "../components/demoSignup.jsx";
 import Footer from "../components/footer.jsx";
 import Button from "../components/button.jsx";
-import { registerUrl } from "../config";
+import { registerUrl, SITE_URL } from "../config";
 import heroImage from "../assets/images/secuity-reporting-screen.png";
 
 const title =
@@ -15,21 +15,66 @@ const description =
   "Real-time insights into patrols, incidents, and guard activity. Dynamic report filtering, comprehensive location tracking, and seamless PDF export. Professional security reporting all in one place.";
 const keywords =
   "security reporting software, security activity reports, guard activity reporting, security analytics, patrol reports, incident reports, security reporting dashboard, PDF security reports";
+
+// Product + FAQ structured data. The FAQ answers below are mirrored exactly by
+// the visible FAQ section so the markup stays valid for rich results.
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Opspot",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web, iOS, Android",
+    url: `${SITE_URL}/security-reporting`,
+    description:
+      "Security reporting software for security teams. Get real-time insight into patrols, incidents, and guard activity, filter reports dynamically, and export professional PDF reports.",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is security reporting software?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Security reporting software gives security companies a real-time view of patrols, incidents, and guard activity in one place. Opspot lets you filter reports dynamically, track activity by location, and export professional PDF reports.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I export security reports as PDF?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Any report in Opspot can be exported to a clean, professional PDF, so you can share patrol, incident, and activity reports with clients and managers.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What do Opspot security reports cover?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Reports cover patrols, incidents, and guard activity, with dynamic filtering and location tracking so you can see what happened, where, and when across your sites.",
+        },
+      },
+    ],
+  },
+];
 ---
 
-<Layout title={title} description={description} keywords={keywords}>
+<Layout title={title} description={description} keywords={keywords} jsonLd={jsonLd}>
   <Navigation client:load pathname="/security-reporting" />
 
   <div class="mt-24 py-16 sm:px-4 lg:px-24 w-full bg-black">
     <h1 class="text-xl leading-tight font-bold text-white text-center">
-      Flexible security reporting
+      Security reporting software
     </h1>
     <div class="flex justify-center">
       <p
         class="pt-6 mb-6 text-md tracking-wider leading-snug font-normal text-white text-center md:w-3/4 lg:w-1/2"
       >
-        Real-time insights into patrols, incidents, and guard activity. All in
-        one place.
+        Opspot's security reporting software gives you real-time insight into
+        patrols, incidents, and guard activity. All in one place.
       </p>
     </div>
     <div class="py-4 mb-8 flex justify-center">
@@ -61,6 +106,47 @@ const keywords =
         />
       ))
     }
+  </div>
+
+  <div class="bg-white pb-16 sm:px-4 lg:px-14">
+    <div class="md:max-w-3xl mx-auto px-6">
+      <h2 class="text-lg leading-tight font-bold mb-8 text-center">
+        Security reporting software FAQ
+      </h2>
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-md font-bold mb-2">
+            What is security reporting software?
+          </h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            Security reporting software gives security companies a real-time view
+            of patrols, incidents, and guard activity in one place. Opspot lets
+            you filter reports dynamically, track activity by location, and export
+            professional PDF reports.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-md font-bold mb-2">
+            Can I export security reports as PDF?
+          </h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            Yes. Any report in Opspot can be exported to a clean, professional
+            PDF, so you can share patrol, incident, and activity reports with
+            clients and managers.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-md font-bold mb-2">
+            What do Opspot security reports cover?
+          </h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            Reports cover patrols, incidents, and guard activity, with dynamic
+            filtering and location tracking so you can see what happened, where,
+            and when across your sites.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <DemoSignup />

@@ -7,7 +7,7 @@ import MobileApps from "../components/mobileApps.jsx";
 import DemoSignup from "../components/demoSignup.jsx";
 import Footer from "../components/footer.jsx";
 import Button from "../components/button.jsx";
-import { registerUrl } from "../config";
+import { registerUrl, SITE_URL } from "../config";
 import heroImage from "../assets/images/screen-mobile.png";
 
 const title =
@@ -16,21 +16,66 @@ const description =
   "Empower your guards with simple, reliable mobile tools for patrols, tours, and real-time activity tracking. QR code checkpoints, NFC support, live GPS tracking, and automatic daily activity reports. All in one mobile guard app.";
 const keywords =
   "mobile guard app, security guard mobile app, patrol app, guard patrol software, mobile security software, QR code checkpoints, GPS tracking guards, security guard clock in, daily activity reports";
+
+// Product + FAQ structured data. The FAQ answers below are mirrored exactly by
+// the visible FAQ section so the markup stays valid for rich results.
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Opspot",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web, iOS, Android",
+    url: `${SITE_URL}/mobile-guard`,
+    description:
+      "Mobile guard app for security teams. Guards run patrols and tours, scan QR code and NFC checkpoints, share live GPS location, and generate automatic daily activity reports from their phone.",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is a mobile guard app?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "A mobile guard app gives security officers the tools to run patrols and tours from their phone. With Opspot guards scan QR code and NFC checkpoints, share live GPS location, and generate daily activity reports automatically.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does the app track guard location?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Opspot supports live GPS tracking so you can see where guards are in real time, and checkpoint scans confirm that patrols and tours were completed on site.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How do guards check in at checkpoints?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Guards check in by scanning QR code or NFC checkpoints as they complete a patrol or tour. Each scan is logged and rolls up into the automatic daily activity report.",
+        },
+      },
+    ],
+  },
+];
 ---
 
-<Layout title={title} description={description} keywords={keywords}>
+<Layout title={title} description={description} keywords={keywords} jsonLd={jsonLd}>
   <Navigation client:load pathname="/mobile-guard" />
 
   <div class="mt-24 pt-16 sm:px-4 lg:px-24 w-full bg-black">
     <h1 class="text-xl leading-tight font-bold text-white text-center">
-      Mobile guard & patrol
+      Mobile guard and patrol app
     </h1>
     <div class="flex justify-center">
       <p
         class="pt-6 mb-6 text-md tracking-wider leading-snug font-normal text-white text-center md:w-3/4 lg:w-1/2"
       >
-        Empower your guards with simple, reliable mobile tools for patrols,
-        tours, and real-time activity tracking. All in one app.
+        Empower your guards with a simple, reliable mobile app for patrols,
+        tours, and real-time guard tracking. All in one app.
       </p>
     </div>
     <div class="py-4 mb-8 flex justify-center">
@@ -62,6 +107,45 @@ const keywords =
         />
       ))
     }
+  </div>
+
+  <div class="bg-white pb-16 sm:px-4 lg:px-14">
+    <div class="md:max-w-3xl mx-auto px-6">
+      <h2 class="text-lg leading-tight font-bold mb-8 text-center">
+        Mobile guard app FAQ
+      </h2>
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-md font-bold mb-2">What is a mobile guard app?</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            A mobile guard app gives security officers the tools to run patrols
+            and tours from their phone. With Opspot guards scan QR code and NFC
+            checkpoints, share live GPS location, and generate daily activity
+            reports automatically.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-md font-bold mb-2">
+            Does the app track guard location?
+          </h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            Yes. Opspot supports live GPS tracking so you can see where guards
+            are in real time, and checkpoint scans confirm that patrols and tours
+            were completed on site.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-md font-bold mb-2">
+            How do guards check in at checkpoints?
+          </h3>
+          <p class="text-sm text-gray-500 leading-relaxed">
+            Guards check in by scanning QR code or NFC checkpoints as they
+            complete a patrol or tour. Each scan is logged and rolls up into the
+            automatic daily activity report.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <MobileApps />

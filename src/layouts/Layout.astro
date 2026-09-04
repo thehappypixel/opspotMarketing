@@ -81,6 +81,28 @@ const allJsonLd = [...baseJsonLd, ...jsonLd];
       <script type="application/ld+json" set:html={JSON.stringify(entry)} />
     ))}
 
+    {/* Google Analytics — per-browser internal-traffic opt-out.
+        Visit ?ga_optout=1 to mark THIS browser as internal (disables GA here);
+        ?ga_optout=0 clears it. Must run before gtag.js loads. Defaults to
+        tracking ON, so real visitors are unaffected. */}
+    <script is:inline define:vars={{ GA_ID }}>
+      (function () {
+        try {
+          var p = new URLSearchParams(window.location.search);
+          if (p.has("ga_optout")) {
+            var v = p.get("ga_optout");
+            if (v === "0" || v === "false") {
+              localStorage.removeItem("ga_internal_traffic");
+            } else {
+              localStorage.setItem("ga_internal_traffic", "true");
+            }
+          }
+          if (localStorage.getItem("ga_internal_traffic") === "true") {
+            window["ga-disable-" + GA_ID] = true;
+          }
+        } catch (e) {}
+      })();
+    </script>
     {/* Google Analytics */}
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
     ></script>

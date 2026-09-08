@@ -23,9 +23,13 @@ import { imgSrc } from "../utils/img";
 // Interactive header. Hydrated as a client:load island. `pathname` is passed in
 // from the Astro page (Astro.url.pathname) so active-state and page-background
 // logic works during SSR without touching window.
-const Navigation = ({ pathname = "/" }) => {
+const Navigation = ({ pathname = "/", imageHeader = false }) => {
+  // "Image header" pages have a background image behind the hero, so the top bar
+  // is transparent (until scroll) instead of solid black. The rest of the color
+  // profile — light logo, light text, pill container — matches the black treatment.
+  const topBg = imageHeader ? "bg-transparent" : "bg-black";
   const [navState, setNavState] = useState({
-    bg: "bg-black",
+    bg: topBg,
     text: "text-gray-200",
     linkText: "text-gray-700",
     linkHover: "hover:bg-gray-100 hover:text-black",
@@ -114,7 +118,7 @@ const Navigation = ({ pathname = "/" }) => {
       setHasScrolled(true);
     } else {
       setNavState({
-        bg: "bg-black",
+        bg: topBg,
         text: "text-gray-200",
         linkText: "text-gray-700",
         linkHover: "hover:bg-gray-100 hover:text-black",
@@ -123,7 +127,7 @@ const Navigation = ({ pathname = "/" }) => {
       });
       setHasScrolled(false);
     }
-  }, [isWhiteBackgroundPage]);
+  }, [isWhiteBackgroundPage, topBg]);
 
   // Change navigation appearance on scroll.
   useEffect(() => {
@@ -149,7 +153,7 @@ const Navigation = ({ pathname = "/" }) => {
             } else {
               if (!isWhiteBackgroundPage) {
                 setNavState({
-                  bg: "bg-black",
+                  bg: topBg,
                   text: "text-gray-200",
                   linkText: "text-gray-700",
                   linkHover: "hover:bg-gray-100 hover:text-black",
@@ -168,7 +172,7 @@ const Navigation = ({ pathname = "/" }) => {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isWhiteBackgroundPage]);
+  }, [isWhiteBackgroundPage, topBg]);
 
   useEffect(() => {
     if (menuOpen) {

@@ -13,7 +13,7 @@ const plans = [
     features: {
       Users: ["Up to 3 guards", "Unlimited admin users"],
       Location: ["Up to 5 locations"],
-      "Shift management": ["Basic clock-in/out"],
+      "Shift management": ["Clock-in/out with GPS", "Geofencing"],
       "Task management": [
         "Up to 5 checkpoints",
         "Upload 2 images per checkpoint",
@@ -42,7 +42,7 @@ const plans = [
     features: {
       Users: ["Unlimited guards", "Unlimited admin users"],
       Location: ["Unlimited locations"],
-      "Shift management": ["Clock-in/out with GPS"],
+      "Shift management": ["Clock-in/out with GPS", "Geofencing"],
       "Task management": [
         "Unlimited checkpoints",
         "Upload 2 images per checkpoint",

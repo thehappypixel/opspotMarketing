@@ -4,25 +4,29 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-The **Opspot marketing website** — a B2B SaaS marketing site for Opspot, a security guard management software product. It is a React SPA (Create React App) deployed on Digital Ocean App Platform.
+The **Opspot marketing website** — a B2B SaaS marketing site for Opspot, a security guard management software product. It is an **Astro** static site (`astro build` outputs static HTML) that renders interactive UI with **React islands** (`@astrojs/react`) and styles with Tailwind. Deployed on Digital Ocean App Platform.
+
+> **Note:** This was originally a Create React App SPA and was migrated to Astro. Source still lives under `src/` and shared UI is written as `.jsx` React components, but pages are now Astro files under `src/pages/` and routing is file-based (no React Router).
 
 The site has:
 - Standard B2B marketing pages (Home, product feature pages, Pricing, About, Contact)
 - A contact form
-- Two SEO-focused content sections under Resources: **Security Operations Guides** and **Comparisons**
+- A blog (`/blog`)
+- SEO-focused content sections under Resources: **Security Operations Guides** and **Comparisons**
 
-CTAs on this site redirect users to the main Opspot web app at `REACT_APP_DOMAIN`.
+CTAs on this site redirect users to the main Opspot web app at `PUBLIC_APP_URL` (see `src/config.js`).
 
 ---
 
 ## Commands
 
 ```bash
-npm start          # Dev server at localhost:3000
-npm run build      # Production build to /build
-npm test           # Run tests (watch mode)
-npm test -- --watchAll=false  # Run tests once
+npm run dev        # Astro dev server at localhost:4321 (alias: npm start)
+npm run build      # Production build to /dist
+npm run preview    # Serve the production build locally
 ```
+
+> There is no test script configured. Env vars use the Astro convention: browser-exposed values are prefixed `PUBLIC_` and read via `import.meta.env.PUBLIC_*`. See `.env.example` for the full list; local dev works without a `.env` because `src/config.js` provides fallbacks.
 
 ---
 
@@ -38,12 +42,18 @@ npm test -- --watchAll=false  # Run tests once
 | Pricing | `/pricing` | Pricing table + FAQ |
 | Contact | `/contact` | Contact form |
 | About | `/about` | Static |
+| Blog | `/blog` | Blog index |
+| Blog post | `/blog/:slug` | Blog article |
 | Security Operations Guides | `/resources/security-operations-guides` | SEO content index |
 | Guide article | `/resources/security-operations-guides/:slug` | SEO content article |
+| How-to articles | `/resources/how-to-articles` | Resources page |
+| Walkthroughs | `/resources/walkthroughs` | Resources page |
 | Comparisons | `/ressources/comparisons` | SEO content index (see note below) |
 | Comparison article | `/ressources/comparisons/:slug` | SEO content article |
 
-> **URL typo:** The Comparisons section uses `/ressources/` (double-s). This is intentional — it's the canonical URL used in nav links, Helmet tags, and article back-links. A corrected `/resources/comparisons` route also exists as a redirect alias but the typo path is the live one.
+Pages are Astro files under `src/pages/`; the folder path is the route. Dynamic routes (`[slug].astro`) enumerate their pages via `getStaticPaths()`, which maps over the relevant content array — so adding a content object is enough, no route changes needed.
+
+> **URL typo:** The Comparisons section uses `/ressources/` (double-s). This is intentional — it's the canonical URL used in nav links, footer, content links, and canonicals. A corrected `/resources/comparisons` route redirects to it; the redirect is defined in `astro.config.mjs` (`redirects`), not a component. The typo path is the live one.
 
 ---
 
@@ -54,12 +64,12 @@ This is the most common content task. Both resource sections use the same patter
 ### Security Operations Guides
 
 **Content file:** `src/content/securityOperationsGuidesContent.jsx`
-**Index page:** `src/screens/resources/Guides.jsx`
-**Article renderer:** `src/screens/resources/guides/GuideArticle.jsx`
+**Index page:** `src/pages/resources/security-operations-guides/index.astro` (cards via `src/components/guideCard.jsx`)
+**Article page:** `src/pages/resources/security-operations-guides/[slug].astro` (renders `src/components/guideArticleBody.jsx`)
 **URL pattern:** `/resources/security-operations-guides/:slug`
 **Image folder:** `src/assets/images/guides/`
 
-These are useful educational articles targeting security operations keywords. Each article should be written for SEO — the `meta.description` and `meta.keywords` fields are injected into the page `<head>` via `react-helmet-async`. Articles are listed newest-first (the array is `.reverse()`d in the index).
+These are useful educational articles targeting security operations keywords. Each article should be written for SEO — the `meta.description` and `meta.keywords` fields are passed as props to `Layout.astro`, which injects them into the page `<head>` (title, meta description/keywords, Open Graph, and JSON-LD). Articles are listed newest-first (the array is `.reverse()`d in the index).
 
 **Article object structure:**
 
@@ -96,8 +106,8 @@ The `callout` renders in a blue left-bordered box with a megaphone icon. It's us
 ### Comparisons
 
 **Content file:** `src/content/comparisonsContent.jsx`
-**Index page:** `src/screens/resources/Comparisons.jsx`
-**Article renderer:** `src/screens/resources/comparisons/ComparisonArticle.jsx`
+**Index page:** `src/pages/ressources/comparisons/index.astro`
+**Article page:** `src/pages/ressources/comparisons/[slug].astro` (renders `src/components/comparisonArticleBody.jsx`)
 **URL pattern:** `/ressources/comparisons/:slug` (note the typo)
 
 These compare Opspot against specific competitor products (e.g., "Opspot vs GuardsPro"). The structure is simpler than guides — sections contain freeform JSX so comparison tables and feature grids can be built inline.
@@ -151,7 +161,7 @@ Each exports an array of block objects (`header`, `body`, `imageUrl`, `listItems
 Submissions POST to `https://submit-form.com/ZuXEDAcfM` (Formspark). Validated client-side with `react-hook-form` + Zod.
 
 ### Pricing
-Plan definitions and Stripe price IDs are in `src/content/pricingContent.jsx`. Price IDs come from env vars (`REACT_APP_STARTER_PLAN`, `REACT_APP_PROFESSIONAL_PLAN_MONTHLY/YEARLY`, `REACT_APP_PREMIUM_PLAN_MONTHLY/YEARLY`). Only the first two plans are rendered (`plans.slice(0, 2)`); the third is kept for future use.
+Plan definitions and Stripe price IDs are in `src/content/pricingContent.jsx`, rendered by `src/components/pricingTable.jsx`. Price IDs come from `PUBLIC_*` env vars (e.g. `PUBLIC_STARTER_PLAN`, `PUBLIC_PROFESSIONAL_PLAN_MONTHLY`) read via `import.meta.env`.
 
 ### Navigation
 The nav starts black (transparent-style) and transitions to white on scroll. Article detail pages and `/contact` use a white nav from the start. This is controlled by the `whiteBackgroundRoutes` list and route-prefix checks in `src/components/navigation.jsx`.
@@ -160,7 +170,7 @@ The nav starts black (transparent-style) and transitions to white on scroll. Art
 Google Analytics 4 (measurement ID `G-6JNFK4F9RY`) via `window.gtag`. All dev traffic is automatically tagged `traffic_type: "internal"`. Helper functions in `src/utils/analytics.js`: `trackButtonClick`, `trackLinkClick`, `trackFormSubmit`, `trackExternalLink`, `trackEvent`.
 
 ### Auth / sign-up CTAs
-Auth is handled by Kinde (`src/contexts/KindeWrapper.js`). Sign-up and login links are plain `<a>` tags pointing to `REACT_APP_DOMAIN/auth/register` and `/auth/login`. The `priceId` query param pre-selects the plan on registration.
+This marketing site does not handle auth itself. Sign-up and login are plain `<a>` links to the main app, built by the `registerUrl()` / `loginUrl()` helpers in `src/config.js`, which point to `PUBLIC_APP_URL/auth/register` and `/auth/login`. `registerUrl(priceId)` adds a `priceId` query param to pre-select a plan on registration (defaults to `PUBLIC_STARTER_PLAN`).
 
 ### Styling
 Tailwind CSS with a **custom font size scale** — the defaults are overridden:
@@ -182,8 +192,8 @@ Brand colors: `brand-primary` (#5177fc), `brand-secondary` (#ec5e33).
 
 ## Deployment
 
-Hosted on Digital Ocean App Platform. Environment variables are set in the DO dashboard (not in `.env`). See `DIGITAL_OCEAN_SETUP.md` for the full variable list and setup instructions.
+Hosted on Digital Ocean App Platform (`astro build` → static `/dist`). Production environment variables are set in the DO dashboard, not committed. `.env.example` documents the variables for local dev; `PUBLIC_*` vars are inlined into the client bundle at build time, while unprefixed vars (e.g. `OPINLY_API_KEY`) stay server-side. See `DIGITAL_OCEAN_SETUP.md` for the full setup instructions.
 
 ## Archived files
 
-Files prefixed `ARCH-` (e.g., `src/components/ARCH-pricing.jsx`) are unused components kept for reference — do not edit or import them.
+Any file prefixed `ARCH-` is an unused component kept for reference only — do not edit or import them. (None currently exist, but the convention stands if you archive something.)

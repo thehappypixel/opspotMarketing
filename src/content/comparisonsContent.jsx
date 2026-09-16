@@ -588,6 +588,303 @@ const comparisonsContent = [
       </>
     ),
   },
+  {
+    id: "opspot-vs-guard-owl",
+    slug: "opspot-vs-guard-owl",
+    title: "Opspot vs Guard Owl",
+    intro:
+      "A practical comparison for small security teams weighing a self-serve, free-to-start platform against a demo-led, mid-market one.",
+    readTime: 7,
+    meta: {
+      description:
+        "Compare Opspot and Guard Owl for security guard management. See how they differ on target company size, pricing transparency, free plans, and how you get started.",
+      keywords:
+        "Opspot vs Guard Owl, Guard Owl alternative, guard management software comparison, free guard management software, security operations platform comparison",
+    },
+    articleIntro: (
+      <>
+        <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+          Choosing the right operations platform for your security team isn't
+          about picking the one with the flashiest features. It's about finding
+          a tool that fits the size of your team, respects your budget, and lets
+          you get started without jumping through hoops.
+        </p>
+        <p className="text-sm text-gray-700 mb-6 leading-relaxed">
+          Below we compare Opspot with Guard Owl, so you can understand key
+          differences and decide what's best for your team's needs.
+        </p>
+      </>
+    ),
+    sections: [
+      {
+        title: "Quick snapshot",
+        content: (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-gray-50 border border-gray-100 rounded-lg p-5">
+                <h3 className="text-sm font-bold text-gray-900 mb-2">
+                  Guard Owl
+                </h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  A cloud platform for physical security teams with scheduling,
+                  GPS tracking, patrol management, incident reporting, and an AI
+                  agent that helps automate coverage and admin work. It's aimed
+                  at growing firms, and its pricing and onboarding run through a
+                  sales demo.
+                </p>
+              </div>
+              <div className="bg-gray-50 border border-gray-100 rounded-lg p-5">
+                <h3 className="text-sm font-bold text-gray-900 mb-2">Opspot</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  A modern guard operations platform built for simplicity,
+                  responsiveness, and dependable support. It helps small and
+                  growing teams manage guard activities with a free plan,
+                  transparent pricing, and self-serve signup, so you can start
+                  the same day without a sales call.
+                </p>
+              </div>
+            </div>
+          </>
+        ),
+      },
+      {
+        title: "How the two compare",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Here's a practical look at how Opspot and Guard Owl align on the
+              things small security teams care about most:
+            </p>
+            <div className="overflow-x-auto">
+              <div className="rounded-lg border border-gray-100 overflow-hidden">
+                <table className="w-full text-xs text-left">
+                  <thead className="bg-brand-25 text-gray-700">
+                    <tr>
+                      <th className="px-4 py-3 font-semibold">
+                        Feature category
+                      </th>
+                      <th className="px-4 py-3 font-semibold">Guard Owl</th>
+                      <th className="px-4 py-3 font-semibold">Opspot</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-gray-700">
+                    <tr className="border-t border-gray-100">
+                      <td className="px-4 py-3">Best fit by team size</td>
+                      <td className="px-4 py-3">
+                        Growing firms, roughly 20 to 200 guards
+                      </td>
+                      <td className="px-4 py-3">
+                        Small and growing teams
+                      </td>
+                    </tr>
+                    <tr className="border-t border-gray-100">
+                      <td className="px-4 py-3">Getting started</td>
+                      <td className="px-4 py-3">Book a demo</td>
+                      <td className="px-4 py-3">Self-serve signup</td>
+                    </tr>
+                    <tr className="border-t border-gray-100">
+                      <td className="px-4 py-3">Pricing transparency</td>
+                      <td className="px-4 py-3">
+                        Custom quote, from around $300/mo
+                      </td>
+                      <td className="px-4 py-3">
+                        Public, transparent pricing
+                      </td>
+                    </tr>
+                    <tr className="border-t border-gray-100">
+                      <td className="px-4 py-3">Free plan</td>
+                      <td className="px-4 py-3">Not available</td>
+                      <td className="px-4 py-3">
+                        <CheckCircleIcon className="h-5 w-5 text-brand-primary" />
+                      </td>
+                    </tr>
+                    <tr className="border-t border-gray-100">
+                      <td className="px-4 py-3">Buying motion</td>
+                      <td className="px-4 py-3">Sales-led</td>
+                      <td className="px-4 py-3">
+                        Product-led, try it yourself
+                      </td>
+                    </tr>
+                    <tr className="border-t border-gray-100">
+                      <td className="px-4 py-3">AI automation</td>
+                      <td className="px-4 py-3">
+                        AI agent for coverage and admin
+                      </td>
+                      <td className="px-4 py-3">
+                        Simple, focused everyday tools
+                      </td>
+                    </tr>
+                    <tr className="border-t border-gray-100">
+                      <td className="px-4 py-3">Ongoing usability</td>
+                      <td className="px-4 py-3">Feature-rich</td>
+                      <td className="px-4 py-3">
+                        Designed for intuitive daily use
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </>
+        ),
+      },
+      {
+        title: "What stands out about Guard Owl",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Guard Owl is a capable platform, and it's worth being clear about
+              where it shines and where it may be more than a small team needs:
+            </p>
+            <div className="flex flex-col gap-6">
+              <div>
+                <h3 className="text-sm font-bold text-gray-900 mb-2 flex items-center gap-2">
+                  <CheckCircleIcon className="h-5 w-5 text-emerald-500" />
+                  Where it's strong
+                </h3>
+                <ul className="text-sm text-gray-700 list-disc list-inside space-y-2 ml-2">
+                  <li>
+                    A broad, integrated feature set covering scheduling,
+                    dispatch, patrols, and reporting from shared data.
+                  </li>
+                  <li>
+                    AI automation aimed at reducing administrative work and
+                    helping cover shift gaps, which can appeal to firms with a
+                    lot of moving parts.
+                  </li>
+                  <li>
+                    Options like white-label and a dedicated success manager
+                    that suit larger, growing operations.
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-sm font-bold text-gray-900 mb-2 flex items-center gap-2">
+                  <ExclamationTriangleIcon className="h-5 w-5 text-amber-500" />
+                  Things a small team should weigh
+                </h3>
+                <ul className="text-sm text-gray-700 list-disc list-inside space-y-2 ml-2">
+                  <li>
+                    It's positioned for growing firms of roughly 20 to 200
+                    guards, so very small or solo operations may pay for scale
+                    they don't yet need.
+                  </li>
+                  <li>
+                    Pricing is custom and quoted through a demo, which makes it
+                    harder to know your cost up front.
+                  </li>
+                  <li>
+                    There's no free plan or self-serve signup, so getting
+                    started means booking a sales call first.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </>
+        ),
+      },
+      {
+        title: "What you might notice with Opspot",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              When small and growing security teams evaluate Opspot, they can
+              expect the following:
+            </p>
+            <ol className="text-sm text-gray-700 list-decimal list-inside space-y-3 ml-2">
+              <li>
+                <span className="font-semibold">Start free, no demo required.</span>
+                <span>
+                  {" "}
+                  Opspot offers a free plan and self-serve signup, so you can
+                  create an account and try real workflows the same day, without
+                  waiting on a sales call or a custom quote.
+                </span>
+              </li>
+              <li>
+                <span className="font-semibold">
+                  What you see is what you get.
+                </span>
+                <span>
+                  {" "}
+                  Pricing is public and transparent, with no hidden fees or
+                  surprise quotes. You know what a plan costs before you commit,
+                  which matters most when you're a small team watching every
+                  dollar.
+                </span>
+              </li>
+              <li>
+                <span className="font-semibold">Built for small teams first.</span>
+                <span>
+                  {" "}
+                  Opspot is designed so a small operation gets value on day one,
+                  without paying for scale it doesn't need yet, and it grows with
+                  you as your team does.
+                </span>
+              </li>
+            </ol>
+          </>
+        ),
+      },
+      {
+        title: "How to think about your decision",
+        content: (
+          <>
+            <p className="text-sm text-gray-700 mb-4 leading-relaxed">
+              Rather than asking "which platform is better," here are practical
+              questions to guide your choice:
+            </p>
+            <dl className="text-sm text-gray-700 space-y-1">
+              <dt>
+                <strong>Question:</strong> Are you a larger, fast-growing firm
+                that wants a guided rollout and deep automation across many
+                sites?
+              </dt>
+              <dd className="pb-4">
+                <strong>Answer:</strong> Guard Owl's mid-market focus and AI
+                automation can be a strong fit.
+              </dd>
+
+              <dt>
+                <strong>Question:</strong> Do you want to start using the
+                software today, for free, without a demo or a custom quote?
+              </dt>
+              <dd className="pb-4">
+                <strong>Answer:</strong> Opspot's free plan and self-serve
+                signup make this easy.
+              </dd>
+
+              <dt>
+                <strong>Question:</strong> Is knowing your cost up front, with no
+                hidden pricing, important to you?
+              </dt>
+              <dd>
+                <strong>Answer:</strong> Opspot's public, transparent pricing
+                means what you see is what you get.
+              </dd>
+            </dl>
+          </>
+        ),
+      },
+    ],
+    callout: (
+      <>
+        <p className="mb-4">
+          Both platforms help security teams move off paperwork and scattered
+          tools. Guard Owl leans toward growing firms that want a guided,
+          sales-led rollout and heavier automation, and that can be the right
+          call for a larger operation. Opspot is built for the small and growing
+          team that wants to start today, see exactly what it costs, and get
+          value without a demo.
+        </p>
+        <p className="mb-0">
+          If you're a small operator, the easiest way to decide is to try it
+          yourself. Opspot's free plan lets you test real workflows with your
+          team before you spend a dollar.
+        </p>
+      </>
+    ),
+  },
 ];
 
 export default comparisonsContent;

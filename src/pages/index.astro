@@ -3,6 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/navigation.jsx";
 import ImageTextBlock from "../components/imageTextBlock.jsx";
 import HomeImageTextBlockContent from "../content/homeImageTextBlockContent.jsx";
+import WhoWeServe from "../components/whoWeServe.jsx";
+import Onboarding from "../components/onboarding.jsx";
+import MobileApps from "../components/mobileApps.jsx";
 import DemoSignup from "../components/demoSignup.jsx";
 import Footer from "../components/footer.jsx";
 import Button from "../components/button.jsx";
@@ -64,7 +67,7 @@ const keywords =
         class="pointer-events-none absolute inset-x-0 -top-32 mx-auto h-80 w-3/4 rounded-full bg-brand-primary opacity-50 blur-3xl"
       >
       </div>
-      <div class="relative lg:w-4/5 mx-auto px-6 pt-6 rounded-t-xl bg-brand-primary bg-opacity-10 border-t border-x border-white/40 shadow-[0_0_40px_0_rgba(255,255,255,0.25),0_0_130px_15px_rgba(81,119,252,0.55)]">
+      <div class="relative lg:w-4/5 mx-auto px-6 pt-6 rounded-t-xl bg-brand-primary bg-opacity-10 border-t border-x border-white/40 shadow-[0_0_40px_0_rgba(255,255,255,0.25),0_0_130px_15px_rgba(81,119,252,0.55)] [mask-image:linear-gradient(to_bottom,#000_55%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,#000_55%,transparent_100%)]">
         <img
           src={heroImage.src}
           alt="Opspot Security Guard Software Screenshot"
@@ -74,7 +77,7 @@ const keywords =
     </div>
   </div>
 
-  <div class="bg-white flex flex-col">
+  <div class="relative z-10 -mt-12 md:-mt-16 lg:-mt-24 bg-white flex flex-col">
     {
       HomeImageTextBlockContent.map((block) => (
         <ImageTextBlock
@@ -92,6 +95,9 @@ const keywords =
     }
   </div>
 
+  <WhoWeServe />
+  <Onboarding />
+  <MobileApps />
   <DemoSignup />
   <Footer />
 </Layout>

@@ -27,7 +27,23 @@ const footerSections = [
   {
     heading: "Company",
     links: [
+      { label: "About us", to: "/about" },
       { label: "Contact", to: "/contact" },
+    ],
+  },
+  {
+    heading: "Get the app",
+    links: [
+      {
+        label: "iOS app",
+        to: "https://apps.apple.com/ca/app/opspot/id6587551457",
+        external: true,
+      },
+      {
+        label: "Android app",
+        to: "https://play.google.com/store/apps/details?id=com.anonymous.opspot",
+        external: true,
+      },
     ],
   },
 ];
@@ -35,7 +51,7 @@ const footerSections = [
 export default function Footer() {
   return (
     <footer className="bg-black">
-      <div className="px-10 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div className="px-10 py-16 grid grid-cols-1 md:grid-cols-5 gap-10">
         {/* Brand column */}
         <div>
           <img src={imgSrc(logoLight)} alt="Opspot" className="h-6 mb-4" />
@@ -56,6 +72,17 @@ export default function Footer() {
                   <a
                     href={link.to}
                     className="text-gray-400 text-xxs hover:text-white transition-colors"
+                    {...(link.external
+                      ? {
+                          target: "_blank",
+                          rel: "noreferrer",
+                          "data-track": "external",
+                          "data-track-dest": link.to,
+                          "data-track-text": `footer_${link.label
+                            .toLowerCase()
+                            .replace(/\s+/g, "_")}`,
+                        }
+                      : {})}
                   >
                     {link.label}
                   </a>

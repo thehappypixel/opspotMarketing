@@ -66,7 +66,7 @@ const Navigation = ({ pathname = "/", imageHeader = false }) => {
       pathname !== "/resources/comparisons");
 
   // Pages with a white background (nav starts light instead of dark).
-  const whiteBackgroundRoutes = ["/contact"];
+  const whiteBackgroundRoutes = ["/contact", "/about"];
   const isWhiteBackgroundPage =
     whiteBackgroundRoutes.includes(pathname) ||
     (pathname.startsWith("/resources/security-operations-guides/") &&

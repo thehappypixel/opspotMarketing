@@ -1,16 +1,145 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/navigation.jsx";
+import Footer from "../components/footer.jsx";
+import Button from "../components/button.jsx";
+import { registerUrl } from "../config";
 
-const title = "About - Opspot Security Guard Management Software";
+const title = "About Us - Opspot Security Guard Management Software";
 const description =
-  "Learn about Opspot, security operations software for small and mid-size security teams.";
+  "Opspot was built from inside the industry after seeing how enterprise security software leaves small teams with too much complexity and cost. Bootstrapped and focused on making security companies safer and more efficient.";
+const keywords =
+  "about opspot, security guard software for small teams, tracktik alternative, simple security operations software";
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} keywords={keywords}>
   <Navigation client:load pathname="/about" />
-  <div class="container mx-auto p-4">
-    <h1 class="text-3xl font-bold mb-4 text-white">About</h1>
-    <p class="text-white">About information coming soon.</p>
+
+  {/* Hero */}
+  <div class="bg-white pt-64 pb-32 px-6">
+    <div class="max-w-3xl mx-auto text-left">
+      <p class="text-brand-primary text-xxs font-medium uppercase tracking-widest mb-4">
+        Our story
+      </p>
+      <h1 class="text-gray-900 text-xl leading-tight font-bold mb-6">
+        Security software small teams will actually use
+      </h1>
+      <p class="text-gray-600 text-md leading-relaxed">
+        Our premise is simple: most guard software is built for the big players. This leaves smaller
+        teams with tools that are too complex, hard to learn, and unnecessarily
+        expensive. We built Opspot to change that.
+      </p>
+    </div>
   </div>
+
+  {/* Narrative */}
+  <div class="bg-white pb-24 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-lg leading-tight font-bold mb-6">Built from the inside</h2>
+      <div class="text-sm text-gray-600 leading-relaxed space-y-6">
+        <p>
+          Opspot began with something our founder saw firsthand. After seeing how the sausage was made with
+          one of the big players in the industry, one thing stood out: the systems has been rigged for large, enterprise teams. That
+          scale brought complexity, and a long list of features most teams don't want.
+        </p>
+        <p>
+          The products were bloated, and the price tags matched. Smaller
+          companies were paying enterprise rates for tools their guards found
+          frustrating to use, so most of it just sat there unused.
+        </p>
+        <p>
+          We were sure there was a better way. So we set out to build the
+          essentials, and to build them really well. Software your team will
+          actually reach for every shift, without the weight of features meant
+          for operations ten times your size.
+        </p>
+        <p>
+          That is the whole idea behind Opspot: a genuinely good product with
+          fair pricing baked in. Something that feels good to use whether you are
+          out in the field or running the operation from the office.
+        </p>
+        <p>
+          One last thing worth saying. Most companies in this space are backed by
+          private equity or venture capital, which brings constant pressure to
+          chase returns. We are bootstrapped, and we plan to stay that way. It
+          keeps us focused on one thing: helping security companies work more
+          safely and efficiently. We answer to the teams who use Opspot, not to
+          investors.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {/* What we believe */}
+  <div class="bg-gray-50 py-24 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-lg leading-tight font-bold mb-12 text-center">
+        What we believe
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-md font-bold mb-3">Simple beats complex</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            A tool your guards actually use beats a tool with every feature and
+            no adoption. We keep Opspot focused on what teams do every shift.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-md font-bold mb-3">Quality shouldn't be expensive</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            Small teams should not have to pay enterprise prices to run a
+            professional operation. Good software should be within reach.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-md font-bold mb-3">Hassle free startup</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            No service agreement, no training required. We set up your account
+            and migrate your data for you, so getting started feels easy and you
+            are live inside of a week.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-md font-bold mb-3">Independent and bootstrapped</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">
+            No private equity or venture backers to answer to. That keeps our
+            focus on one thing, making security companies safer and more
+            efficient.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* CTA */}
+  <div class="bg-black py-24 px-6">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="text-white text-lg leading-tight font-bold mb-6">
+        See if Opspot fits your team
+      </h2>
+      <p class="text-gray-400 text-sm mb-10 leading-relaxed">
+        Try Opspot free, or talk to us about moving your team over. No credit
+        card required.
+      </p>
+      <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+        <Button
+          text="Get started for free"
+          icon={true}
+          iconPosition="right"
+          density="tight"
+          location="about_cta"
+          link={registerUrl()}
+        />
+        <Button
+          text="Talk to us"
+          density="tight"
+          type="ghost"
+          location="about_cta"
+          link="/contact"
+        />
+      </div>
+    </div>
+  </div>
+
+  <Footer />
 </Layout>

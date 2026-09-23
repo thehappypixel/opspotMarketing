@@ -3,6 +3,12 @@ import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/navigation.jsx";
 import Footer from "../components/footer.jsx";
 import Button from "../components/button.jsx";
+import {
+  SparklesIcon,
+  TagIcon,
+  RocketLaunchIcon,
+  FlagIcon,
+} from "@heroicons/react/24/outline";
 import { registerUrl } from "../config";
 
 const title = "About Us - Opspot Security Guard Management Software";
@@ -15,22 +21,39 @@ const keywords =
 <Layout title={title} description={description} keywords={keywords}>
   <Navigation client:load pathname="/about" />
 
-  {/* Hero */}
-  <div class="bg-white pt-64 pb-32 px-6">
-    <div class="max-w-3xl mx-auto text-left">
-      <p class="text-brand-primary text-xxs font-medium uppercase tracking-widest mb-4">
-        Our story
-      </p>
-      <h1 class="text-gray-900 text-xl leading-tight font-bold mb-6">
-        Security software small teams will actually use
-      </h1>
-      <p class="text-gray-600 text-md leading-relaxed">
-        Our premise is simple: most guard software is built for the big players. This leaves smaller
-        teams with tools that are too complex, hard to learn, and unnecessarily
-        expensive. We built Opspot to change that.
-      </p>
+  {/* Header */}
+  <header class="bg-white pt-48 pb-24 px-6">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      {/* Left: intro copy */}
+      <div class="text-left">
+        <p class="text-brand-primary text-xxs font-medium uppercase tracking-widest mb-4">
+          About us
+        </p>
+        <h1 class="text-gray-900 text-xl leading-tight font-bold mb-6">
+          Security software small teams will actually use
+        </h1>
+        <p class="text-gray-600 text-md leading-relaxed">
+          Our premise is simple: most guard software is built for the big
+          players. This leaves smaller teams with tools that are too complex,
+          hard to learn, and unnecessarily expensive. We built Opspot to change
+          that.
+        </p>
+      </div>
+
+      {/* Right: decorative tile cluster. Placeholders for imagery, hidden on
+          small screens where a staggered grid under the copy reads awkwardly. */}
+      <div
+        class="hidden lg:grid grid-cols-3 grid-rows-3 gap-4 w-4/5 ml-auto"
+        aria-hidden="true"
+      >
+        <div class="col-start-2 row-start-1 aspect-square rounded-lg bg-gray-300"></div>
+        <div class="col-start-2 row-start-2 aspect-square rounded-lg bg-gray-200"></div>
+        <div class="col-start-3 row-start-2 aspect-square rounded-lg bg-gray-100"></div>
+        <div class="col-start-1 row-start-3 aspect-square rounded-lg bg-brand-primary bg-opacity-10"></div>
+        <div class="col-start-3 row-start-3 aspect-square rounded-lg bg-brand-primary bg-opacity-10"></div>
+      </div>
     </div>
-  </div>
+  </header>
 
   {/* Narrative */}
   <div class="bg-white pb-24 px-6">
@@ -76,8 +99,9 @@ const keywords =
       <h2 class="text-lg leading-tight font-bold mb-12 text-center">
         What we believe
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-14">
         <div>
+          <SparklesIcon className="h-7 w-7 text-brand-primary mb-4" />
           <h3 class="text-md font-bold mb-3">Simple beats complex</h3>
           <p class="text-xs text-gray-500 leading-relaxed">
             A tool your guards actually use beats a tool with every feature and
@@ -85,6 +109,7 @@ const keywords =
           </p>
         </div>
         <div>
+          <TagIcon className="h-7 w-7 text-brand-primary mb-4" />
           <h3 class="text-md font-bold mb-3">Quality shouldn't be expensive</h3>
           <p class="text-xs text-gray-500 leading-relaxed">
             Small teams should not have to pay enterprise prices to run a
@@ -92,6 +117,7 @@ const keywords =
           </p>
         </div>
         <div>
+          <RocketLaunchIcon className="h-7 w-7 text-brand-primary mb-4" />
           <h3 class="text-md font-bold mb-3">Hassle free startup</h3>
           <p class="text-xs text-gray-500 leading-relaxed">
             No service agreement, no training required. We set up your account
@@ -100,6 +126,7 @@ const keywords =
           </p>
         </div>
         <div>
+          <FlagIcon className="h-7 w-7 text-brand-primary mb-4" />
           <h3 class="text-md font-bold mb-3">Independent and bootstrapped</h3>
           <p class="text-xs text-gray-500 leading-relaxed">
             No private equity or venture backers to answer to. That keeps our

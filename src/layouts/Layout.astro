@@ -135,7 +135,9 @@ const allJsonLd = [...baseJsonLd, ...jsonLd];
     {/* Delegated click analytics for server-rendered links/buttons. */}
     <script>
       import { initAnalyticsClient } from "../scripts/analyticsClient";
+      import { initIntentTracking } from "../scripts/intentTracking";
       initAnalyticsClient();
+      initIntentTracking();
     </script>
   </body>
 </html>

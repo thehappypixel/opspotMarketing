@@ -1,22 +1,29 @@
 import React from "react";
 import Button from "./button";
+import {
+  ChatBubbleLeftRightIcon,
+  ArrowsRightLeftIcon,
+  CheckCircleIcon,
+} from "@heroicons/react/24/outline";
 
 // Static onboarding / migration section. Server-rendered to HTML (no JS).
 // PLG framing: self-serve setup is the default, and done-for-you data migration
 // is a free, optional add-on for teams switching from another tool.
+// Uses brand-primary icons to match the accent style used site-wide (Who we
+// serve, About "What we believe") rather than one-off tinted number badges.
 const steps = [
   {
-    step: "1",
+    icon: <ChatBubbleLeftRightIcon className="h-8 w-8 text-brand-primary" />,
     title: "Quick chat",
     body: "Tell us how your team works and we'll set up your account, sites, and users.",
   },
   {
-    step: "2",
+    icon: <ArrowsRightLeftIcon className="h-8 w-8 text-brand-primary" />,
     title: "We move your data",
     body: "Coming from spreadsheets or another tool? We bring your sites, guards, and schedules across.",
   },
   {
-    step: "3",
+    icon: <CheckCircleIcon className="h-8 w-8 text-brand-primary" />,
     title: "You're live",
     body: "Even with a full migration, most teams are up and running within a week.",
   },
@@ -40,10 +47,8 @@ export default function Onboarding() {
       </div>
       <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         {steps.map((item) => (
-          <div key={item.step} className="text-left">
-            <div className="flex items-center justify-center h-10 w-10 rounded-full bg-brand-primary bg-opacity-20 text-brand-primary font-bold mb-4">
-              {item.step}
-            </div>
+          <div key={item.title} className="text-left">
+            <div className="mb-4">{item.icon}</div>
             <h3 className="text-white text-md font-bold mb-3">{item.title}</h3>
             <p className="text-gray-400 text-xs leading-relaxed">{item.body}</p>
           </div>

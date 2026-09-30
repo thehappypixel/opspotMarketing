@@ -15,10 +15,10 @@ const SecurityReportingImageTextBlockContent = [
   {
     firstItem: "text",
     header: "Dynamic report filtering",
-    body: "Quickly filter reports by activity type, guard, customer site, or location. Find exactly what you need without digging through endless data.",
+    body: "Quickly filter reports by activity type, guard, or site. Find exactly what you need without digging through endless data.",
     imageUrl: dynamicFiltering,
     listItems: [
-      { icon: <MapIcon className="h-5 w-5" />, text: "Filter by location" },
+      { icon: <MapIcon className="h-5 w-5" />, text: "Filter by site" },
       {
         icon: <ClipboardDocumentCheckIcon className="h-5 w-5" />,
         text: "Filter by activity",

@@ -12,7 +12,7 @@ const plans = [
     highlight: false,
     features: {
       Users: ["Up to 3 guards", "Unlimited admin users"],
-      Location: ["Up to 5 locations"],
+      Sites: ["Up to 5 sites"],
       "Shift management": ["Clock-in/out with GPS", "Geofencing"],
       "Task management": [
         "Up to 5 checkpoints",
@@ -41,7 +41,7 @@ const plans = [
     highlight: true,
     features: {
       Users: ["Unlimited guards", "Unlimited admin users"],
-      Location: ["Unlimited locations"],
+      Sites: ["Unlimited sites"],
       "Shift management": ["Clock-in/out with GPS", "Geofencing"],
       "Task management": [
         "Unlimited checkpoints",
@@ -61,7 +61,7 @@ const plans = [
 
 const categories = [
   "Users",
-  "Location",
+  "Sites",
   "Shift management",
   "Task management",
   "Safety",

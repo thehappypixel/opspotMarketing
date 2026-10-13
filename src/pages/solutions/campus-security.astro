@@ -1,0 +1,129 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/navigation.jsx";
+import ImageTextBlock from "../../components/imageTextBlock.jsx";
+import CampusSecurityImageTextBlockContent from "../../content/campusSecurityImageTextBlockContent.jsx";
+import MobileApps from "../../components/mobileApps.jsx";
+import DemoSignup from "../../components/demoSignup.jsx";
+import Footer from "../../components/footer.jsx";
+import Button from "../../components/button.jsx";
+import { registerUrl, SITE_URL } from "../../config";
+import heroImage from "../../assets/images/opspot-security-dashboard-mobile-guard.png";
+
+const title = "Campus security software | Opspot";
+const description =
+  "Campus security software for colleges, universities, and schools. Run guided patrols with QR and NFC checkpoints, see officer location in real time, report incidents from the field, and keep clear records for administration.";
+const keywords =
+  "campus security software, university security software, college campus security, campus patrol software, school security software, campus incident reporting, security patrol app";
+
+// One source for the FAQ so the visible section and the FAQPage markup can't
+// drift apart (rich results require them to match).
+const faqs = [
+  {
+    q: "Who uses Opspot for campus security?",
+    a: "In-house security teams at colleges, universities, private schools, and other multi-building campuses use Opspot to run patrols, report incidents, and schedule officers.",
+  },
+  {
+    q: "Can we set up checkpoints around campus?",
+    a: "Yes. Place QR code or NFC checkpoints at building entrances, parking structures, residence halls, or anywhere officers need to check in. Each scan is logged with time and GPS location.",
+  },
+  {
+    q: "How do officers report incidents?",
+    a: "Officers file incident reports from the Opspot mobile app with notes, photos, and location attached. Supervisors can review them right away and export them as PDFs.",
+  },
+  {
+    q: "Does it work on our officers' phones?",
+    a: "Opspot runs on iOS and Android, so officers can use their own phones or department-issued devices.",
+  },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Opspot",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web, iOS, Android",
+    url: `${SITE_URL}/solutions/campus-security`,
+    description:
+      "Campus security software for colleges, universities, and schools. Guided patrols with QR and NFC checkpoints, live officer location, mobile incident reporting, scheduling, and searchable reports.",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  },
+];
+---
+
+<Layout title={title} description={description} keywords={keywords} jsonLd={jsonLd}>
+  <Navigation client:load pathname="/solutions/campus-security" />
+
+  <div class="mt-24 pt-16 sm:px-4 lg:px-24 w-full bg-black">
+    <h1 class="text-xl leading-tight font-bold text-white text-center">
+      Campus security software
+    </h1>
+    <div class="flex justify-center">
+      <p
+        class="pt-6 mb-6 text-md tracking-wider leading-snug font-normal text-white text-center md:w-3/4 lg:w-1/2"
+      >
+        Give your officers a simple app for patrols and incident reports, and give your department a clear record of everything that happens on campus.
+      </p>
+    </div>
+    <div class="py-4 mb-8 flex justify-center">
+      <Button
+        text="Get started for free"
+        icon={true}
+        iconPosition="right"
+        density="tight"
+        location="solutions_campus_security_hero"
+        link={registerUrl()}
+      />
+    </div>
+    <div>
+      <img src={heroImage.src} alt="Opspot dashboard and mobile app for campus security teams" />
+    </div>
+  </div>
+
+  <div class="bg-white flex flex-col">
+    {
+      CampusSecurityImageTextBlockContent.map((block) => (
+        <ImageTextBlock
+          firstItem={block.firstItem}
+          header={block.header}
+          body={block.body}
+          ctaLink={block.ctaLink}
+          ctaText={block.ctaText}
+          imageUrl={block.imageUrl}
+          listItems={block.listItems}
+        />
+      ))
+    }
+  </div>
+
+  <div class="bg-white pb-16 sm:px-4 lg:px-14">
+    <div class="md:max-w-3xl mx-auto px-6">
+      <h2 class="text-lg leading-tight font-bold mb-8 text-center">
+        Campus security FAQ
+      </h2>
+      <div class="space-y-8">
+        {
+          faqs.map((faq) => (
+            <div>
+              <h3 class="text-md font-bold mb-2">{faq.q}</h3>
+              <p class="text-sm text-gray-500 leading-relaxed">{faq.a}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <MobileApps />
+  <DemoSignup />
+  <Footer />
+</Layout>

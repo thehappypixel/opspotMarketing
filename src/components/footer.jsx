@@ -14,6 +14,16 @@ const footerSections = [
     ],
   },
   {
+    heading: "Solutions",
+    links: [
+      {
+        label: "Security guard companies",
+        to: "/solutions/security-guard-companies",
+      },
+      { label: "Campus security", to: "/solutions/campus-security" },
+    ],
+  },
+  {
     heading: "Resources",
     links: [
       {
@@ -51,7 +61,7 @@ const footerSections = [
 export default function Footer() {
   return (
     <footer className="bg-black">
-      <div className="px-10 py-16 grid grid-cols-1 md:grid-cols-5 gap-10">
+      <div className="px-10 py-16 grid grid-cols-1 md:grid-cols-6 gap-10">
         {/* Brand column */}
         <div>
           <img src={imgSrc(logoLight)} alt="Opspot" className="h-6 mb-4" />

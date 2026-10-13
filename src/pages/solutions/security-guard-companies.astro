@@ -1,0 +1,129 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navigation from "../../components/navigation.jsx";
+import ImageTextBlock from "../../components/imageTextBlock.jsx";
+import SecurityGuardCompaniesImageTextBlockContent from "../../content/securityGuardCompaniesImageTextBlockContent.jsx";
+import MobileApps from "../../components/mobileApps.jsx";
+import DemoSignup from "../../components/demoSignup.jsx";
+import Footer from "../../components/footer.jsx";
+import Button from "../../components/button.jsx";
+import { registerUrl, SITE_URL } from "../../config";
+import heroImage from "../../assets/images/opspot-security-dashboard-mobile-guard.png";
+
+const title = "Software for security guard companies | Opspot";
+const description =
+  "Run your guard company from one place. Schedule guards across customer sites, prove patrols with GPS-tagged checkpoint scans, file incidents in the field, and send customers clean daily activity reports.";
+const keywords =
+  "security guard company software, guard company management software, security guard management software, contract security software, guard scheduling software, daily activity reports, security company software";
+
+// One source for the FAQ so the visible section and the FAQPage markup can't
+// drift apart (rich results require them to match).
+const faqs = [
+  {
+    q: "Who is Opspot built for?",
+    a: "Opspot is built for small and mid-size contract security companies, from a handful of guards up to a few dozen sites. You get scheduling, a mobile guard app, incident management, and reporting without enterprise pricing or a long setup.",
+  },
+  {
+    q: "Can I send reports to my customers?",
+    a: "Yes. Daily activity reports are generated automatically from each shift. You can filter by site, guard, or activity and export a PDF or send it directly to the customer.",
+  },
+  {
+    q: "How do I know guards completed their patrols?",
+    a: "Guards scan QR code or NFC checkpoints as they complete tours. Each scan is GPS-tagged and time-stamped, giving you a record you can share with customers.",
+  },
+  {
+    q: "How long does it take to get started?",
+    a: "Most companies are up and running the same day. Add your sites and guards, build a schedule, and have guards download the iOS or Android app.",
+  },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Opspot",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web, iOS, Android",
+    url: `${SITE_URL}/solutions/security-guard-companies`,
+    description:
+      "Security guard company software. Schedule guards across customer sites, track patrols with QR and NFC checkpoints, manage incidents, and send customers automatic daily activity reports.",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  },
+];
+---
+
+<Layout title={title} description={description} keywords={keywords} jsonLd={jsonLd}>
+  <Navigation client:load pathname="/solutions/security-guard-companies" />
+
+  <div class="mt-24 pt-16 sm:px-4 lg:px-24 w-full bg-black">
+    <h1 class="text-xl leading-tight font-bold text-white text-center">
+      Software for security guard companies
+    </h1>
+    <div class="flex justify-center">
+      <p
+        class="pt-6 mb-6 text-md tracking-wider leading-snug font-normal text-white text-center md:w-3/4 lg:w-1/2"
+      >
+        Schedule your guards, prove the work got done, and keep customers happy with reports they actually read. Built for small and growing guard companies.
+      </p>
+    </div>
+    <div class="py-4 mb-8 flex justify-center">
+      <Button
+        text="Get started for free"
+        icon={true}
+        iconPosition="right"
+        density="tight"
+        location="solutions_guard_companies_hero"
+        link={registerUrl()}
+      />
+    </div>
+    <div>
+      <img src={heroImage.src} alt="Opspot dashboard and mobile guard app for security guard companies" />
+    </div>
+  </div>
+
+  <div class="bg-white flex flex-col">
+    {
+      SecurityGuardCompaniesImageTextBlockContent.map((block) => (
+        <ImageTextBlock
+          firstItem={block.firstItem}
+          header={block.header}
+          body={block.body}
+          ctaLink={block.ctaLink}
+          ctaText={block.ctaText}
+          imageUrl={block.imageUrl}
+          listItems={block.listItems}
+        />
+      ))
+    }
+  </div>
+
+  <div class="bg-white pb-16 sm:px-4 lg:px-14">
+    <div class="md:max-w-3xl mx-auto px-6">
+      <h2 class="text-lg leading-tight font-bold mb-8 text-center">
+        Security guard company FAQ
+      </h2>
+      <div class="space-y-8">
+        {
+          faqs.map((faq) => (
+            <div>
+              <h3 class="text-md font-bold mb-2">{faq.q}</h3>
+              <p class="text-sm text-gray-500 leading-relaxed">{faq.a}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <MobileApps />
+  <DemoSignup />
+  <Footer />
+</Layout>

@@ -11,6 +11,8 @@ import {
   CalendarDaysIcon,
   BookOpenIcon,
   ScaleIcon,
+  ShieldCheckIcon,
+  AcademicCapIcon,
 } from "@heroicons/react/24/outline";
 import {
   trackLinkClick,
@@ -39,6 +41,7 @@ const Navigation = ({ pathname = "/", imageHeader = false }) => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [productMenuOpen, setProductMenuOpen] = useState(false);
+  const [solutionsMenuOpen, setSolutionsMenuOpen] = useState(false);
   const [resourcesMenuOpen, setResourcesMenuOpen] = useState(false);
 
   const productRoutes = [
@@ -48,6 +51,8 @@ const Navigation = ({ pathname = "/", imageHeader = false }) => {
     "/scheduling",
   ];
   const isProductActive = productRoutes.includes(pathname);
+
+  const isSolutionsActive = pathname.startsWith("/solutions/");
 
   const resourcesRoutes = [
     "/resources/security-operations-guides",
@@ -77,6 +82,7 @@ const Navigation = ({ pathname = "/", imageHeader = false }) => {
       pathname !== "/resources/comparisons");
 
   const productMenuRef = useRef(null);
+  const solutionsMenuRef = useRef(null);
   const resourcesMenuRef = useRef(null);
 
   useEffect(() => {
@@ -88,13 +94,19 @@ const Navigation = ({ pathname = "/", imageHeader = false }) => {
         setProductMenuOpen(false);
       }
       if (
+        solutionsMenuRef.current &&
+        !solutionsMenuRef.current.contains(event.target)
+      ) {
+        setSolutionsMenuOpen(false);
+      }
+      if (
         resourcesMenuRef.current &&
         !resourcesMenuRef.current.contains(event.target)
       ) {
         setResourcesMenuOpen(false);
       }
     }
-    if (productMenuOpen || resourcesMenuOpen) {
+    if (productMenuOpen || solutionsMenuOpen || resourcesMenuOpen) {
       document.addEventListener("mousedown", handleClickOutside);
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -102,7 +114,7 @@ const Navigation = ({ pathname = "/", imageHeader = false }) => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [productMenuOpen, resourcesMenuOpen]);
+  }, [productMenuOpen, solutionsMenuOpen, resourcesMenuOpen]);
 
   // Set initial navigation state based on page background.
   useEffect(() => {
@@ -302,6 +314,58 @@ const Navigation = ({ pathname = "/", imageHeader = false }) => {
               )}
             </div>
 
+            {/* Solutions Menu */}
+            <div className="relative" ref={solutionsMenuRef}>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSolutionsMenuOpen(!solutionsMenuOpen);
+                }}
+                className={`md:px-2 lg:px-3 py-1 text-xsm font-medium tracking-wide rounded-md transition-colors duration-150 ease-in-out whitespace-nowrap ${
+                  navState.linkText
+                } ${navState.linkHover} ${
+                  isSolutionsActive || solutionsMenuOpen ? "bg-gray-100" : ""
+                }`}
+              >
+                Solutions <ChevronDownIcon className="h-3 w-3 inline ml-0.5" />
+              </button>
+
+              {solutionsMenuOpen && (
+                <div className="absolute left-1/2 transform -translate-x-1/2 mt-3 px-2 py-3 flex rounded-md shadow-lg bg-white z-20 min-w-max border border-gray-100">
+                  <div className="whitespace-nowrap">
+                    <a
+                      href="/solutions/security-guard-companies"
+                      onClick={() =>
+                        trackLinkClick(
+                          "Security guard companies",
+                          "/solutions/security-guard-companies",
+                          "navigation_dropdown"
+                        )
+                      }
+                      className="flex items-center px-2 py-1 mb-2 text-xsm text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition duration-150 ease-in-out"
+                    >
+                      <ShieldCheckIcon className="mr-2 h-5 w-5" />
+                      Security guard companies
+                    </a>
+                    <a
+                      href="/solutions/campus-security"
+                      onClick={() =>
+                        trackLinkClick(
+                          "Campus security",
+                          "/solutions/campus-security",
+                          "navigation_dropdown"
+                        )
+                      }
+                      className="flex items-center px-2 py-1 text-xsm text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md transition duration-150 ease-in-out"
+                    >
+                      <AcademicCapIcon className="mr-2 h-5 w-5" />
+                      Campus security
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
+
             {/* Pricing */}
             <a
               href="/pricing"
@@ -490,6 +554,32 @@ const Navigation = ({ pathname = "/", imageHeader = false }) => {
               className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
             >
               Guard scheduling
+            </a>
+            <a
+              href="/solutions/security-guard-companies"
+              onClick={() =>
+                trackLinkClick(
+                  "Security guard companies",
+                  "/solutions/security-guard-companies",
+                  "mobile_menu"
+                )
+              }
+              className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
+            >
+              Security guard companies
+            </a>
+            <a
+              href="/solutions/campus-security"
+              onClick={() =>
+                trackLinkClick(
+                  "Campus security",
+                  "/solutions/campus-security",
+                  "mobile_menu"
+                )
+              }
+              className={`block px-3 py-2 text-xsm hover:text-opacity-65 transition duration-150 ease-in-out ${navState.text}`}
+            >
+              Campus security
             </a>
             <a
               href="/pricing"

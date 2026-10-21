@@ -39,6 +39,8 @@ npm run preview    # Serve the production build locally
 | Incident Management | `/incident-management` | Product feature page |
 | Security Reporting | `/security-reporting` | Product feature page |
 | Guard Scheduling | `/scheduling` | Product feature page |
+| Security guard companies | `/solutions/security-guard-companies` | Solutions (industry) page |
+| Campus security | `/solutions/campus-security` | Solutions (industry) page |
 | Pricing | `/pricing` | Pricing table + FAQ |
 | Contact | `/contact` | Contact form |
 | About | `/about` | Static |
@@ -152,6 +154,8 @@ Product feature pages (Mobile Guard, Incident Management, Security Reporting, Sc
 - `schedulingImageTextBlockContent.jsx`
 
 Each exports an array of block objects (`header`, `body`, `imageUrl`, `listItems`, `ctaText`, `ctaLink`, `firstItem`).
+
+Solutions pages (one per industry we serve, under `src/pages/solutions/`) follow the same pattern with their own content files (`securityGuardCompaniesImageTextBlockContent.jsx`, `campusSecurityImageTextBlockContent.jsx`). To add an industry: copy one of those page + content pairs, then add the link to the Solutions dropdown and mobile menu in `navigation.jsx` and the Solutions column in `footer.jsx`.
 
 ---
 

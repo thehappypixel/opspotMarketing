@@ -183,6 +183,9 @@ const Navigation = ({ pathname = "/", imageHeader = false }) => {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    // Run once on mount so the nav reflects the current scroll position on
+    // load/refresh (e.g. refreshing while already scrolled down).
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isWhiteBackgroundPage, topBg]);
 
